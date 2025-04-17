@@ -63,6 +63,9 @@ const Navbar = () => {
             <Link href="/shop" className={`text-black hover:text-primary font-medium transition ${location === '/shop' ? 'text-primary' : ''}`}>
               Shop
             </Link>
+            <Link href="/blog" className={`text-black hover:text-primary font-medium transition ${location === '/blog' ? 'text-primary' : ''}`}>
+              Blog
+            </Link>
           </nav>
 
           {/* Book Now Button */}
