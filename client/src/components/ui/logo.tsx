@@ -34,9 +34,9 @@ const Logo = ({ variant = 'main', className = '', linkTo = '/', size = 'medium' 
   // Default fallback logo
   const renderFallbackLogo = () => {
     const sizeClasses = {
-      small: 'h-8',
-      medium: 'h-14',
-      large: 'h-24'
+      small: 'h-8 max-h-8',
+      medium: 'h-12 max-h-12',
+      large: 'h-16 max-h-16 md:h-20 md:max-h-20'
     };
 
     // Set colors based on variant
@@ -95,9 +95,9 @@ const Logo = ({ variant = 'main', className = '', linkTo = '/', size = 'medium' 
   }
 
   const sizeClasses = {
-    small: 'h-8',
-    medium: 'h-14',
-    large: 'h-24'
+    small: 'h-8 max-h-8',
+    medium: 'h-12 max-h-12',
+    large: 'h-16 max-h-16 md:h-20 md:max-h-20'
   };
 
   return (
@@ -106,7 +106,8 @@ const Logo = ({ variant = 'main', className = '', linkTo = '/', size = 'medium' 
         <img
           src={urlFor(logoImage).url()}
           alt={logoData.title || 'OsteoStrong'}
-          className={`${sizeClasses[size]} w-auto ${variant === 'white' ? 'brightness-0 invert' : ''}`}
+          className={`${sizeClasses[size]} w-auto object-contain ${variant === 'white' ? 'brightness-0 invert' : ''}`}
+          style={{ aspectRatio: 'auto' }}
         />
       </div>
     </Link>
