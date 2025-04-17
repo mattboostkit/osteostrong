@@ -1,38 +1,52 @@
 const express = require('express');
 const serverless = require('serverless-http');
-const { registerRoutes } = require('../../dist/server/routes');
-const { serveStatic } = require('../../dist/server/vite');
-const session = require('express-session');
-const passport = require('passport');
-const MemoryStore = require('memorystore')(session);
 
 const app = express();
 
 // Middleware
 app.use(express.json());
 
-// Session configuration
-const sessionConfig = {
-  secret: process.env.SESSION_SECRET || 'your-secret-key',
-  resave: false,
-  saveUninitialized: false,
-  store: new MemoryStore({
-    checkPeriod: 86400000 // prune expired entries every 24h
-  }),
-  cookie: {
-    maxAge: 1000 * 60 * 60 * 24 // 24 hours
+// Simple API routes for Netlify function
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', environment: process.env.NODE_ENV });
+});
+
+// Sanity configuration endpoint
+app.get('/api/sanity-config', (req, res) => {
+  res.json({
+    projectId: process.env.VITE_SANITY_PROJECT_ID || '6ff7gi0z',
+    dataset: process.env.VITE_SANITY_DATASET || 'production',
+    apiVersion: process.env.VITE_SANITY_API_VERSION || '2023-05-03'
+  });
+});
+
+// Contact form submission endpoint
+app.post('/api/contact', (req, res) => {
+  try {
+    // In a real implementation, you would validate and store the data
+    console.log('Contact form submission:', req.body);
+    res.status(200).json({ success: true });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'An error occurred while submitting the contact form'
+    });
   }
-};
+});
 
-app.use(session(sessionConfig));
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Static files
-serveStatic(app);
-
-// Register API routes
-registerRoutes(app);
+// Booking endpoint
+app.post('/api/booking', (req, res) => {
+  try {
+    // In a real implementation, you would validate and store the data
+    console.log('Booking submission:', req.body);
+    res.status(200).json({ success: true });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'An error occurred while creating the booking'
+    });
+  }
+});
 
 // Error handler
 app.use((err, req, res, next) => {

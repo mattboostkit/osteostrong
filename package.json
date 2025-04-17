@@ -5,8 +5,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx server/index.ts",
-    "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
-    "start": "NODE_ENV=production node dist/index.js",
+    "build": "vite build && npm run build:server",
+    "build:server": "esbuild server/**/*.ts --platform=node --packages=external --bundle --outdir=dist/server --format=cjs",
+    "start": "NODE_ENV=production node dist/server/index.js",
     "check": "tsc",
     "db:push": "drizzle-kit push"
   },
@@ -16,6 +17,8 @@
     "@neondatabase/serverless": "^0.10.4",
     "@portabletext/react": "^3.2.1",
     "dotenv": "^16.4.5",
+    "serverless-http": "^3.2.0",
+    "memorystore": "^1.6.7",
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-alert-dialog": "^1.1.2",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
