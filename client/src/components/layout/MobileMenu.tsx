@@ -15,21 +15,15 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         <Link href="/" onClick={onClose} className="text-black hover:text-primary font-medium transition py-2 border-b border-neutral-200">
           Home
         </Link>
-        <a href="/#about" onClick={onClose} className="text-black hover:text-primary font-medium transition py-2 border-b border-neutral-200">
+        <Link href="/about" onClick={onClose} className="text-black hover:text-primary font-medium transition py-2 border-b border-neutral-200">
           About
-        </a>
-        <a href="/#services" onClick={onClose} className="text-black hover:text-primary font-medium transition py-2 border-b border-neutral-200">
-          Services
-        </a>
-        <a href="/#testimonials" onClick={onClose} className="text-black hover:text-primary font-medium transition py-2 border-b border-neutral-200">
-          Testimonials
-        </a>
-        <a href="/#faq" onClick={onClose} className="text-black hover:text-primary font-medium transition py-2 border-b border-neutral-200">
-          FAQ
-        </a>
-        <a href="/#contact" onClick={onClose} className="text-black hover:text-primary font-medium transition py-2 border-b border-neutral-200">
+        </Link>
+        <Link href="/programs" onClick={onClose} className="text-black hover:text-primary font-medium transition py-2 border-b border-neutral-200">
+          Programs
+        </Link>
+        <Link href="/contact" onClick={onClose} className="text-black hover:text-primary font-medium transition py-2 border-b border-neutral-200">
           Contact
-        </a>
+        </Link>
         <Link href="/shop" onClick={onClose} className="text-black hover:text-primary font-medium transition py-2 border-b border-neutral-200">
           Shop
         </Link>

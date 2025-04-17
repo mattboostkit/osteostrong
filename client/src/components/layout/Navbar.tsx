@@ -45,21 +45,15 @@ const Navbar = () => {
             <Link href="/" className={`text-black hover:text-primary font-medium transition ${location === '/' ? 'text-primary' : ''}`}>
               Home
             </Link>
-            <a href="/#about" className="text-black hover:text-primary font-medium transition">
+            <Link href="/about" className={`text-black hover:text-primary font-medium transition ${location === '/about' ? 'text-primary' : ''}`}>
               About
-            </a>
-            <a href="/#services" className="text-black hover:text-primary font-medium transition">
-              Services
-            </a>
-            <a href="/#testimonials" className="text-black hover:text-primary font-medium transition">
-              Testimonials
-            </a>
-            <a href="/#faq" className="text-black hover:text-primary font-medium transition">
-              FAQ
-            </a>
-            <a href="/#contact" className="text-black hover:text-primary font-medium transition">
+            </Link>
+            <Link href="/programs" className={`text-black hover:text-primary font-medium transition ${location === '/programs' ? 'text-primary' : ''}`}>
+              Programs
+            </Link>
+            <Link href="/contact" className={`text-black hover:text-primary font-medium transition ${location === '/contact' ? 'text-primary' : ''}`}>
               Contact
-            </a>
+            </Link>
             <Link href="/shop" className={`text-black hover:text-primary font-medium transition ${location === '/shop' ? 'text-primary' : ''}`}>
               Shop
             </Link>
