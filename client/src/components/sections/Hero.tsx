@@ -13,7 +13,7 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Stronger Bones, Stronger You: Unlock Your Body's Full Potential
+              Strengthen Your Bones, <span className="bg-white text-black px-2">Transform Your Life</span>
             </h1>
             <p className="text-xl text-white mb-8 max-w-lg">
               OsteoStrong is a non-pharmaceutical, non-invasive solution to build stronger bones, improved muscle strength and balance, and reduced joint and back pain.

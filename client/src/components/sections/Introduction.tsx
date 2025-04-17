@@ -28,7 +28,7 @@ const Introduction = () => {
     <section id="learn-more" className="py-16 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">What is OsteoStrong?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">What is OsteoStrong?</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             OsteoStrong is a unique system that helps you develop stronger bones, improved strength, and better balance, while reducing joint and back pain.
           </p>
