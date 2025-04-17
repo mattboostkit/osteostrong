@@ -1,63 +1,15 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
-import { useState } from "react";
+import Logo from "@/components/ui/logo";
 
 const Footer = () => {
-  const { toast } = useToast();
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!email) {
-      toast({
-        title: "Email is required",
-        description: "Please enter your email address",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    setIsSubmitting(true);
-    
-    try {
-      const response = await apiRequest("POST", "/api/newsletter", { email });
-      const data = await response.json();
-      
-      if (data.success) {
-        toast({
-          title: "Successfully subscribed!",
-          description: "Thank you for subscribing to our newsletter",
-        });
-        setEmail("");
-      } else {
-        toast({
-          title: "Subscription failed",
-          description: data.message || "Failed to subscribe to the newsletter",
-          variant: "destructive"
-        });
-      }
-    } catch (error) {
-      toast({
-        title: "Subscription failed",
-        description: "An error occurred while subscribing to the newsletter",
-        variant: "destructive"
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
-    <footer className="bg-secondary text-white py-12">
+    <footer className="bg-[#3B3B3B] text-white py-12">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div>
-            <h3 className="text-xl font-bold mb-4">OsteoStrong</h3>
+            <Logo variant="white" size="large" className="mb-4" />
             <p className="mb-4">
               OsteoStrong is a revolutionary approach to improving bone density, strength, balance and posture in just one 10-minute session per week.
             </p>
@@ -119,52 +71,50 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li><Link href="/" className="text-neutral-300 hover:text-primary transition">Home</Link></li>
-              <li><Link href="/#about" className="text-neutral-300 hover:text-primary transition">About</Link></li>
+              <li><Link href="/about" className="text-neutral-300 hover:text-primary transition">About</Link></li>
               <li><Link href="/#services" className="text-neutral-300 hover:text-primary transition">Services</Link></li>
               <li><Link href="/#locations" className="text-neutral-300 hover:text-primary transition">Locations</Link></li>
               <li><Link href="/#testimonials" className="text-neutral-300 hover:text-primary transition">Testimonials</Link></li>
               <li><Link href="/#faq" className="text-neutral-300 hover:text-primary transition">FAQ</Link></li>
-              <li><Link href="/#contact" className="text-neutral-300 hover:text-primary transition">Contact</Link></li>
+              <li><Link href="/contact" className="text-neutral-300 hover:text-primary transition">Contact</Link></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-xl font-bold mb-4">Services</h3>
             <ul className="space-y-2">
-              <li><Link href="/#services" className="text-neutral-300 hover:text-primary transition">OsteoStrong Session</Link></li>
-              <li><Link href="/#services" className="text-neutral-300 hover:text-primary transition">Performance Assessment</Link></li>
-              <li><Link href="/#services" className="text-neutral-300 hover:text-primary transition">Wellness Consultation</Link></li>
-              <li><Link href="/#services" className="text-neutral-300 hover:text-primary transition">Corporate Packages</Link></li>
-              <li><Link href="/#services" className="text-neutral-300 hover:text-primary transition">Research & Technology</Link></li>
+              <li><Link href="/programs" className="text-neutral-300 hover:text-primary transition">OsteoStrong Session</Link></li>
+              <li><Link href="/programs" className="text-neutral-300 hover:text-primary transition">Performance Assessment</Link></li>
+              <li><Link href="/programs" className="text-neutral-300 hover:text-primary transition">Wellness Consultation</Link></li>
+              <li><Link href="/programs" className="text-neutral-300 hover:text-primary transition">Corporate Packages</Link></li>
+              <li><Link href="/programs" className="text-neutral-300 hover:text-primary transition">Research & Technology</Link></li>
               <li><Link href="/booknow" className="text-neutral-300 hover:text-primary transition">Book a Session</Link></li>
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-xl font-bold mb-4">Newsletter</h3>
-            <p className="mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
-            <form className="space-y-4" onSubmit={handleNewsletterSubmit}>
-              <Input
-                type="email"
-                placeholder="Your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-primary"
+
+        </div>
+
+        <div className="pt-8 pb-8 border-t border-gray-700">
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
+            <div className="text-center">
+              <img
+                src="/images/tw-business-awards-badge.png"
+                alt="Tunbridge Wells Business Awards Runner Up"
+                className="h-24 w-auto mx-auto"
               />
-              <Button
-                type="submit"
-                className="bg-primary hover:bg-yellow-400 text-white font-bold py-2 px-4 rounded-lg transition w-full"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Subscribing..." : "Subscribe"}
-              </Button>
-            </form>
+              <p className="text-sm mt-2 text-neutral-300">Tunbridge Wells Business Awards Runner Up</p>
+            </div>
           </div>
         </div>
 
         <div className="pt-8 border-t border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p>&copy; {new Date().getFullYear()} OsteoStrong UK. All rights reserved.</p>
+            <div className="text-center md:text-left">
+              <p>&copy; {new Date().getFullYear()} OsteoStrong UK. All rights reserved.</p>
+              <p className="text-sm text-neutral-300 mt-2">Company registered in England and Wales: 14093339</p>
+              <p className="text-sm text-neutral-300">Registered address: 26 High Street, Tunbridge Wells, TN1 1UX</p>
+            </div>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <Link href="/privacy-policy" className="text-neutral-300 hover:text-primary transition">Privacy Policy</Link>
               <Link href="/cookie-policy" className="text-neutral-300 hover:text-primary transition">Cookie Policy</Link>

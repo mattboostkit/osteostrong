@@ -11,6 +11,20 @@ const Programs = () => {
         <meta name="description" content="Explore the OsteoStrong programs in Tunbridge Wells, including our core skeletal strengthening sessions, performance assessments, and wellness consultations." />
         <meta name="keywords" content="OsteoStrong programs, osteogenic loading, bone strengthening, performance assessment, wellness consultation, Tunbridge Wells" />
         <link rel="canonical" href="https://www.osteostrongtw.co.uk/programs" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.osteostrongtw.co.uk/programs" />
+        <meta property="og:title" content="Programs | OsteoStrong Tunbridge Wells" />
+        <meta property="og:description" content="Explore the OsteoStrong programs in Tunbridge Wells, including our core skeletal strengthening sessions, performance assessments, and wellness consultations." />
+        <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/programs-header.jpg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.osteostrongtw.co.uk/programs" />
+        <meta name="twitter:title" content="Programs | OsteoStrong Tunbridge Wells" />
+        <meta name="twitter:description" content="Explore the OsteoStrong programs in Tunbridge Wells, including our core skeletal strengthening sessions, performance assessments, and wellness consultations." />
+        <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/programs-header.jpg" />
       </Helmet>
 
       {/* Hero Section */}

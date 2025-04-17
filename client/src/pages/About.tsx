@@ -1,6 +1,8 @@
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import Team from "@/components/sections/Team";
+import Facility from "@/components/sections/Facility";
 
 const About = () => {
   return (
@@ -10,6 +12,20 @@ const About = () => {
         <meta name="description" content="Learn about OsteoStrong Tunbridge Wells, our mission to improve bone health, and how our unique approach can help you build strength and reduce pain." />
         <meta name="keywords" content="OsteoStrong about, bone health mission, Tunbridge Wells, skeletal strength team, osteogenic loading experts" />
         <link rel="canonical" href="https://www.osteostrongtw.co.uk/about" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.osteostrongtw.co.uk/about" />
+        <meta property="og:title" content="About OsteoStrong | Tunbridge Wells" />
+        <meta property="og:description" content="Learn about OsteoStrong Tunbridge Wells, our mission to improve bone health, and how our unique approach can help you build strength and reduce pain." />
+        <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/about-header.jpg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.osteostrongtw.co.uk/about" />
+        <meta name="twitter:title" content="About OsteoStrong | Tunbridge Wells" />
+        <meta name="twitter:description" content="Learn about OsteoStrong Tunbridge Wells, our mission to improve bone health, and how our unique approach can help you build strength and reduce pain." />
+        <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/about-header.jpg" />
       </Helmet>
 
       {/* Hero Section */}
@@ -54,130 +70,15 @@ const About = () => {
       </section>
 
       {/* Our Team */}
-      <section className="py-16 bg-neutral-100">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold text-black mb-6">Meet Our Team</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              Our passionate team of experts is dedicated to helping you achieve your health and strength goals through our unique OsteoStrong methodology.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Team Member 1 */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-md">
-              <div className="h-64 bg-neutral-200 flex items-center justify-center">
-                <span className="text-neutral-400">Team Member Photo</span>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-black mb-2">Sarah Johnson</h3>
-                <p className="text-primary font-medium mb-4">Centre Manager</p>
-                <p className="text-gray-700 mb-4">
-                  With over 10 years of experience in health and wellness, Sarah is passionate about helping people achieve their strength goals and improve their quality of life.
-                </p>
-                <div className="flex space-x-3">
-                  <a href="#" className="text-gray-500 hover:text-primary transition">
-                    <i className="fab fa-linkedin"></i>
-                  </a>
-                  <a href="#" className="text-gray-500 hover:text-primary transition">
-                    <i className="fas fa-envelope"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Team Member 2 */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-md">
-              <div className="h-64 bg-neutral-200 flex items-center justify-center">
-                <span className="text-neutral-400">Team Member Photo</span>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-black mb-2">James Wilson</h3>
-                <p className="text-primary font-medium mb-4">Lead Coach</p>
-                <p className="text-gray-700 mb-4">
-                  James specializes in osteogenic loading techniques and has helped hundreds of clients improve their bone density and overall strength through the OsteoStrong method.
-                </p>
-                <div className="flex space-x-3">
-                  <a href="#" className="text-gray-500 hover:text-primary transition">
-                    <i className="fab fa-linkedin"></i>
-                  </a>
-                  <a href="#" className="text-gray-500 hover:text-primary transition">
-                    <i className="fas fa-envelope"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Team Member 3 */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-md">
-              <div className="h-64 bg-neutral-200 flex items-center justify-center">
-                <span className="text-neutral-400">Team Member Photo</span>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-black mb-2">Emma Thompson</h3>
-                <p className="text-primary font-medium mb-4">Wellness Coach</p>
-                <p className="text-gray-700 mb-4">
-                  Emma's background in physiotherapy and nutrition makes her an invaluable resource for clients looking to improve their overall health alongside their OsteoStrong sessions.
-                </p>
-                <div className="flex space-x-3">
-                  <a href="#" className="text-gray-500 hover:text-primary transition">
-                    <i className="fab fa-linkedin"></i>
-                  </a>
-                  <a href="#" className="text-gray-500 hover:text-primary transition">
-                    <i className="fas fa-envelope"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Team />
 
       {/* Our Facility */}
+      <Facility />
+
+      {/* Call to Action */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold text-black mb-6">Our Facility</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              Located in the heart of Tunbridge Wells, our state-of-the-art centre provides a welcoming environment for your OsteoStrong sessions.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {/* Facility Image 1 */}
-            <div className="h-64 bg-neutral-200 rounded-xl flex items-center justify-center">
-              <span className="text-neutral-400">Facility Image</span>
-            </div>
-
-            {/* Facility Image 2 */}
-            <div className="h-64 bg-neutral-200 rounded-xl flex items-center justify-center">
-              <span className="text-neutral-400">Facility Image</span>
-            </div>
-
-            {/* Facility Image 3 */}
-            <div className="h-64 bg-neutral-200 rounded-xl flex items-center justify-center">
-              <span className="text-neutral-400">Facility Image</span>
-            </div>
-
-            {/* Facility Image 4 */}
-            <div className="h-64 bg-neutral-200 rounded-xl flex items-center justify-center">
-              <span className="text-neutral-400">Facility Image</span>
-            </div>
-
-            {/* Facility Image 5 */}
-            <div className="h-64 bg-neutral-200 rounded-xl flex items-center justify-center">
-              <span className="text-neutral-400">Facility Image</span>
-            </div>
-
-            {/* Facility Image 6 */}
-            <div className="h-64 bg-neutral-200 rounded-xl flex items-center justify-center">
-              <span className="text-neutral-400">Facility Image</span>
-            </div>
-          </div>
-
-          <div className="mt-10 text-center">
+          <div className="text-center">
             <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-6">
               Our Tunbridge Wells centre is equipped with the latest OsteoStrong technology and staffed by our expert team who will guide you through each session.
             </p>

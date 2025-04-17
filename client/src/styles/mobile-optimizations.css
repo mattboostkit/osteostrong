@@ -1,0 +1,65 @@
+/* Mobile Optimizations */
+
+/* Improve tap targets for mobile */
+@media (max-width: 768px) {
+  button, 
+  a, 
+  input[type="button"], 
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Improve spacing for mobile */
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  /* Prevent text from being too small */
+  p, li, a {
+    font-size: 16px;
+  }
+  
+  /* Improve form elements on mobile */
+  input, select, textarea {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+  
+  /* Prevent horizontal overflow */
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Improve image loading on mobile */
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+/* Fix for iOS 100vh issue */
+@supports (-webkit-touch-callout: none) {
+  .h-screen {
+    height: -webkit-fill-available;
+  }
+}
+
+/* Improve scrolling experience */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize touch interactions */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger hit areas for touch */
+  .nav-link {
+    padding: 12px;
+  }
+  
+  /* Disable hover effects that might cause issues on touch */
+  .hover\:scale-105:hover {
+    transform: none;
+  }
+}

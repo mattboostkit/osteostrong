@@ -1,69 +1,17 @@
+import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
+import { getBlogPosts, getCategories } from "@/lib/sanity";
+import { BlogPost as SanityBlogPost } from "@/types/sanity";
+import BlogPostCard from "@/components/blog/BlogPostCard";
 
-// Schema for email subscription form
-const subscribeSchema = z.object({
-  email: z.string().email({ message: "Please enter a valid email address" }),
-});
 
-type SubscribeValues = z.infer<typeof subscribeSchema>;
 
-// Sample blog post data structure
-interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  image: string;
-  date: string;
-  author: string;
-  category: string;
-  slug: string;
-}
-
-// Sample blog posts (will be replaced with actual data from API/database)
-const sampleBlogPosts: BlogPost[] = [
-  {
-    id: "1",
-    title: "The Science Behind Osteogenic Loading",
-    excerpt: "Discover how osteogenic loading works to strengthen your bones and improve overall skeletal health.",
-    image: "/images/blog/bone-health.jpg",
-    date: "15 April 2025",
-    author: "Dr. Sarah Johnson",
-    category: "Science",
-    slug: "science-behind-osteogenic-loading"
-  },
-  {
-    id: "2",
-    title: "5 Ways OsteoStrong Improves Athletic Performance",
-    excerpt: "Learn how OsteoStrong sessions can enhance your athletic abilities and help prevent sports injuries.",
-    image: "/images/blog/athletic-performance.jpg",
-    date: "10 April 2025",
-    author: "Mark Williams",
-    category: "Performance",
-    slug: "improve-athletic-performance"
-  },
-  {
-    id: "3",
-    title: "Osteoporosis Prevention: Start Early",
-    excerpt: "Why it's never too early to start thinking about bone health and how OsteoStrong can help.",
-    image: "/images/blog/prevention.jpg",
-    date: "5 April 2025",
-    author: "Emma Thompson",
-    category: "Prevention",
-    slug: "osteoporosis-prevention"
-  },
-];
-
-// Blog categories for filtering
-const categories = [
+// Blog categories for filtering (will be replaced with data from Sanity)
+const defaultCategories = [
   "All",
   "Science",
   "Performance",
@@ -75,41 +23,45 @@ const categories = [
 
 const Blog = () => {
   const { toast } = useToast();
-  
-  const form = useForm<SubscribeValues>({
-    resolver: zodResolver(subscribeSchema),
-    defaultValues: {
-      email: "",
-    }
-  });
-  
-  const onSubscribe = async (data: SubscribeValues) => {
-    try {
-      const response = await apiRequest("POST", "/api/newsletter", data);
-      const result = await response.json();
-      
-      if (result.success) {
-        toast({
-          title: "Subscription successful",
-          description: "Thank you for subscribing to our newsletter!",
-        });
-        form.reset();
-      } else {
-        toast({
-          title: "Subscription failed",
-          description: result.message || "There was a problem with your subscription",
-          variant: "destructive"
-        });
+  const [posts, setPosts] = useState<SanityBlogPost[]>([]);
+  const [categories, setCategories] = useState<string[]>(["All"]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Fetch blog posts and categories from Sanity
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+
+        // Fetch blog posts
+        const postsData = await getBlogPosts();
+        setPosts(postsData);
+
+        // Fetch categories
+        const categoriesData = await getCategories();
+        const categoryTitles = categoriesData.map((cat: any) => cat.title);
+        setCategories(["All", ...categoryTitles]);
+      } catch (err) {
+        console.error("Error fetching blog data:", err);
+        setError("Failed to load blog content. Please try again later.");
+        setCategories(defaultCategories);
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      toast({
-        title: "Subscription failed",
-        description: "There was a problem with your subscription. Please try again later.",
-        variant: "destructive"
-      });
-    }
-  };
-  
+    };
+
+    fetchData();
+  }, []);
+
+  // Filter posts by category
+  const filteredPosts = selectedCategory === "All"
+    ? posts
+    : posts.filter(post => post.categories?.includes(selectedCategory));
+
+
+
   return (
     <>
       <Helmet>
@@ -127,7 +79,7 @@ const Blog = () => {
         <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/blog-header.jpg" />
         <link rel="canonical" href="https://www.osteostrongtw.co.uk/blog" />
       </Helmet>
-      
+
       {/* Blog Header */}
       <div className="py-10 bg-primary">
         <div className="container mx-auto px-4 md:px-6 text-center">
@@ -137,7 +89,7 @@ const Blog = () => {
           </p>
         </div>
       </div>
-      
+
       {/* Blog Content */}
       <div className="py-16 bg-white">
         <div className="container mx-auto px-4 md:px-6">
@@ -149,50 +101,40 @@ const Blog = () => {
                 {categories.map((category) => (
                   <Button
                     key={category}
-                    variant={category === "All" ? "default" : "outline"}
+                    variant={category === selectedCategory ? "default" : "outline"}
                     className="rounded-full"
+                    onClick={() => setSelectedCategory(category)}
                   >
                     {category}
                   </Button>
                 ))}
               </div>
-              
+
               {/* Blog Posts */}
               <div className="grid gap-8">
-                {sampleBlogPosts.map((post) => (
-                  <Card key={post.id} className="overflow-hidden">
-                    <div className="flex flex-col md:flex-row">
-                      <div className="md:w-1/3 h-48 md:h-auto bg-neutral-200">
-                        {/* Image placeholder - will be replaced with actual images */}
-                        <div className="w-full h-full flex items-center justify-center text-neutral-400">
-                          Blog Image Placeholder
-                        </div>
-                      </div>
-                      <CardContent className="md:w-2/3 p-6">
-                        <div className="flex items-center text-sm text-neutral-500 mb-2">
-                          <span>{post.date}</span>
-                          <span className="mx-2">•</span>
-                          <span>{post.category}</span>
-                        </div>
-                        <h2 className="text-2xl font-bold mb-2 hover:text-primary transition-colors">
-                          <a href={`/blog/${post.slug}`}>{post.title}</a>
-                        </h2>
-                        <p className="text-neutral-600 mb-4">{post.excerpt}</p>
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            <div className="w-8 h-8 rounded-full bg-neutral-300 mr-2"></div>
-                            <span className="text-sm font-medium">{post.author}</span>
-                          </div>
-                          <Button variant="link" className="text-primary">
-                            <a href={`/blog/${post.slug}`}>Read More</a>
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </div>
-                  </Card>
-                ))}
+                {loading ? (
+                  // Loading state
+                  <div className="text-center py-12">
+                    <p className="text-lg">Loading blog posts...</p>
+                  </div>
+                ) : error ? (
+                  // Error state
+                  <div className="text-center py-12">
+                    <p className="text-lg text-red-500">{error}</p>
+                  </div>
+                ) : filteredPosts.length === 0 ? (
+                  // No posts found
+                  <div className="text-center py-12">
+                    <p className="text-lg">No blog posts found in this category.</p>
+                  </div>
+                ) : (
+                  // Display posts
+                  filteredPosts.map((post) => (
+                    <BlogPostCard key={post._id} post={post} />
+                  ))
+                )}
               </div>
-              
+
               {/* Pagination */}
               <div className="flex justify-center mt-12">
                 <div className="flex items-center gap-1">
@@ -208,7 +150,7 @@ const Blog = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Sidebar */}
             <div className="lg:w-1/3">
               {/* Search */}
@@ -216,8 +158,8 @@ const Blog = () => {
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-4">Search Articles</h3>
                   <div className="relative">
-                    <Input 
-                      placeholder="Search the blog..." 
+                    <Input
+                      placeholder="Search the blog..."
                       className="pr-10"
                     />
                     <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-neutral-400">
@@ -226,84 +168,84 @@ const Blog = () => {
                   </div>
                 </CardContent>
               </Card>
-              
+
               {/* Categories */}
               <Card className="mb-8">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-4">Categories</h3>
-                  <ul className="space-y-2">
-                    {categories.slice(1).map((category) => (
-                      <li key={category} className="flex items-center justify-between">
-                        <a href={`/blog/category/${category.toLowerCase()}`} className="hover:text-primary transition-colors">
-                          {category}
-                        </a>
-                        <span className="bg-neutral-100 text-neutral-600 text-xs py-1 px-2 rounded-full">
-                          {Math.floor(Math.random() * 10) + 1}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                  {loading ? (
+                    <p className="text-sm text-gray-500">Loading categories...</p>
+                  ) : error ? (
+                    <p className="text-sm text-red-500">Failed to load categories</p>
+                  ) : categories.length <= 1 ? (
+                    <p className="text-sm text-gray-500">No categories available</p>
+                  ) : (
+                    <ul className="space-y-2">
+                      {categories.slice(1).map((category) => {
+                        const categoryCount = posts.filter(post => post.categories?.includes(category)).length;
+                        return (
+                          <li key={category} className="flex items-center justify-between">
+                            <button
+                              onClick={() => setSelectedCategory(category)}
+                              className="hover:text-primary transition-colors text-left"
+                            >
+                              {category}
+                            </button>
+                            <span className="bg-neutral-100 text-neutral-600 text-xs py-1 px-2 rounded-full">
+                              {categoryCount}
+                            </span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
                 </CardContent>
               </Card>
-              
+
               {/* Recent Posts */}
               <Card className="mb-8">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-4">Recent Posts</h3>
                   <div className="space-y-4">
-                    {sampleBlogPosts.map((post) => (
-                      <div key={post.id} className="flex gap-3">
-                        <div className="w-20 h-20 bg-neutral-200 flex-shrink-0"></div>
-                        <div>
-                          <h4 className="font-medium hover:text-primary transition-colors">
-                            <a href={`/blog/${post.slug}`}>{post.title}</a>
-                          </h4>
-                          <p className="text-sm text-neutral-500">{post.date}</p>
+                    {loading ? (
+                      // Loading state
+                      <p className="text-sm text-gray-500">Loading recent posts...</p>
+                    ) : error ? (
+                      // Error state
+                      <p className="text-sm text-red-500">Failed to load recent posts</p>
+                    ) : posts.length === 0 ? (
+                      // No posts
+                      <p className="text-sm text-gray-500">No posts available</p>
+                    ) : (
+                      // Display recent posts
+                      posts.slice(0, 3).map((post) => (
+                        <div key={post._id} className="flex gap-3">
+                          {post.mainImage && (
+                            <a href={`/blog/${post.slug.current}`} className="w-20 h-20 flex-shrink-0 overflow-hidden rounded">
+                              <img
+                                src={`https://cdn.sanity.io/images/6ff7gi0z/production/${post.mainImage.asset._ref.replace('image-', '').replace('-jpg', '.jpg')}`}
+                                alt={post.title}
+                                className="w-full h-full object-cover"
+                              />
+                            </a>
+                          )}
+                          <div>
+                            <h4 className="font-medium hover:text-primary transition-colors">
+                              <a href={`/blog/${post.slug.current}`}>{post.title}</a>
+                            </h4>
+                            {post.publishedAt && (
+                              <p className="text-sm text-neutral-500">{new Date(post.publishedAt).toLocaleDateString()}</p>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))
+                    )}
                   </div>
                 </CardContent>
               </Card>
-              
-              {/* Newsletter Signup */}
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-4">Subscribe to Our Newsletter</h3>
-                  <p className="text-neutral-600 mb-4">
-                    Get the latest articles, resources, and bone health tips delivered to your inbox.
-                  </p>
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubscribe)} className="space-y-4">
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-black font-medium">Email</FormLabel>
-                            <FormControl>
-                              <Input 
-                                type="email" 
-                                placeholder="Your email address" 
-                                className="w-full" 
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <Button 
-                        type="submit" 
-                        className="w-full bg-primary hover:bg-yellow-400 text-white"
-                      >
-                        Subscribe
-                      </Button>
-                    </form>
-                  </Form>
-                </CardContent>
-              </Card>
-              
+
+
+
               {/* Social Media Links */}
               <Card className="mt-8">
                 <CardContent className="p-6">

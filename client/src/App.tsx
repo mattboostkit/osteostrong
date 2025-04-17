@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import BookNow from "@/pages/BookNow";
 import Shop from "./pages/Shop";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import CookiePolicy from "./pages/CookiePolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Navbar from "@/components/layout/Navbar";
@@ -25,6 +26,7 @@ function Router() {
       <Route path="/booknow" component={BookNow} />
       <Route path="/shop" component={Shop} />
       <Route path="/blog" component={Blog} />
+      <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/cookie-policy" component={CookiePolicy} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route component={NotFound} />

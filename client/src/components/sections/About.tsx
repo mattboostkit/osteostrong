@@ -12,10 +12,10 @@ const About = () => {
               Just one 10-minute session per week is all that's needed to trigger your body's adaptive response. This brief but effective session is ideal for people of all ages and fitness levels.
             </p>
             <div className="flex flex-col sm:flex-row items-center">
-              <img 
-                src="https://images.unsplash.com/photo-1551727974-8af20a3daff1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" 
-                alt="Scientific research" 
-                className="w-24 h-24 rounded-full object-cover mr-4" 
+              <img
+                src="https://images.unsplash.com/photo-1551727974-8af20a3daff1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80"
+                alt="Scientific research"
+                className="w-24 h-24 rounded-full object-cover mr-4"
               />
               <div>
                 <h4 className="font-bold text-black">Dr. John Jaquish</h4>
@@ -24,10 +24,10 @@ const About = () => {
             </div>
           </div>
           <div className="md:w-1/2">
-            <img 
-              src="https://images.unsplash.com/photo-1574269906863-71bedc703888?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1950&q=80" 
-              alt="OsteoStrong equipment" 
-              className="rounded-lg shadow-xl w-full h-auto" 
+            <img
+              src="https://cdn.sanity.io/images/6ff7gi0z/production/230c01892689ba675a3e1d0c5a7860a24ff3c027-2500x1668.webp"
+              alt="OsteoStrong equipment"
+              className="rounded-lg shadow-xl w-full h-auto"
             />
           </div>
         </div>

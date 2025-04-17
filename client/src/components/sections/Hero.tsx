@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import Logo from "@/components/ui/logo";
 
 const Hero = () => {
   return (
@@ -12,10 +13,10 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-6 relative">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight mb-6">
-              Strengthen Your Bones, <span className="bg-white text-black px-2 font-extrabold">Transform Your Life</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight mb-6">
+              Strengthen Your Bones, <span className="bg-white text-black px-2 py-1 mt-2 inline-block font-extrabold">Transform Your Life</span>
             </h1>
-            <p className="text-xl text-white mb-8 max-w-lg">
+            <p className="text-xl text-black mb-8 max-w-lg">
               OsteoStrong is a non-pharmaceutical, non-invasive solution to build stronger bones, improved muscle strength and balance, and reduced joint and back pain.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
@@ -32,11 +33,12 @@ const Hero = () => {
             </div>
           </div>
           <div className="md:w-1/2 flex justify-center">
-            <img 
-              src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-              alt="Person using OsteoStrong equipment" 
-              className="rounded-lg shadow-xl max-w-full h-auto" 
+            <img
+              src="https://cdn.sanity.io/images/6ff7gi0z/production/c864edfae596df6a5a4b373d5746dfa993e522b2-2500x1668.webp"
+              alt="Person using OsteoStrong equipment"
+              className="rounded-lg shadow-xl max-w-full h-auto w-full sm:w-auto"
               style={{ maxHeight: "500px", objectFit: "cover" }}
+              loading="eager"
             />
           </div>
         </div>
