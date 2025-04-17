@@ -29,7 +29,7 @@ const Testimonials = () => {
     <section id="testimonials" className="py-16 bg-neutral-100">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">What Our Members Say</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">What Our Members Say</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Hear from our members who have experienced remarkable improvements in their health and quality of life through OsteoStrong.
           </p>
@@ -46,7 +46,7 @@ const Testimonials = () => {
                     className="w-12 h-12 rounded-full object-cover mr-4"
                   />
                   <div>
-                    <h4 className="font-bold text-secondary">{testimonial.name}</h4>
+                    <h4 className="font-bold text-black">{testimonial.name}</h4>
                     <p className="text-gray-600">{testimonial.role}</p>
                   </div>
                 </div>
