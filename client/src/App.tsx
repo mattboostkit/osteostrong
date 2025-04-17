@@ -6,6 +6,9 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import BookNow from "@/pages/BookNow";
 import Shop from "./pages/Shop";
+import Blog from "./pages/Blog";
+import CookiePolicy from "./pages/CookiePolicy";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -15,6 +18,9 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/booknow" component={BookNow} />
       <Route path="/shop" component={Shop} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/cookie-policy" component={CookiePolicy} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route component={NotFound} />
     </Switch>
   );
