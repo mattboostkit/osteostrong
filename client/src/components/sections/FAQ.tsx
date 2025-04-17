@@ -35,7 +35,7 @@ const FAQ = () => {
     <section id="faq" className="py-16 bg-neutral-100">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Frequently Asked Questions</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Get answers to the most common questions about OsteoStrong and our revolutionary approach to bone health.
           </p>
@@ -45,7 +45,7 @@ const FAQ = () => {
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`faq-${index}`} className="bg-white rounded-xl overflow-hidden shadow-md border-none">
-                <AccordionTrigger className="text-lg font-bold text-secondary px-6 py-4 hover:no-underline">
+                <AccordionTrigger className="text-lg font-bold text-black px-6 py-4 hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-6 text-gray-600">

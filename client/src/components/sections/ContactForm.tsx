@@ -84,7 +84,7 @@ const ContactForm = () => {
     <section id="contact" className="py-16 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">Contact Us</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Contact Us</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Have questions about OsteoStrong? We're here to help. Reach out to our team for more information.
           </p>
@@ -93,7 +93,7 @@ const ContactForm = () => {
         <div className="flex flex-col md:flex-row gap-8">
           <Card className="md:w-1/2 bg-neutral-100 rounded-xl">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-secondary mb-6">Send Us a Message</h3>
+              <h3 className="text-2xl font-bold text-black mb-6">Send Us a Message</h3>
               
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -102,7 +102,7 @@ const ContactForm = () => {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-secondary font-medium">Name</FormLabel>
+                        <FormLabel className="text-black font-medium">Name</FormLabel>
                         <FormControl>
                           <Input 
                             placeholder="Your full name" 
@@ -170,8 +170,6 @@ const ContactForm = () => {
                           </FormControl>
                           <SelectContent>
                             <SelectItem value="tunbridge-wells">Tunbridge Wells</SelectItem>
-                            <SelectItem value="london">London - Kensington</SelectItem>
-                            <SelectItem value="manchester">Manchester</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -213,7 +211,7 @@ const ContactForm = () => {
           <div className="md:w-1/2">
             <Card className="bg-neutral-100 rounded-xl mb-8">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-secondary mb-6">Get In Touch</h3>
+                <h3 className="text-2xl font-bold text-black mb-6">Get In Touch</h3>
                 
                 <div className="space-y-4">
                   <div className="flex items-start">
@@ -273,13 +271,13 @@ const ContactForm = () => {
             
             <div className="bg-neutral-100 rounded-xl overflow-hidden h-64">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2497.895056813751!2d0.2578099157544592!3d51.1325347796751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df4b2a16321a5f%3A0xe3dd3d71c8a6c0ee!2sTunbridge%20Wells%2C%20UK!5e0!3m2!1sen!2sus!4v1628177555302!5m2!1sen!2sus" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2497.7515765843514!2d0.2665843157578282!3d51.13282714586407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df4671c70db4e1%3A0xb1dddf98fa5028bf!2s26%20High%20St%2C%20Tunbridge%20Wells%20TN1%201UX!5e0!3m2!1sen!2suk!4v1601306100000!5m2!1sen!2suk" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
                 allowFullScreen 
                 loading="lazy"
-                title="OsteoStrong Locations Map"
+                title="OsteoStrong Tunbridge Wells Location"
               ></iframe>
             </div>
           </div>
