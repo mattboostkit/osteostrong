@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { 
-  Accordion, 
-  AccordionContent, 
-  AccordionItem, 
-  AccordionTrigger 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
 } from "@/components/ui/accordion";
 
 const faqs = [
@@ -64,26 +64,26 @@ const FAQ = () => {
             Get answers to the most common questions about OsteoStrong and our revolutionary approach to bone health.
           </p>
         </div>
-        
+
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="space-y-4">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`faq-${index}`} className="bg-white rounded-xl overflow-hidden shadow-md border-none">
-                <AccordionTrigger className="text-lg font-bold text-black px-6 py-4 hover:no-underline">
+                <AccordionTrigger className="text-lg font-bold text-black px-6 py-4 hover:no-underline text-left">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-6 pb-6 text-gray-600">
+                <AccordionContent className="px-6 pb-6 text-gray-600 text-left">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
         </div>
-        
+
         <div className="max-w-3xl mx-auto mt-12 text-center">
           <h3 className="text-2xl font-bold text-black mb-4">Connect With Us</h3>
           <p className="text-gray-600 mb-6">Follow OsteoStrong Tunbridge Wells on social media</p>
-          
+
           <div className="flex justify-center space-x-6">
             <a href="https://www.facebook.com/osteostrongtunbridgewells" target="_blank" rel="noopener noreferrer" className="bg-primary h-12 w-12 rounded-full flex items-center justify-center text-black hover:bg-yellow-400 transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
