@@ -1,0 +1,39 @@
+const About = () => {
+  return (
+    <section id="about" className="py-16 bg-neutral-100">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex flex-col md:flex-row items-center">
+          <div className="md:w-1/2 mb-10 md:mb-0 md:pr-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">The Science Behind OsteoStrong</h2>
+            <p className="text-lg text-gray-600 mb-6">
+              OsteoStrong uses the scientific principles of osteogenic loading to trigger your body's natural adaptive response to grow bone and muscle tissue. Our proprietary equipment allows you to safely generate forces far beyond what is typically possible in traditional exercise settings.
+            </p>
+            <p className="text-lg text-gray-600 mb-6">
+              Just one 10-minute session per week is all that's needed to trigger your body's adaptive response. This brief but effective session is ideal for people of all ages and fitness levels.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center">
+              <img 
+                src="https://images.unsplash.com/photo-1551727974-8af20a3daff1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" 
+                alt="Scientific research" 
+                className="w-24 h-24 rounded-full object-cover mr-4" 
+              />
+              <div>
+                <h4 className="font-bold text-secondary">Dr. John Jaquish</h4>
+                <p className="text-gray-600">Biomedical Engineer & Inventor of OsteoStrong Technology</p>
+              </div>
+            </div>
+          </div>
+          <div className="md:w-1/2">
+            <img 
+              src="https://images.unsplash.com/photo-1574269906863-71bedc703888?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1950&q=80" 
+              alt="OsteoStrong equipment" 
+              className="rounded-lg shadow-xl w-full h-auto" 
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
