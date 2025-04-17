@@ -42,26 +42,26 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link href="/" className={`text-secondary hover:text-primary font-medium transition ${location === '/' ? 'text-primary' : ''}`}>
+            <Link href="/" className={`text-black hover:text-primary font-medium transition ${location === '/' ? 'text-primary' : ''}`}>
               Home
             </Link>
-            <Link href="/#about" className="text-secondary hover:text-primary font-medium transition">
+            <a href="/#about" className="text-black hover:text-primary font-medium transition">
               About
-            </Link>
-            <Link href="/#services" className="text-secondary hover:text-primary font-medium transition">
+            </a>
+            <a href="/#services" className="text-black hover:text-primary font-medium transition">
               Services
-            </Link>
-            <Link href="/#locations" className="text-secondary hover:text-primary font-medium transition">
-              Locations
-            </Link>
-            <Link href="/#testimonials" className="text-secondary hover:text-primary font-medium transition">
+            </a>
+            <a href="/#testimonials" className="text-black hover:text-primary font-medium transition">
               Testimonials
-            </Link>
-            <Link href="/#faq" className="text-secondary hover:text-primary font-medium transition">
+            </a>
+            <a href="/#faq" className="text-black hover:text-primary font-medium transition">
               FAQ
-            </Link>
-            <Link href="/#contact" className="text-secondary hover:text-primary font-medium transition">
+            </a>
+            <a href="/#contact" className="text-black hover:text-primary font-medium transition">
               Contact
+            </a>
+            <Link href="/shop" className={`text-black hover:text-primary font-medium transition ${location === '/shop' ? 'text-primary' : ''}`}>
+              Shop
             </Link>
           </nav>
 
