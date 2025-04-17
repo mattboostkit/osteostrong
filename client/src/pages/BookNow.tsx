@@ -153,7 +153,7 @@ const BookNow = () => {
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-secondary font-medium">Name</FormLabel>
+                          <FormLabel className="text-black font-medium">Name</FormLabel>
                           <FormControl>
                             <Input 
                               placeholder="Your full name" 
@@ -171,7 +171,7 @@ const BookNow = () => {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-secondary font-medium">Email</FormLabel>
+                          <FormLabel className="text-black font-medium">Email</FormLabel>
                           <FormControl>
                             <Input 
                               type="email" 
@@ -190,7 +190,7 @@ const BookNow = () => {
                       name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-secondary font-medium">Phone (optional)</FormLabel>
+                          <FormLabel className="text-black font-medium">Phone (optional)</FormLabel>
                           <FormControl>
                             <Input 
                               type="tel" 
@@ -209,7 +209,7 @@ const BookNow = () => {
                       name="location"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-secondary font-medium">Location</FormLabel>
+                          <FormLabel className="text-black font-medium">Location</FormLabel>
                           <Select 
                             onValueChange={(value) => handleLocationChange(value)} 
                             defaultValue={field.value}
@@ -221,8 +221,6 @@ const BookNow = () => {
                             </FormControl>
                             <SelectContent>
                               <SelectItem value="tunbridge-wells">Tunbridge Wells</SelectItem>
-                              <SelectItem value="london">London - Kensington</SelectItem>
-                              <SelectItem value="manchester">Manchester</SelectItem>
                             </SelectContent>
                           </Select>
                           <FormMessage />
@@ -235,7 +233,7 @@ const BookNow = () => {
                       name="service"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-secondary font-medium">Service</FormLabel>
+                          <FormLabel className="text-black font-medium">Service</FormLabel>
                           <Select 
                             onValueChange={field.onChange} 
                             defaultValue={field.value}
@@ -261,7 +259,7 @@ const BookNow = () => {
                       name="date"
                       render={({ field }) => (
                         <FormItem className="flex flex-col">
-                          <FormLabel className="text-secondary font-medium">Date</FormLabel>
+                          <FormLabel className="text-black font-medium">Date</FormLabel>
                           <Popover>
                             <PopoverTrigger asChild>
                               <FormControl>
@@ -304,7 +302,7 @@ const BookNow = () => {
                       name="time"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-secondary font-medium">Time</FormLabel>
+                          <FormLabel className="text-black font-medium">Time</FormLabel>
                           <Select 
                             onValueChange={field.onChange} 
                             defaultValue={field.value}
