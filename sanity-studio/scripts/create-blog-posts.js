@@ -1,13 +1,14 @@
 // Script to create blog posts in Sanity
 const { createClient } = require('@sanity/client');
+const config = require('./config');
 
 // Initialize the Sanity client
 const client = createClient({
-  projectId: '6ff7gi0z',
-  dataset: 'production',
-  apiVersion: '2023-05-03',
-  token: 'skP4YDXDQGYItPY2NLG6FlED5V0natvf3J2tXapQJuTQR46m2t2u1GSly3hJSChbrrd82UqJLTCAhP5DZNnfqXs33ku2e8ziJXG02Lzf4GyrRbQUCTJex5dPT9Af0nbAke2ZnZmGJjweBDwxkvAe4ICeGusXf0e0p79GPpEumO3NrwxaxMHU', // Replace with your token
-  useCdn: false,
+  projectId: config.projectId,
+  dataset: config.dataset,
+  apiVersion: config.apiVersion,
+  token: config.token, // Token from environment variables
+  useCdn: config.useCdn,
 });
 
 // Function to create a slug from a title

@@ -2,11 +2,18 @@ import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
+// Get environment variables with fallbacks for development
+const projectId = import.meta.env.VITE_SANITY_PROJECT_ID || '6ff7gi0z';
+const dataset = import.meta.env.VITE_SANITY_DATASET || 'production';
+const apiVersion = import.meta.env.VITE_SANITY_API_VERSION || '2023-05-03';
+// Token should only be included in secure environments
+const token = import.meta.env.VITE_SANITY_TOKEN || '';
+
 export const client = createClient({
-  projectId: '6ff7gi0z',
-  dataset: 'production',
-  apiVersion: '2023-05-03', // Use the latest API version
-  token: 'skP4YDXDQGYItPY2NLG6FlED5V0natvf3J2tXapQJuTQR46m2t2u1GSly3hJSChbrrd82UqJLTCAhP5DZNnfqXs33ku2e8ziJXG02Lzf4GyrRbQUCTJex5dPT9Af0nbAke2ZnZmGJjweBDwxkvAe4ICeGusXf0e0p79GPpEumO3NrwxaxMHU', // Only needed if you want to update content
+  projectId,
+  dataset,
+  apiVersion, // Use the latest API version
+  token, // Only needed if you want to update content
   useCdn: false, // Set to true for production
 });
 
