@@ -13,19 +13,19 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Strengthen Your Bones, Transform Your Life
+              Stronger Bones, Stronger You: Unlock Your Body's Full Potential
             </h1>
             <p className="text-xl text-white mb-8 max-w-lg">
               OsteoStrong is a non-pharmaceutical, non-invasive solution to build stronger bones, improved muscle strength and balance, and reduced joint and back pain.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Link href="/booknow">
-                <Button className="bg-white hover:bg-neutral-100 text-secondary font-bold py-3 px-8 rounded-full transition shadow-md text-center w-full sm:w-auto">
+                <Button className="bg-white hover:bg-neutral-100 text-black font-bold py-3 px-8 rounded-full transition shadow-md text-center w-full sm:w-auto">
                   Book a Session
                 </Button>
               </Link>
               <Link href="#learn-more">
-                <Button variant="secondary" className="bg-secondary hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-full transition shadow-md text-center w-full sm:w-auto">
+                <Button variant="secondary" className="bg-black hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-full transition shadow-md text-center w-full sm:w-auto">
                   Learn More
                 </Button>
               </Link>
