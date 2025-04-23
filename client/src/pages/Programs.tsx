@@ -3,7 +3,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
-import { getPageImage, urlFor } from "@/lib/sanity";
+import { client } from "@/lib/sanity";
+import imageUrlBuilder from "@sanity/image-url";
+
+// Set up a helper function for generating image URLs with the Sanity image pipeline
+const builder = imageUrlBuilder(client);
+
+function urlFor(source: any) {
+  return builder.image(source);
+}
 
 const Programs = () => {
   const [programsImage, setProgramsImage] = useState<any>(null);
@@ -12,7 +20,18 @@ const Programs = () => {
   useEffect(() => {
     const fetchPageImages = async () => {
       try {
-        const programsImageResult = await getPageImage('programs', 'header');
+        // Direct query instead of using getPageImage function
+        const programsImageResult = await client.fetch(`
+          *[_type == "pageImage" && page == "programs" && section == "header"][0] {
+            _id,
+            title,
+            page,
+            section,
+            image,
+            alt,
+            description
+          }
+        `);
         console.log('Programs header image from Sanity:', programsImageResult);
 
         if (programsImageResult && programsImageResult.image) {
