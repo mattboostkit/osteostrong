@@ -1,9 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import './styles/mobile-optimizations.css';
+@import './styles/video-testimonial.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom aspect ratio utilities */
+.aspect-w-16 {
+  position: relative;
+  padding-bottom: calc(9 / 16 * 100%);
+}
+
+.aspect-h-9 {
+  position: relative;
+}
+
+/* 4:3 aspect ratio for images */
+.aspect-w-4 {
+  position: relative;
+  padding-bottom: calc(3 / 4 * 100%); /* 75% */
+}
+
+.aspect-h-3 {
+  position: relative;
+}
+
+/* Custom 848x480 aspect ratio (ratio is 848:480 or 1.7666:1) */
+.aspect-848-480 {
+  position: relative;
+  padding-bottom: calc(480 / 848 * 100%); /* ~56.6% */
+  width: 100%;
+  max-width: 848px;
+  margin: 0 auto;
+}
+
+/* Fixed portrait video aspect ratio (480:854) - exact dimensions */
+.aspect-portrait-video {
+  position: relative;
+  width: 480px;
+  height: 854px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Custom 720x541 aspect ratio (ratio is 720:541 or 1.33:1) */
+.aspect-720-541 {
+  position: relative;
+  padding-bottom: calc(541 / 720 * 100%); /* ~75.1% */
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.aspect-w-16 > iframe,
+.aspect-h-9 > iframe,
+.aspect-w-4 > img,
+.aspect-h-3 > img,
+.aspect-848-480 > iframe,
+.aspect-848-480 > video,
+.aspect-portrait-video > video,
+.aspect-portrait-video > iframe,
+.aspect-720-541 > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
 @layer base {
   * {
