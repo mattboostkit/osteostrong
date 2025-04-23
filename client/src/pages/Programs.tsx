@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import { getPageImage, urlFor } from "@/lib/sanity";
-import ScrollLink from "@/components/utils/ScrollLink";
 
 const Programs = () => {
   const [programsImage, setProgramsImage] = useState<any>(null);
@@ -137,11 +136,11 @@ const Programs = () => {
                     <li>Reduced joint and back pain</li>
                   </ul>
                 </div>
-                <ScrollLink href="/booknow">
+                <Link href="/booknow">
                   <Button className="bg-primary hover:bg-yellow-400 text-black font-bold py-3 px-6 rounded-full transition shadow-md w-full">
                     Book Your Session
                   </Button>
-                </ScrollLink>
+                </Link>
               </CardContent>
             </Card>
 
@@ -167,11 +166,11 @@ const Programs = () => {
                     <li>Personalised programme recommendation</li>
                   </ul>
                 </div>
-                <ScrollLink href="/booknow">
+                <Link href="/booknow">
                   <Button className="bg-primary hover:bg-yellow-400 text-black font-bold py-3 px-6 rounded-full transition shadow-md w-full">
                     Book A Free Session
                   </Button>
-                </ScrollLink>
+                </Link>
               </CardContent>
             </Card>
 
@@ -197,11 +196,11 @@ const Programs = () => {
                     <li>Complementary to OsteoStrong sessions</li>
                   </ul>
                 </div>
-                <ScrollLink href="/booknow">
+                <Link href="/booknow">
                   <Button className="bg-primary hover:bg-yellow-400 text-black font-bold py-3 px-6 rounded-full transition shadow-md w-full">
                     Book A Session
                   </Button>
-                </ScrollLink>
+                </Link>
               </CardContent>
             </Card>
 
@@ -227,11 +226,11 @@ const Programs = () => {
                     <li>Ideal for athletes and active individuals</li>
                   </ul>
                 </div>
-                <ScrollLink href="/booknow">
+                <Link href="/booknow">
                   <Button className="bg-primary hover:bg-yellow-400 text-black font-bold py-3 px-6 rounded-full transition shadow-md w-full">
                     Book A Session
                   </Button>
-                </ScrollLink>
+                </Link>
               </CardContent>
             </Card>
 
@@ -257,11 +256,11 @@ const Programs = () => {
                     <li>Complementary to OsteoStrong sessions</li>
                   </ul>
                 </div>
-                <ScrollLink href="/booknow">
+                <Link href="/booknow">
                   <Button className="bg-primary hover:bg-yellow-400 text-black font-bold py-3 px-6 rounded-full transition shadow-md w-full">
                     Book A Session
                   </Button>
-                </ScrollLink>
+                </Link>
               </CardContent>
             </Card>
 
@@ -287,11 +286,11 @@ const Programs = () => {
                     <li>Educational workshops and health seminars</li>
                   </ul>
                 </div>
-                <ScrollLink href="/contact">
+                <Link href="/contact">
                   <Button className="bg-primary hover:bg-yellow-400 text-black font-bold py-3 px-6 rounded-full transition shadow-md w-full">
                     Enquire About Corporate Packages
                   </Button>
-                </ScrollLink>
+                </Link>
               </CardContent>
             </Card>
           </div>
@@ -348,11 +347,11 @@ const Programs = () => {
                       <span className="text-gray-700">Access to online resources</span>
                     </li>
                   </ul>
-                  <ScrollLink href="/booknow">
+                  <Link href="/booknow">
                     <Button className="bg-primary hover:bg-yellow-400 text-black font-bold py-3 px-6 rounded-full transition shadow-md w-full">
                       Select Plan
                     </Button>
-                  </ScrollLink>
+                  </Link>
                 </CardContent>
               </Card>
 
@@ -402,11 +401,11 @@ const Programs = () => {
                       <span className="text-gray-700">Access to online resources</span>
                     </li>
                   </ul>
-                  <ScrollLink href="/booknow">
+                  <Link href="/booknow">
                     <Button className="bg-primary hover:bg-yellow-400 text-black font-bold py-3 px-6 rounded-full transition shadow-md w-full">
                       Select Plan
                     </Button>
-                  </ScrollLink>
+                  </Link>
                 </CardContent>
               </Card>
 
@@ -459,11 +458,11 @@ const Programs = () => {
                       <span className="text-gray-700">Exclusive member events</span>
                     </li>
                   </ul>
-                  <ScrollLink href="/booknow">
+                  <Link href="/booknow">
                     <Button className="bg-primary hover:bg-yellow-400 text-black font-bold py-3 px-6 rounded-full transition shadow-md w-full">
                       Select Plan
                     </Button>
-                  </ScrollLink>
+                  </Link>
                 </CardContent>
               </Card>
             </div>
@@ -479,16 +478,16 @@ const Programs = () => {
             Take the first step towards stronger bones, improved muscle strength, and better overall health with OsteoStrong.
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <ScrollLink href="/booknow">
+            <Link href="/booknow">
               <Button className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-6 rounded-full transition shadow-md text-center">
                 Book A Free Session
               </Button>
-            </ScrollLink>
-            <ScrollLink href="/contact">
+            </Link>
+            <Link href="/contact">
               <Button variant="secondary" className="bg-white hover:bg-neutral-100 text-black font-bold py-2 px-6 rounded-full transition shadow-md text-center">
                 Contact Us
               </Button>
-            </ScrollLink>
+            </Link>
           </div>
         </div>
       </section>
