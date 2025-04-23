@@ -37,16 +37,14 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         <Link href="/contact" onClick={onClose} className="text-black hover:text-primary font-medium transition py-4 border-b border-neutral-200 text-lg">
           Contact
         </Link>
-        <Link href="/shop" onClick={onClose} className="text-black hover:text-primary font-medium transition py-4 border-b border-neutral-200 text-lg">
-          Shop
-        </Link>
+
         <Link href="/blog" onClick={onClose} className="text-black hover:text-primary font-medium transition py-4 border-b border-neutral-200 text-lg">
           Blog
         </Link>
         <div className="mt-6">
           <Link href="/booknow" onClick={onClose}>
-            <Button className="bg-primary hover:bg-yellow-400 text-white font-bold py-4 px-6 rounded-full transition shadow-md text-center w-full text-lg">
-              Book Now
+            <Button className="bg-primary hover:bg-yellow-400 text-black font-bold py-4 px-6 rounded-full transition shadow-md text-center w-full text-lg">
+              Book A Free Session
             </Button>
           </Link>
         </div>

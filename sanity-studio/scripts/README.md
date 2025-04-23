@@ -24,27 +24,72 @@ To create these blog posts in your Sanity CMS:
 npm run create-blog-posts
 ```
 
-This will:
-- Create an author "OsteoStrong Team" if it doesn't exist
-- Create a category "Bone Health" if it doesn't exist
-- Create all 6 blog posts with the specified titles and content
+## Create Services
 
-### Customizing
+The `create-services.js` script creates 5 services in Sanity with predefined content:
 
-If you want to customize the blog posts:
+1. Core OsteoStrong Session
+2. Performance Assessment
+3. Pulsed Electromagnetic Field (PEMF) Therapy
+4. Compression Boots
+5. Red Light Therapy
 
-1. Open `scripts/create-blog-posts.js`
-2. Modify the `blogPosts` array with your desired content
-3. Run the script again
+### How to Run
 
-Note: The script checks if posts with the same titles already exist, so you can safely run it multiple times without creating duplicates.
+To create these services in your Sanity CMS:
 
-## Adding Images
+1. Make sure you're in the `sanity-studio` directory
+2. Run the following command:
 
-After running the script, you may want to add images to the blog posts:
+```bash
+npm run create-services
+```
 
-1. Log in to your Sanity Studio
-2. Navigate to the "Posts" section
-3. Click on each post
-4. Upload an image using the "Main image" field
-5. Save the changes
+Note: The script will check if services already exist and will not create duplicates.
+
+After running the script, you'll need to manually upload images for each service through the Sanity Studio interface. The script only creates the service entries with text content.
+
+## Create Testimonial
+
+The `create-testimonial.js` script creates a sample testimonial in Sanity with the following content:
+
+- Name: Lesley Bingham
+- Location: Tunbridge Wells
+- Quote: "I was diagnosed with Osteoporosis and six fractured vertebrae...but since finding OsteoStrong I haven't looked back and have just returned from skiing. I absolutely endorse OsteoStrong"
+
+### How to Run
+
+To create this testimonial in your Sanity CMS:
+
+1. Make sure you're in the `sanity-studio` directory
+2. Run the following command:
+
+```bash
+npm run create-testimonial
+```
+
+Note: The script will check if a testimonial with the same name already exists and will not create duplicates.
+
+After running the script, you'll need to manually upload the image and video for the testimonial through the Sanity Studio interface. The script only creates the testimonial entry with text content.
+
+## Create Page Images
+
+The `create-page-images.js` script creates sample page images in Sanity for the About and Programs pages:
+
+1. About Team Image - For the team section on the About page
+2. Programs Header Image - For the header section on the Programs page
+
+### How to Run
+
+To create these page image entries in your Sanity CMS:
+
+1. Make sure you're in the `sanity-studio` directory
+2. Run the following command:
+
+```bash
+npm run create-page-images
+```
+
+Note: The script will check if page images already exist and will not create duplicates.
+
+After running the script, you'll need to manually upload the images through the Sanity Studio interface. The script only creates the page image entries with text content.

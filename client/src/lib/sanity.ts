@@ -168,3 +168,82 @@ export async function getFacilityGallery() {
     }
   `);
 }
+
+// Helper function to fetch services
+export async function getServices() {
+  return client.fetch(`
+    *[_type == "service"] | order(order asc) {
+      _id,
+      title,
+      slug,
+      description,
+      image,
+      features,
+      order,
+      ctaText,
+      ctaLink
+    }
+  `);
+}
+
+// Helper function to fetch testimonials
+export async function getTestimonials() {
+  return client.fetch(`
+    *[_type == "testimonial"] | order(order asc) {
+      _id,
+      name,
+      location,
+      quote,
+      image,
+      video,
+      videoThumbnail,
+      featured,
+      order
+    }
+  `);
+}
+
+// Helper function to fetch featured testimonial
+export async function getFeaturedTestimonial() {
+  return client.fetch(`
+    *[_type == "testimonial" && featured == true][0] {
+      _id,
+      name,
+      location,
+      quote,
+      image,
+      video,
+      videoThumbnail
+    }
+  `);
+}
+
+// Helper function to fetch page images by page and section
+export async function getPageImage(page: string, section: string) {
+  return client.fetch(`
+    *[_type == "pageImage" && page == $page && section == $section][0] {
+      _id,
+      title,
+      page,
+      section,
+      image,
+      alt,
+      description
+    }
+  `, { page, section });
+}
+
+// Helper function to fetch all images for a specific page
+export async function getPageImages(page: string) {
+  return client.fetch(`
+    *[_type == "pageImage" && page == $page] {
+      _id,
+      title,
+      page,
+      section,
+      image,
+      alt,
+      description
+    }
+  `, { page });
+}

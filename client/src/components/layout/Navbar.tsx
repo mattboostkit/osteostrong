@@ -35,9 +35,7 @@ const Navbar = () => {
             <Link href="/contact" className={`text-black hover:text-primary font-medium transition ${location === '/contact' ? 'text-primary' : ''}`}>
               Contact
             </Link>
-            <Link href="/shop" className={`text-black hover:text-primary font-medium transition ${location === '/shop' ? 'text-primary' : ''}`}>
-              Shop
-            </Link>
+
             <Link href="/blog" className={`text-black hover:text-primary font-medium transition ${location === '/blog' ? 'text-primary' : ''}`}>
               Blog
             </Link>
@@ -45,8 +43,8 @@ const Navbar = () => {
 
           {/* Book Now Button */}
           <Link href="/booknow" className="hidden md:block">
-            <Button className="bg-primary hover:bg-yellow-400 text-white font-bold py-2 px-6 rounded-full transition shadow-md">
-              Book Now
+            <Button className="bg-primary hover:bg-yellow-400 text-black font-bold py-2 px-6 rounded-full transition shadow-md">
+              Book A Free Session
             </Button>
           </Link>
 

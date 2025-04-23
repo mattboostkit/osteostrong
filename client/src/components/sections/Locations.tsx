@@ -6,9 +6,9 @@ const Locations = () => {
   const locationInfo = {
     name: "Tunbridge Wells",
     description: "Our centre located in the heart of Tunbridge Wells.",
-    image: "https://images.unsplash.com/photo-1520881196607-62e2e2f60aa5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    image: "https://ik.imagekit.io/boostkit/OsteoStrong/OsteoStrong%20TW.jpg?updatedAt=1745332732825",
     address: "26 High St, Tunbridge Wells TN1 1UX",
-    phone: "01892 123 456",
+    phone: "01892 884444",
     hours: "Mon-Fri: 9am-6pm, Sat: 10am-4pm"
   };
 
@@ -21,13 +21,18 @@ const Locations = () => {
             Visit our OsteoStrong centre in Tunbridge Wells. Our convenient location offers revolutionary technology and expert guidance.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start max-w-6xl mx-auto">
           <Card className="bg-neutral-100 rounded-xl overflow-hidden transition-all hover:shadow-lg">
-            <img 
-              src={locationInfo.image} 
-              alt={`${locationInfo.name} Location`} 
+            <img
+              src={locationInfo.image}
+              alt={`${locationInfo.name} Location`}
               className="w-full h-48 object-cover"
+              loading="eager"
+              onError={(e) => {
+                console.error(`Failed to load location image: ${locationInfo.image}`);
+                e.currentTarget.style.display = 'none';
+              }}
             />
             <CardContent className="p-6">
               <h3 className="text-xl font-bold mb-2 text-black">{locationInfo.name}</h3>
@@ -44,31 +49,31 @@ const Locations = () => {
                 </p>
               </div>
               <div className="flex space-x-2">
-                <a 
-                  href={`https://maps.google.com/?q=${encodeURIComponent(locationInfo.address)}`} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href={`https://maps.google.com/?q=${encodeURIComponent(locationInfo.address)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-full transition shadow-md text-center flex-1 flex justify-center items-center"
                 >
                   <i className="fas fa-directions mr-2"></i> Directions
                 </a>
                 <Link href="/booknow">
                   <Button className="bg-primary hover:bg-yellow-400 text-black font-bold py-2 px-4 rounded-full transition shadow-md text-center flex-1">
-                    Book Now
+                    Book A Free Session
                   </Button>
                 </Link>
               </div>
             </CardContent>
           </Card>
-          
+
           <div className="rounded-xl overflow-hidden h-full min-h-[400px] shadow-lg">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2497.7515765843514!2d0.2665843157578282!3d51.13282714586407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df4671c70db4e1%3A0xb1dddf98fa5028bf!2s26%20High%20St%2C%20Tunbridge%20Wells%20TN1%201UX!5e0!3m2!1sen!2suk!4v1601306100000!5m2!1sen!2suk" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0, minHeight: "400px" }} 
-              allowFullScreen 
-              loading="lazy" 
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2497.7515765843514!2d0.2665843157578282!3d51.13282714586407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df4671c70db4e1%3A0xb1dddf98fa5028bf!2s26%20High%20St%2C%20Tunbridge%20Wells%20TN1%201UX!5e0!3m2!1sen!2suk!4v1601306100000!5m2!1sen!2suk"
+              width="100%"
+              height="100%"
+              style={{ border: 0, minHeight: "400px" }}
+              allowFullScreen
+              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="OsteoStrong Tunbridge Wells Location"
             ></iframe>

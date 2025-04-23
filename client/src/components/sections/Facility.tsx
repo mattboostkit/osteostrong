@@ -9,6 +9,7 @@ interface FacilityImage {
   asset: {
     _ref: string;
   };
+  imageUrl?: string; // Direct URL for fallback images
 }
 
 interface FacilityGallery {
@@ -26,9 +27,15 @@ const Facility = () => {
     const fetchFacilityGallery = async () => {
       try {
         const result = await getFacilityGallery();
-        setFacilityGallery(result);
+        console.log('Facility gallery from Sanity:', result);
+
+        if (result && result.images && result.images.length > 0) {
+          setFacilityGallery(result);
+        } else {
+          console.log('No facility images found in Sanity, using fallback images');
+        }
       } catch (error) {
-        console.error("Error fetching facility gallery:", error);
+        console.error("Error fetching facility gallery from Sanity:", error);
       } finally {
         setIsLoading(false);
       }
@@ -44,27 +51,33 @@ const Facility = () => {
       alt: "OsteoStrong Reception Area",
       caption: "Our welcoming reception area",
       area: "reception",
-      asset: { _ref: "" }
+      asset: { _ref: "" },
+      imageUrl: "https://ik.imagekit.io/boostkit/OsteoStrong/Reception.jpg?updatedAt=1745332554535"
     },
     {
       _key: "2",
       alt: "OsteoStrong Training Equipment",
       caption: "State-of-the-art OsteoStrong equipment",
       area: "equipment",
-      asset: { _ref: "" }
+      asset: { _ref: "" },
+      imageUrl: "https://ik.imagekit.io/boostkit/OsteoStrong/Equipment.jpg?updatedAt=1745332554478"
     },
     {
       _key: "3",
-      alt: "OsteoStrong Consultation Room",
-      caption: "Private consultation room",
-      area: "consultation",
-      asset: { _ref: "" }
+      alt: "OsteoStrong Downstairs Area",
+      caption: "Downstairs",
+      area: "downstairs",
+      asset: { _ref: "" },
+      imageUrl: "https://ik.imagekit.io/boostkit/OsteoStrong/Downstairs.jpg?updatedAt=1745332554288"
     }
   ];
 
   const displayImages = facilityGallery?.images?.length > 0
     ? facilityGallery.images
     : fallbackImages;
+
+  // Log the images for debugging
+  console.log('Facility images to display:', displayImages);
 
   return (
     <section id="facility" className="py-16 bg-white">
@@ -82,15 +95,31 @@ const Facility = () => {
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayImages.map((image) => (
-              <div key={image._key} className="rounded-lg overflow-hidden shadow-md group">
+              <div key={image._key} className="rounded-lg overflow-hidden shadow-md bg-white border border-gray-200">
                 <div className="relative h-64 bg-neutral-200">
-                  {image.asset._ref ? (
+                  {image.imageUrl ? (
+                    <img
+                      src={image.imageUrl}
+                      alt={image.alt}
+                      className="w-full h-full object-cover"
+                      loading="eager"
+                      onError={(e) => {
+                        console.error(`Failed to load image: ${image.imageUrl}`);
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                  ) : image.asset._ref ? (
                     <img
                       src={urlFor(image).width(600).height(400).url()}
                       alt={image.alt}
-                      className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                      className="w-full h-full object-cover"
+                      loading="eager"
+                      onError={(e) => {
+                        console.error(`Failed to load Sanity image for: ${image.alt}`);
+                        e.currentTarget.style.display = 'none';
+                      }}
                     />
                   ) : (
                     <div className="flex flex-col items-center justify-center h-full">
@@ -107,11 +136,15 @@ const Facility = () => {
                     </div>
                   )}
                 </div>
-                {image.caption && (
-                  <div className="p-4 bg-white">
-                    <p className="text-gray-700">{image.caption}</p>
-                  </div>
-                )}
+                <div className="p-4 bg-white text-center">
+                  <p className="text-gray-700 font-medium">
+                    {image.caption ||
+                     (image.area === 'reception' ? 'Our welcoming reception area' :
+                      image.area === 'equipment' ? 'State-of-the-art OsteoStrong equipment' :
+                      image.area === 'downstairs' ? 'Downstairs' :
+                      'OsteoStrong Facility')}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

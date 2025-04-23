@@ -10,7 +10,7 @@ import {
 const faqs = [
   {
     question: "How does OsteoStrong® work?",
-    answer: "OsteoStrong works through a cutting-edge, science-based method called osteogenic loading, which is designed to improve bone density, strength, balance, and overall musculoskeletal health. It is a non-invasive, drug-free system that uses specialized equipment to trigger the body's natural adaptive responses. OsteoStrong machines are designed to apply safe, high-intensity forces to the skeletal system. This mimics the impact forces experienced in activities like jumping or sprinting, which stimulate bone growth. Unlike traditional exercises, the equipment allows you to exert forces 4-10 times your body weight safely, which is necessary to trigger bone-building activity."
+    answer: "OsteoStrong works through a cutting-edge, science-based method called osteogenic loading, which is designed to improve bone density, strength, balance, and overall musculoskeletal health. It is a non-invasive, drug-free system that uses specialised equipment to trigger the body's natural adaptive responses. OsteoStrong machines are designed to apply safe, high-intensity forces to the skeletal system. This mimics the impact forces experienced in activities like jumping or sprinting, which stimulate bone growth. Unlike traditional exercises, the equipment allows you to exert forces 4-10 times your body weight safely, which is necessary to trigger bone-building activity."
   },
   {
     question: "What does a typical OsteoStrong session entail?",
@@ -18,15 +18,15 @@ const faqs = [
   },
   {
     question: "Why couldn't I just do this at the gym?",
-    answer: "While gym workouts are beneficial for overall health and fitness, OsteoStrong offers unique advantages that are difficult to replicate with traditional gym exercises. OsteoStrong uses specialized equipment to safely deliver osteogenic loading (high-impact forces that stimulate bone growth) without the risks of heavy weights or traditional high-impact activities like jumping. In a gym, replicating these forces would require intense, high-risk activities that could lead to injury, especially for individuals with osteoporosis, joint issues, or limited mobility. OsteoStrong sessions are designed to deliver maximum skeletal and muscular benefits in just 10–15 minutes per week. In contrast, a gym routine typically requires multiple hours per week to achieve similar strength gains, and it does not specifically target bone density in the same way."
+    answer: "While gym workouts are beneficial for overall health and fitness, OsteoStrong offers unique advantages that are difficult to replicate with traditional gym exercises. OsteoStrong uses specialised equipment to safely deliver osteogenic loading (high-impact forces that stimulate bone growth) without the risks of heavy weights or traditional high-impact activities like jumping. In a gym, replicating these forces would require intense, high-risk activities that could lead to injury, especially for individuals with osteoporosis, joint issues, or limited mobility. OsteoStrong sessions are designed to deliver maximum skeletal and muscular benefits in just 10–15 minutes per week. In contrast, a gym routine typically requires multiple hours per week to achieve similar strength gains, and it does not specifically target bone density in the same way."
   },
   {
     question: "What does OsteoStrong cost?",
-    answer: "OsteoStrong memberships start at £145 per month, with pricing depending on the wellness modalities included in your plan. Every membership comes with access a 1-1 coach, a personalised program tailored to your goals, baseline marker tracking to monitor progress, and additional member benefits. To find the best option for you, we invite you to visit us for a complimentary session to experience OsteoStrong and discuss your goals with our team."
+    answer: "OsteoStrong memberships start at £145 per month, with pricing depending on the wellness modalities included in your plan. Every membership comes with access to a coach on a 1-1 basis, a personalised programme tailored to your goals, baseline marker tracking to monitor progress, and additional member benefits. To find the best option for you, we invite you to visit us for a complimentary session to experience OsteoStrong and discuss your goals with our team."
   },
   {
     question: "How will you track my progress?",
-    answer: "We do a ultrasound heel bone scan when you get started so we know your starting bone density T-Score enabling us to accurately track your progress. This is one of four baseline markers we establish at the beginning of your OsteoStrong journey to closely track your progress, we also do two strength tests, and a balance test. The Spectrum devices also record all your sessions and generate reports for you to see and track your progress over time."
+    answer: "We do an ultrasound heel bone scan when you get started so we know your starting bone density T-Score enabling us to accurately track your progress. This is one of four baseline markers we establish at the beginning of your OsteoStrong journey to closely track your progress, we also do two strength tests, and a balance test. The Spectrum devices also record all your sessions and generate reports for you to see and track your progress over time."
   },
   {
     question: "Can I do other exercises with OsteoStrong?",
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     question: "Why can't I do sessions more than once per week?",
-    answer: "OsteoStrong sessions are designed to maximize skeletal strength and overall musculoskeletal health through a process called osteogenic loading. This method involves applying high-impact forces to stimulate bone and muscle growth. The reason sessions are limited to once per week is based on the body's natural recovery and adaptation process. Bone adaptation is slow. When high forces are applied to the skeletal system, microstimulation occurs, prompting bone cells (osteoblasts) to build new bone tissue. This process takes 7-10 days to complete. Overloading too soon can reduce effectiveness."
+    answer: "OsteoStrong sessions are designed to maximise skeletal strength and overall musculoskeletal health through a process called osteogenic loading. This method involves applying high-impact forces to stimulate bone and muscle growth. The reason sessions are limited to once per week is based on the body's natural recovery and adaptation process. Bone adaptation is slow. When high forces are applied to the skeletal system, microstimulation occurs, prompting bone cells (osteoblasts) to build new bone tissue. This process takes 7-10 days to complete. Overloading too soon can reduce effectiveness."
   },
   {
     question: "Are there any contraindications?",
@@ -46,11 +46,7 @@ const faqs = [
   },
   {
     question: "Can I do sessions at other OsteoStrong centres around the world?",
-    answer: "Yes, you can attend other OsteoStrong centres around the world to continue your sessions while travelling, but it depends on the policies the centre you wish to visit. OsteoStrong is a global network, and many locations accommodate visiting members for few sessions at no additional cost. Provide details in advance we can make the necessary arrangements. Your progress and performance data are stored in their system, enabling seamless tracking across locations."
-  },
-  {
-    question: "How do I connect with OsteoStrong on social media?",
-    answer: "You can follow us on our social media platforms to stay updated with the latest news, tips, and success stories: Facebook: https://www.facebook.com/osteostrongtunbridgewells, Instagram: https://www.instagram.com/osteostrongtunbridgewells/, LinkedIn: https://www.linkedin.com/company/osteostrong/posts/?feedView=all, YouTube: https://www.youtube.com/@osteostrong/videos, TikTok: https://www.tiktok.com/@osteostrongtw"
+    answer: "Yes, you can attend other OsteoStrong centres around the world to continue your sessions while travelling, but it depends on the policies of the centre you wish to visit. OsteoStrong is a global network, and many locations accommodate visiting members for a few sessions at no additional cost. Provide details in advance and we can make the necessary arrangements. Your progress and performance data are stored in their system, enabling seamless tracking across locations."
   }
 ];
 

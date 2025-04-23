@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <Logo variant="white" size="large" className="mb-4" />
             <p className="mb-4">
-              OsteoStrong is a revolutionary approach to improving bone density, strength, balance and posture in just one 10-minute session per week.
+              OsteoStrong is a revolutionary approach to improving bone density, strength, balance and posture in just one 15-minute session per week.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/osteostrongtunbridgewells" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary transition">
@@ -85,10 +85,10 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><Link href="/programs" className="text-neutral-300 hover:text-primary transition">OsteoStrong Session</Link></li>
               <li><Link href="/programs" className="text-neutral-300 hover:text-primary transition">Performance Assessment</Link></li>
-              <li><Link href="/programs" className="text-neutral-300 hover:text-primary transition">Wellness Consultation</Link></li>
-              <li><Link href="/programs" className="text-neutral-300 hover:text-primary transition">Corporate Packages</Link></li>
-              <li><Link href="/programs" className="text-neutral-300 hover:text-primary transition">Research & Technology</Link></li>
-              <li><Link href="/booknow" className="text-neutral-300 hover:text-primary transition">Book a Session</Link></li>
+              <li><Link href="/programs" className="text-neutral-300 hover:text-primary transition">PEMF Therapy</Link></li>
+              <li><Link href="/programs" className="text-neutral-300 hover:text-primary transition">Compression Boots</Link></li>
+              <li><Link href="/programs" className="text-neutral-300 hover:text-primary transition">Red Light Therapy</Link></li>
+              <li><Link href="/booknow" className="text-neutral-300 hover:text-primary transition">Book A Free Session</Link></li>
             </ul>
           </div>
 
@@ -99,7 +99,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
             <div className="text-center">
               <img
-                src="/images/tw-business-awards-badge.png"
+                src="https://ik.imagekit.io/boostkit/OsteoStrong/TWBA.webp?updatedAt=1745331992386"
                 alt="Tunbridge Wells Business Awards Runner Up"
                 className="h-24 w-auto mx-auto"
               />

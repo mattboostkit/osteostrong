@@ -1,0 +1,26 @@
+/* Custom styles for the ReputationHub widget */
+.lc_reviews_widget {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  border: none !important;
+}
+
+/* Ensure the widget container is responsive */
+.testimonials-widget-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: white;
+}
+
+/* Media queries for responsive adjustments */
+@media (max-width: 640px) {
+  .testimonials-widget-container {
+    padding: 0;
+    border-radius: 0.25rem;
+  }
+}

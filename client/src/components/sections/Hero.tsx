@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/ui/logo";
+import ScrollLink from "@/components/utils/ScrollLink";
 
 const Hero = () => {
   return (
@@ -14,19 +15,19 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight mb-6">
-              Strengthen Your Bones, <span className="bg-white text-black px-2 py-1 mt-2 inline-block font-extrabold">Transform Your Life</span>
+              Strengthen Your Bones, <span className="bg-white text-black px-2 py-1 mt-2 inline-block font-bold">Transform Your Life</span>
             </h1>
             <p className="text-xl text-black mb-8 max-w-lg">
               OsteoStrong is a non-pharmaceutical, non-invasive solution to build stronger bones, improved muscle strength and balance, and reduced joint and back pain.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <Link href="/booknow">
-                <Button className="bg-white hover:bg-neutral-100 text-black font-bold py-3 px-8 rounded-full transition shadow-md text-center w-full sm:w-auto">
-                  Book a Session
+              <ScrollLink href="/booknow">
+                <Button className="bg-white hover:bg-neutral-100 text-black font-bold py-2 px-6 rounded-full transition shadow-md text-center w-full sm:w-auto">
+                  Book A Free Session
                 </Button>
-              </Link>
+              </ScrollLink>
               <Link href="#learn-more">
-                <Button variant="secondary" className="bg-black hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-full transition shadow-md text-center w-full sm:w-auto">
+                <Button variant="secondary" className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-6 rounded-full transition shadow-md text-center w-full sm:w-auto">
                   Learn More
                 </Button>
               </Link>

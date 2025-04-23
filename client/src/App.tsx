@@ -8,13 +8,14 @@ import About from "./pages/About";
 import Programs from "./pages/Programs";
 import Contact from "./pages/Contact";
 import BookNow from "@/pages/BookNow";
-import Shop from "./pages/Shop";
+
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import CookiePolicy from "./pages/CookiePolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/utils/ScrollToTop";
 
 function Router() {
   return (
@@ -24,7 +25,7 @@ function Router() {
       <Route path="/programs" component={Programs} />
       <Route path="/contact" component={Contact} />
       <Route path="/booknow" component={BookNow} />
-      <Route path="/shop" component={Shop} />
+
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/cookie-policy" component={CookiePolicy} />
@@ -38,6 +39,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex flex-col min-h-screen">
+        <ScrollToTop />
         <Navbar />
         <main className="flex-grow">
           <Router />

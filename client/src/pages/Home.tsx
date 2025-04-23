@@ -1,6 +1,7 @@
 import Hero from "@/components/sections/Hero";
 import Introduction from "@/components/sections/Introduction";
 import About from "@/components/sections/About";
+import VideoTestimonial from "@/components/sections/VideoTestimonial";
 import Services from "@/components/sections/Services";
 import BoneHealth from "@/components/sections/BoneHealth";
 import Testimonials from "@/components/sections/Testimonials";
@@ -17,21 +18,21 @@ const Home = () => {
     <>
       <Helmet>
         <title>OsteoStrong Tunbridge Wells | Strengthen Your Bones, Transform Your Life</title>
-        <meta name="description" content="OsteoStrong Tunbridge Wells offers a non-pharmaceutical, non-invasive solution to build stronger bones, improved muscle strength and balance, and reduced joint and back pain in just one 10-minute session per week." />
+        <meta name="description" content="OsteoStrong Tunbridge Wells offers a non-pharmaceutical, non-invasive solution to build stronger bones, improved muscle strength and balance, and reduced joint and back pain in just one 15-minute session per week." />
         <meta name="keywords" content="OsteoStrong, bone health, osteoporosis, joint pain, back pain, bone density, Tunbridge Wells, skeletal strength, osteogenic loading" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.osteostrongtw.co.uk/" />
         <meta property="og:title" content="OsteoStrong Tunbridge Wells | Strengthen Your Bones, Transform Your Life" />
-        <meta property="og:description" content="OsteoStrong Tunbridge Wells offers a non-pharmaceutical, non-invasive solution to build stronger bones, improved muscle strength and balance, and reduced joint and back pain in just one 10-minute session per week." />
+        <meta property="og:description" content="OsteoStrong Tunbridge Wells offers a non-pharmaceutical, non-invasive solution to build stronger bones, improved muscle strength and balance, and reduced joint and back pain in just one 15-minute session per week." />
         <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://www.osteostrongtw.co.uk/" />
         <meta name="twitter:title" content="OsteoStrong Tunbridge Wells | Strengthen Your Bones, Transform Your Life" />
-        <meta name="twitter:description" content="OsteoStrong Tunbridge Wells offers a non-pharmaceutical, non-invasive solution to build stronger bones, improved muscle strength and balance, and reduced joint and back pain in just one 10-minute session per week." />
+        <meta name="twitter:description" content="OsteoStrong Tunbridge Wells offers a non-pharmaceutical, non-invasive solution to build stronger bones, improved muscle strength and balance, and reduced joint and back pain in just one 15-minute session per week." />
         <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
 
         {/* Canonical link */}
@@ -51,6 +52,7 @@ const Home = () => {
       <Hero />
       <Introduction />
       <About />
+      <VideoTestimonial />
       <Services />
       <BoneHealth />
       <Testimonials />

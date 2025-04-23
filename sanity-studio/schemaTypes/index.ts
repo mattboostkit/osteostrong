@@ -7,6 +7,9 @@ import imageGallery from './imageGallery'
 import siteImage from './siteImage'
 import teamMember from './teamMember'
 import facilityGallery from './facilityGallery'
+import service from './service'
+import testimonial from './testimonial'
+import pageImage from './pageImage'
 
 export const schemaTypes = [
   post,
@@ -17,5 +20,8 @@ export const schemaTypes = [
   imageGallery,
   siteImage,
   teamMember,
-  facilityGallery
+  facilityGallery,
+  service,
+  testimonial,
+  pageImage
 ]

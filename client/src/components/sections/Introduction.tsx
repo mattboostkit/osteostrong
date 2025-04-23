@@ -9,7 +9,7 @@ const features = [
   {
     icon: "fas fa-dumbbell",
     title: "Increased Strength",
-    description: "Experience significant strength improvements in just one 10-minute session per week."
+    description: "Experience significant strength improvements in just one 15-minute session per week."
   },
   {
     icon: "fas fa-balance-scale",
@@ -33,7 +33,7 @@ const Introduction = () => {
             OsteoStrong is a unique system that helps you develop stronger bones, improved strength, and better balance, while reducing joint and back pain.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <Card key={index} className="bg-neutral-100 rounded-xl transition-all hover:shadow-lg">

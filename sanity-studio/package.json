@@ -11,7 +11,11 @@
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
     "create-blog-posts": "node scripts/create-blog-posts.js",
-    "delete-duplicate-posts": "node scripts/delete-duplicate-posts.js"
+    "delete-duplicate-posts": "node scripts/delete-duplicate-posts.js",
+    "create-services": "node scripts/create-services.js",
+    "create-testimonial": "node scripts/create-testimonial.js",
+    "create-page-images": "node scripts/create-page-images.js",
+    "check-page-images": "node scripts/check-page-images.js"
   },
   "keywords": [
     "sanity"

@@ -7,9 +7,13 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="icon" href="/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" href="/favicon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="msapplication-TileImage" content="/favicon-192x192.png" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="mobile-web-app-capable" content="yes" />
+    <script src="https://www.osteostrongtw.co.uk/wp-includes/js/wp-emoji-release.min.js?ver=6.8" defer></script>
   </head>
   <body>
     <div id="root"></div>
@@ -17,6 +21,15 @@
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
     <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
     <!-- ReputationHub Reviews Widget Script -->
-    <script type="text/javascript" src="https://reputationhub.site/reputation/assets/review-widget.js"></script>
+    <script type="text/javascript" src="https://reputationhub.site/reputation/assets/review-widget.js" async></script>
+    <style>
+      /* Custom styles for the ReputationHub widget */
+      .lc_reviews_widget {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+      }
+    </style>
   </body>
 </html>

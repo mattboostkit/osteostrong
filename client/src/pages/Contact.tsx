@@ -1,73 +1,7 @@
-import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
-
-// Form schema
-const contactSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
-  email: z.string().email({ message: "Please enter a valid email address" }),
-  phone: z.string().optional(),
-  subject: z.string().min(2, { message: "Subject must be at least 2 characters" }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters" }),
-});
-
-// Form type
-type ContactValues = z.infer<typeof contactSchema>;
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const form = useForm<ContactValues>({
-    resolver: zodResolver(contactSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    },
-  });
-
-  const onSubmit = async (data: ContactValues) => {
-    setIsSubmitting(true);
-    
-    try {
-      const response = await apiRequest("POST", "/api/contact", data);
-      const result = await response.json();
-      
-      if (result.success) {
-        toast({
-          title: "Message sent successfully",
-          description: "Thank you for contacting us. We'll be in touch soon.",
-        });
-        form.reset();
-      } else {
-        toast({
-          title: "Failed to send message",
-          description: result.message || "There was a problem sending your message. Please try again.",
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "There was a problem sending your message. Please try again later.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <>
@@ -198,110 +132,27 @@ const Contact = () => {
               <Card>
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-black mb-6">Send Us A Message</h2>
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                      <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-black font-medium">Name</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="Your full name" 
-                                className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-black font-medium">Email</FormLabel>
-                            <FormControl>
-                              <Input 
-                                type="email" 
-                                placeholder="Your email address" 
-                                className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="phone"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-black font-medium">Phone (optional)</FormLabel>
-                            <FormControl>
-                              <Input 
-                                type="tel" 
-                                placeholder="Your phone number" 
-                                className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="subject"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-black font-medium">Subject</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="What is your message about?" 
-                                className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-black font-medium">Message</FormLabel>
-                            <FormControl>
-                              <Textarea 
-                                rows={5} 
-                                placeholder="Your message..." 
-                                className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <Button 
-                        type="submit" 
-                        className="bg-primary hover:bg-yellow-400 text-black font-bold py-3 px-6 rounded-full transition shadow-md w-full"
-                        disabled={isSubmitting}
-                      >
-                        {isSubmitting ? "Sending..." : "Send Message"}
-                      </Button>
-                    </form>
-                  </Form>
+                  <div style={{ height: '800px', overflow: 'hidden' }}>
+                    <iframe
+                      src="https://link.boostkit.io/widget/form/G7xk974QpQeHpxosiXrA"
+                      style={{ width: '100%', height: '100%', border: 'none', borderRadius: '3px', overflow: 'hidden' }}
+                      id="inline-G7xk974QpQeHpxosiXrA"
+                      data-layout="{'id':'INLINE'}"
+                      data-trigger-type="alwaysShow"
+                      data-trigger-value=""
+                      data-activation-type="alwaysActivated"
+                      data-activation-value=""
+                      data-deactivation-type="neverDeactivate"
+                      data-deactivation-value=""
+                      data-form-name="OsteoStrong New Site"
+                      data-height="800"
+                      data-layout-iframe-id="inline-G7xk974QpQeHpxosiXrA"
+                      data-form-id="G7xk974QpQeHpxosiXrA"
+                      title="OsteoStrong New Site"
+                      scrolling="no"
+                    ></iframe>
+                  </div>
+                  <script src="https://link.boostkit.io/js/form_embed.js"></script>
                 </CardContent>
               </Card>
             </div>
@@ -316,16 +167,17 @@ const Contact = () => {
             <h2 className="text-3xl font-bold text-black mb-6 text-center">Find Us</h2>
             <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
             <div className="rounded-xl overflow-hidden shadow-md h-[500px]">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2496.5695783343986!2d0.26348237678406967!3d51.13216083076783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df4d74c0bcd5c3%3A0x5ad5aa0e7ed272fa!2s26%20High%20St%2C%20Tunbridge%20Wells%20TN1%201UX!5e0!3m2!1sen!2suk!4v1687965843071!5m2!1sen!2suk" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen 
-                loading="lazy" 
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2496.5695783343986!2d0.26348237678406967!3d51.13216083076783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df4d74c0bcd5c3%3A0x5ad5aa0e7ed272fa!2s26%20High%20St%2C%20Tunbridge%20Wells%20TN1%201UX!5e0!3m2!1sen!2suk!4v1687965843071!5m2!1sen!2suk"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="eager"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="OsteoStrong Tunbridge Wells Location"
                 aria-label="Google Maps showing the location of OsteoStrong in Tunbridge Wells"
+                importance="high"
               ></iframe>
             </div>
           </div>
