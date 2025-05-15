@@ -5,11 +5,11 @@ import Logo from "@/components/ui/logo";
 const Footer = () => {
 
   return (
-    <footer className="bg-[#3B3B3B] text-white py-12">
+    <footer className="bg-[#3B3B3B] text-white py-8">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div>
-            <Logo variant="alt" size="large" className="mb-4" />
+            <Logo variant="alt" size="medium" className="mb-3" />
             <p className="mb-4">
               OsteoStrong is a revolutionary approach to improving bone density, strength, balance and posture in just one 15-minute session per week.
             </p>
@@ -95,25 +95,24 @@ const Footer = () => {
 
         </div>
 
-        <div className="pt-8 pb-8 border-t border-gray-700">
-          <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
-            <div className="text-center">
-              <img
-                src="https://ik.imagekit.io/boostkit/OsteoStrong/TWBA.webp?updatedAt=1745331992386"
-                alt="Tunbridge Wells Business Awards Runner Up"
-                className="h-24 w-auto mx-auto"
-              />
-              <p className="text-sm mt-2 text-neutral-300">Tunbridge Wells Business Awards Runner Up</p>
-            </div>
-          </div>
-        </div>
 
-        <div className="pt-8 border-t border-gray-700">
+
+        <div className="pt-6 border-t border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-center md:text-left">
-              <p>&copy; {new Date().getFullYear()} OsteoStrong UK. All rights reserved.</p>
-              <p className="text-sm text-neutral-300 mt-2">Company registered in England and Wales: 14093339</p>
-              <p className="text-sm text-neutral-300">Registered address: 26 High Street, Tunbridge Wells, TN1 1UX</p>
+            <div className="flex md:flex-row flex-col items-center md:items-start md:space-x-6 mb-4 md:mb-0">
+              <div className="hidden md:block">
+                <img
+                  src="https://ik.imagekit.io/boostkit/OsteoStrong/TWBA.webp?updatedAt=1745331992386"
+                  alt="Tunbridge Wells Business Awards Runner Up"
+                  className="h-16 w-auto"
+                />
+                <p className="text-xs mt-1 text-neutral-300">Tunbridge Wells Business Awards Runner Up</p>
+              </div>
+              <div className="text-center md:text-left">
+                <p>&copy; {new Date().getFullYear()} OsteoStrong UK. All rights reserved.</p>
+                <p className="text-sm text-neutral-300 mt-2">Company registered in England and Wales: 14093339</p>
+                <p className="text-sm text-neutral-300">Registered address: 26 High Street, Tunbridge Wells, TN1 1UX</p>
+              </div>
             </div>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <Link href="/privacy-policy" className="text-neutral-300 hover:text-primary transition">Privacy Policy</Link>
