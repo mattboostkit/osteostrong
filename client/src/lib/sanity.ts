@@ -7,14 +7,12 @@ const projectId = import.meta.env.VITE_SANITY_PROJECT_ID || '6ff7gi0z';
 const dataset = import.meta.env.VITE_SANITY_DATASET || 'production';
 const apiVersion = import.meta.env.VITE_SANITY_API_VERSION || '2023-05-03';
 // Token should only be included in secure environments
-const token = import.meta.env.VITE_SANITY_TOKEN || '';
-
+// No token in the client config for frontend/browser use!
 export const client = createClient({
   projectId,
   dataset,
-  apiVersion, // Use the latest API version
-  token, // Only needed if you want to update content
-  useCdn: false, // Set to true for production
+  apiVersion,
+  useCdn: true, // Use the CDN for public, read-only queries (safe for production)
 });
 
 // Set up a helper function for generating image URLs with the Sanity image pipeline
