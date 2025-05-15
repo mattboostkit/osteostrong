@@ -24,20 +24,37 @@ export function urlFor(source: SanityImageSource) {
 }
 
 // Helper function to get the full URL for a file asset (PDF, etc)
-export function getFileUrl(asset: any) {
+export function getFileUrl(asset: SanityAssetDocument) {
   if (!asset) return '';
   
-  // If the asset already has a URL property, use that
+  // If the asset has a URL, use it directly
   if (asset.url) return asset.url;
   
-  // If the asset has a _ref property, construct the URL
+  // If the asset has a _ref, use the Sanity CDN
   if (asset._ref) {
-    // Extract the file ID from the reference
-    const fileId = asset._ref.replace('file-', '').replace('-pdf', '.pdf');
-    // Construct the Sanity CDN URL
-    return `https://cdn.sanity.io/files/${projectId}/${dataset}/${fileId}`;
+    try {
+      // Try to parse the reference
+      const refParts = asset._ref.split('-');
+      if (refParts.length < 2) return '';
+      
+      // Extract file ID and extension
+      const fileId = refParts.slice(1).join('-');
+      const extension = asset.extension || 'pdf';
+      
+      // Construct the Sanity CDN URL
+      return `https://cdn.sanity.io/files/${projectId}/${dataset}/${fileId}.${extension}`;
+    } catch (error) {
+      console.error('Error constructing Sanity asset URL:', error);
+      return '';
+    }
   }
   
+  // If the asset has a path property (for local development)
+  if (asset.path) {
+    return asset.path;
+  }
+  
+  console.warn('Unsupported asset format:', asset);
   return '';
 }
 
