@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div>
-            <Logo variant="white" size="large" className="mb-4" />
+            <Logo variant="alt" size="large" className="mb-4" />
             <p className="mb-4">
               OsteoStrong is a revolutionary approach to improving bone density, strength, balance and posture in just one 15-minute session per week.
             </p>
