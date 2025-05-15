@@ -14,7 +14,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-6 relative">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight mb-6">
               Strengthen Your Bones, <span className="bg-white text-black px-2 py-1 mt-2 inline-block font-bold">Transform Your Life</span>
             </h1>
             <p className="text-xl text-black mb-8 max-w-lg">

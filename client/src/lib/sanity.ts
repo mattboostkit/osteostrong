@@ -1,6 +1,7 @@
 import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { SanityAssetDocument } from '@sanity/client';
 
 // Get environment variables with fallbacks for development
 const projectId = import.meta.env.VITE_SANITY_PROJECT_ID || '6ff7gi0z';
@@ -20,6 +21,24 @@ const builder = imageUrlBuilder(client);
 
 export function urlFor(source: SanityImageSource) {
   return builder.image(source);
+}
+
+// Helper function to get the full URL for a file asset (PDF, etc)
+export function getFileUrl(asset: any) {
+  if (!asset) return '';
+  
+  // If the asset already has a URL property, use that
+  if (asset.url) return asset.url;
+  
+  // If the asset has a _ref property, construct the URL
+  if (asset._ref) {
+    // Extract the file ID from the reference
+    const fileId = asset._ref.replace('file-', '').replace('-pdf', '.pdf');
+    // Construct the Sanity CDN URL
+    return `https://cdn.sanity.io/files/${projectId}/${dataset}/${fileId}`;
+  }
+  
+  return '';
 }
 
 // Helper function to fetch blog posts
@@ -241,7 +260,37 @@ export async function getPageImages(page: string) {
       section,
       image,
       alt,
-      description
+      caption
     }
   `, { page });
+}
+
+// Helper function to fetch a peer-reviewed study by slug
+export async function getPeerReviewedStudyBySlug(slug: string) {
+  return client.fetch(`
+    *[_type == "peerReviewedStudy" && slug.current == $slug][0]{
+      _id,
+      title,
+      slug,
+      journal,
+      publishDate,
+      description,
+      "pdfFile": pdfFile.asset->
+    }
+  `, { slug });
+}
+
+// Helper function to fetch all peer-reviewed studies
+export async function getAllPeerReviewedStudies() {
+  return client.fetch(`
+    *[_type == "peerReviewedStudy"] | order(publishDate desc) {
+      _id,
+      title,
+      slug,
+      journal,
+      publishDate,
+      description,
+      "pdfFile": pdfFile.asset->
+    }
+  `);
 }

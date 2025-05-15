@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useRoute } from "wouter";
 import { Helmet } from "react-helmet";
-import { client } from "@/lib/sanity";
-import Footer from "@/components/layout/Footer";
+import { getPeerReviewedStudyBySlug, getFileUrl } from "@/lib/sanity";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import Footer from "@/components/layout/Footer";
 
 interface PeerReviewedStudy {
   _id: string;
@@ -13,7 +13,7 @@ interface PeerReviewedStudy {
   journal?: string;
   publishDate?: string;
   description?: string;
-  pdf?: { asset: { url: string } };
+  pdfFile?: any;
 }
 
 const PeerReviewedStudyPage = () => {
@@ -27,22 +27,12 @@ const PeerReviewedStudyPage = () => {
       if (!params?.slug) return;
       try {
         setLoading(true);
-        const data = await client.fetch(
-          `*[_type == "peerReviewedStudy" && slug.current == $slug][0]{
-            _id,
-            title,
-            slug,
-            journal,
-            publishDate,
-            description,
-            pdf { asset->{url} }
-          }`,
-          { slug: params.slug }
-        );
+        const data = await getPeerReviewedStudyBySlug(params.slug);
         setStudy(data);
         // Diagnostic log to help debug PDF issues
         console.log("Fetched study:", data);
       } catch (err) {
+        console.error("Error fetching study:", err);
         setError("Could not load this study. Please try again later.");
       } finally {
         setLoading(false);
@@ -78,38 +68,45 @@ const PeerReviewedStudyPage = () => {
           {study.description && (
             <p className="text-lg text-gray-800 mb-6 max-w-2xl">{study.description}</p>
           )}
-          {study.pdf?.asset?.url ? (
+          {study.pdfFile ? (
             <div className="w-full max-w-4xl mx-auto my-8">
-              {/* Diagnostic: Show PDF URL for debugging */}
-              <div className="mb-2 text-xs text-gray-500 break-all">
-                <strong>PDF URL:</strong> {study.pdf.asset.url}
-              </div>
-              <iframe
-                src={study.pdf.asset.url}
-                title={study.title}
-                width="100%"
-                height="800px"
-                className="border rounded-lg shadow"
-                allow="autoplay"
-                onError={(e) => {
-                  // Show a warning in the UI if the PDF fails to load
-                  const warning = document.getElementById('pdf-warning');
-                  if (warning) warning.style.display = 'block';
-                }}
-              />
-              <div id="pdf-warning" style={{display:'none'}} className="text-red-600 mt-2 text-center">
-                PDF could not be loaded. It may be unpublished, private, or blocked by CORS. Try opening the URL above directly.
-              </div>
-              <div className="mt-4 text-center">
-                <a
-                  href={study.pdf.asset.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary underline hover:text-secondary"
-                >
-                  Download PDF
-                </a>
-              </div>
+              {(() => {
+                const pdfUrl = study.pdfFile.url;
+                return (
+                  <>
+                    {/* Diagnostic: Show PDF URL for debugging */}
+                    <div className="mb-2 text-xs text-gray-500 break-all">
+                      <strong>PDF URL:</strong> {pdfUrl}
+                    </div>
+                    <iframe
+                      src={pdfUrl}
+                      title={study.title}
+                      width="100%"
+                      height="800px"
+                      className="border rounded-lg shadow"
+                      allow="autoplay"
+                      onError={(e) => {
+                        // Show a warning in the UI if the PDF fails to load
+                        const warning = document.getElementById('pdf-warning');
+                        if (warning) warning.style.display = 'block';
+                      }}
+                    />
+                    <div id="pdf-warning" style={{display:'none'}} className="text-red-600 mt-2 text-center">
+                      PDF could not be loaded. It may be unpublished, private, or blocked by CORS. Try opening the URL above directly.
+                    </div>
+                    <div className="mt-4 text-center">
+                      <a
+                        href={pdfUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary underline hover:text-secondary"
+                      >
+                        Download PDF
+                      </a>
+                    </div>
+                  </>
+                );
+              })()}
             </div>
           ) : (
             <div className="text-gray-600">No PDF available for this study.</div>

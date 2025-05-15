@@ -17,8 +17,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center py-2">
           {/* Logo */}
-          <div className="flex-shrink-0 max-w-[200px] md:max-w-none">
-            <Logo variant="main" size="large" />
+          <div className="flex-shrink-0 max-w-[120px] md:max-w-[150px]">
+            <Logo variant="main" size="small" />
           </div>
 
           {/* Desktop Navigation */}
