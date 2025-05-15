@@ -40,6 +40,8 @@ const PeerReviewedStudyPage = () => {
           { slug: params.slug }
         );
         setStudy(data);
+        // Diagnostic log to help debug PDF issues
+        console.log("Fetched study:", data);
       } catch (err) {
         setError("Could not load this study. Please try again later.");
       } finally {
@@ -78,6 +80,10 @@ const PeerReviewedStudyPage = () => {
           )}
           {study.pdf?.asset?.url ? (
             <div className="w-full max-w-4xl mx-auto my-8">
+              {/* Diagnostic: Show PDF URL for debugging */}
+              <div className="mb-2 text-xs text-gray-500 break-all">
+                <strong>PDF URL:</strong> {study.pdf.asset.url}
+              </div>
               <iframe
                 src={study.pdf.asset.url}
                 title={study.title}
@@ -85,7 +91,15 @@ const PeerReviewedStudyPage = () => {
                 height="800px"
                 className="border rounded-lg shadow"
                 allow="autoplay"
+                onError={(e) => {
+                  // Show a warning in the UI if the PDF fails to load
+                  const warning = document.getElementById('pdf-warning');
+                  if (warning) warning.style.display = 'block';
+                }}
               />
+              <div id="pdf-warning" style={{display:'none'}} className="text-red-600 mt-2 text-center">
+                PDF could not be loaded. It may be unpublished, private, or blocked by CORS. Try opening the URL above directly.
+              </div>
               <div className="mt-4 text-center">
                 <a
                   href={study.pdf.asset.url}
