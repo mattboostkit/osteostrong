@@ -181,58 +181,6 @@ const Studies = () => (
         </p>
       </div>
     </section>
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-        <h2 className="text-3xl font-bold mb-6">Peer Reviewed Studies</h2>
-        <ul className="space-y-6">
-          <li>
-            <strong>Effects of high-impact exercise on bone mineral density: a randomized controlled trial in premenopausal women</strong><br/>
-            <Link href="/studies/peer-reviewed/effects-of-high-impact-exercise-on-bone" className="text-primary underline">Read More</Link>
-          </li>
-          <li>
-            <strong>Axial Bone Osteogenic Loading-Type Resistance Therapy Showing BMD and Functional Bone Performance Musculoskeletal Adaptation Over 24 Weeks with Postmenopausal Female Subjects</strong><br/>
-            <Link href="/studies/peer-reviewed/axial-bone-osteogenic-loading" className="text-primary underline">Read More</Link>
-          </li>
-          <li>
-            <strong>Load-Specific Differences In The Structure Of Femoral Neck And Tibia Between World-Class Moguls Skiers And Slalom Skiers</strong><br/>
-            <Link href="/studies/peer-reviewed/load-specific-differences-in-the-structure" className="text-primary underline">Read More</Link>
-          </li>
-          <li>
-            <strong>World Congress on Osteoporosis, Osteoarthritis and Musculoskeletal Diseases (WCO-IOFESCEO 2015): Non-sponsored Symposia Abstract</strong><br/>
-            <Link href="/studies/peer-reviewed/world-congress-on-osteoporosis" className="text-primary underline">Read More</Link>
-          </li>
-          <li>
-            <strong>Habitual Levels Of High, But Not Moderate Or Low, Impact Activity Are Positively Related To Hip BMD And Geometry: Results From A Population-Based Study Of Adolescents</strong><br/>
-            <Link href="/studies/peer-reviewed/habitual-levels-of-high-but-not-moderate" className="text-primary underline">Read More</Link>
-          </li>
-          <li>
-            <strong>Intensity Of Exercise Is Associated With Bone Density Change In Premenopausal Women</strong><br/>
-            <Link href="/studies/peer-reviewed/intensity-of-exercise-is-associated-with-bone" className="text-primary underline">Read More</Link>
-          </li>
-          <li>
-            <strong>The Effects Of Axial Bone Osteogenic Loading-Type Resistance Exercise On Adults With Risk Of Moderate-Metabolic Dysfunction: A Pilot Study</strong><br/>
-            <Link href="/studies/peer-reviewed/the-effects-of-axial-bone-osteogenic-loading" className="text-primary underline">Read More</Link>
-          </li>
-          <li>
-            <strong>A Small Amount Of Precisely Measured High-Intensity Habitual Physical Activity Predicts Bone Health In Pre And Post-Menopausal Women In UK Biobank</strong><br/>
-            <Link href="/studies/peer-reviewed/precisely-measured-high-intensity" className="text-primary underline">Read More</Link>
-          </li>
-          <li>
-            <strong>Static Tensional Forces Increase Osteogenic Gene Expression In Three-Dimensional Periodontal Ligament Cell Culture</strong><br/>
-            <Link href="/studies/peer-reviewed/static-tensional-forces-increase-osteogenic" className="text-primary underline">Read More</Link>
-          </li>
-          <li>
-            <strong>Physical Activity And Bone: May The Force Be With You</strong><br/>
-            <Link href="/studies/peer-reviewed/physical-activity-and-bone" className="text-primary underline">Read More</Link>
-          </li>
-          <li>
-            <strong>Effective Brief, Low-impact, High-intensity Osteogenic Loading in Postmenopausal Osteoporosis</strong><br/>
-            <Link href="/studies/peer-reviewed/low-impact-high-intensity" className="text-primary underline">Read More</Link>
-          </li>
-          <li>
-            <strong>Effective Brief, Low-impact, High-intensity Osteogenic Loading in Postmenopausal Osteoporosis</strong><br/>
-            The Journal of Clinical Endocrinology & Metabolism<br/>
-            Published: 17 February 2025<br/>
             <Link href="/studies/peer-reviewed/effective-osteogenic-loading" className="text-primary underline">Read More</Link>
           </li>
           <li>

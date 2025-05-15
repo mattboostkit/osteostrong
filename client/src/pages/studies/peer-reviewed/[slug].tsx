@@ -71,7 +71,7 @@ const PeerReviewedStudyPage = () => {
           {study.pdfFile ? (
             <div className="w-full max-w-4xl mx-auto my-8">
               {(() => {
-                const pdfUrl = study.pdfFile.url;
+                const pdfUrl = getFileUrl(study.pdfFile);
                 return (
                   <>
                     {/* Diagnostic: Show PDF URL for debugging */}

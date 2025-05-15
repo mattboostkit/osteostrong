@@ -9,40 +9,50 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required()
     }),
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: { source: 'title', maxLength: 96 },
-      validation: Rule => Rule.required()
+      options: { 
+        source: 'title', 
+        maxLength: 96 
+      },
+      validation: (Rule) => Rule.required()
     }),
     defineField({
       name: 'journal',
       title: 'Journal',
       type: 'string',
+      validation: (Rule) => Rule.required()
     }),
     defineField({
       name: 'publishDate',
       title: 'Publish Date',
       type: 'date',
+      validation: (Rule) => Rule.required()
     }),
     defineField({
       name: 'pdfFile',
       title: 'PDF File',
       type: 'file',
-      options: { accept: 'application/pdf' }
+      options: {
+        accept: 'application/pdf'
+      },
+      validation: (Rule) => Rule.required()
     }),
     defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
+      validation: (Rule) => Rule.required()
     }),
     defineField({
       name: 'highlighted',
       title: 'Highlighted',
       type: 'boolean',
+      initialValue: false
     })
   ]
 });

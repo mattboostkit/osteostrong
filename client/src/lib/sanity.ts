@@ -24,36 +24,45 @@ export function urlFor(source: SanityImageSource) {
 }
 
 // Helper function to get the full URL for a file asset (PDF, etc)
-export function getFileUrl(asset: SanityAssetDocument) {
-  if (!asset) return '';
-  
+export function getFileUrl(asset: any) {
+  if (!asset) {
+    console.warn('No asset provided');
+    return '';
+  }
+
   // If the asset has a URL, use it directly
-  if (asset.url) return asset.url;
-  
+  if (asset.url) {
+    console.log('Using direct URL:', asset.url);
+    return asset.url;
+  }
+
   // If the asset has a _ref, use the Sanity CDN
   if (asset._ref) {
     try {
-      // Try to parse the reference
-      const refParts = asset._ref.split('-');
-      if (refParts.length < 2) return '';
+      console.log('Processing asset reference:', asset._ref);
       
-      // Extract file ID and extension
-      const fileId = refParts.slice(1).join('-');
-      const extension = asset.extension || 'pdf';
+      // Extract file ID from reference
+      const fileId = asset._ref.replace('file-', '').replace('.pdf', '');
+      
+      // Get the asset document
+      const assetDoc = client.fetch(`*[_id == "${asset._ref}"]`);
       
       // Construct the Sanity CDN URL
-      return `https://cdn.sanity.io/files/${projectId}/${dataset}/${fileId}.${extension}`;
+      const url = `https://cdn.sanity.io/files/${projectId}/${dataset}/${fileId}.pdf`;
+      console.log('Generated CDN URL:', url);
+      return url;
     } catch (error) {
-      console.error('Error constructing Sanity asset URL:', error);
+      console.error('Error processing asset reference:', error);
       return '';
     }
   }
-  
+
   // If the asset has a path property (for local development)
   if (asset.path) {
+    console.log('Using local path:', asset.path);
     return asset.path;
   }
-  
+
   console.warn('Unsupported asset format:', asset);
   return '';
 }
