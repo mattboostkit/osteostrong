@@ -47,7 +47,7 @@ const Pricing = () => {
                 </div>
                 <CardContent className="p-8 flex flex-col flex-grow">
                   <div className="text-center mb-6">
-                    <span className="text-5xl font-bold text-black">£45</span>
+                    <span className="text-5xl font-bold text-black">£35</span>
                     <span className="text-gray-600 ml-1">/ session</span>
                     <p className="text-gray-600 mt-2">Billed based on usage</p>
                   </div>
@@ -101,7 +101,7 @@ const Pricing = () => {
                 </div>
                 <CardContent className="p-8 flex flex-col flex-grow">
                   <div className="text-center mb-6">
-                    <span className="text-5xl font-bold text-black">£55</span>
+                    <span className="text-5xl font-bold text-black">£45</span>
                     <span className="text-gray-600 ml-1">/ session</span>
                     <p className="text-gray-600 mt-2">Billed based on usage</p>
                   </div>
@@ -164,7 +164,7 @@ const Pricing = () => {
                 </div>
                 <CardContent className="p-8 flex flex-col flex-grow">
                   <div className="text-center mb-6">
-                    <span className="text-5xl font-bold text-black">£65</span>
+                    <span className="text-5xl font-bold text-black">£55</span>
                     <span className="text-gray-600 ml-1">/ session</span>
                     <p className="text-gray-600 mt-2">Billed based on usage</p>
                   </div>
