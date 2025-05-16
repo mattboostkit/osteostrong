@@ -86,36 +86,72 @@ const PeerReviewedStudies = () => {
         ) : studies && studies.length > 0 ? (
           <div className="grid md:grid-cols-2 gap-6">
             {studies.map((study) => (
-              <Card key={study._id} className="flex flex-col h-full">
-                <CardHeader>
-                  <CardTitle className="text-xl">{study.title}</CardTitle>
-                  {study.journal && (
-                    <CardDescription className="font-medium">
-                      {study.journal}
-                    </CardDescription>
+              <Card key={study._id} className="flex flex-col h-full hover:shadow-lg transition-shadow duration-200">
+                <Link href={`/science-and-studies/${study._id}`} className="flex flex-col h-full">
+                  <CardHeader className="flex-grow">
+                    <CardTitle className="text-xl hover:text-primary transition-colors">
+                      {study.title}
+                    </CardTitle>
+                    {study.journal && (
+                      <CardDescription className="font-medium">
+                        {study.journal}
+                      </CardDescription>
+                    )}
+                    {study.publishDate && (
+                      <p className="text-sm text-muted-foreground">
+                        Published: {formatDate(study.publishDate)}
+                      </p>
+                    )}
+                  </CardHeader>
+                  {study.description && (
+                    <CardContent className="flex-grow">
+                      <p className="text-sm line-clamp-3">{study.description}</p>
+                    </CardContent>
                   )}
-                  {study.publishDate && (
-                    <p className="text-sm text-muted-foreground">
-                      Published: {formatDate(study.publishDate)}
-                    </p>
-                  )}
-                </CardHeader>
-                {study.description && (
-                  <CardContent className="flex-grow">
-                    <p className="text-sm">{study.description}</p>
-                  </CardContent>
-                )}
-                {study.pdfUrl && (
                   <CardFooter>
+                    <div className="text-primary hover:underline font-medium flex items-center">
+                      <span>View Full Study</span>
+                      <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        className="h-4 w-4 ml-1" 
+                        viewBox="0 0 20 20" 
+                        fill="currentColor"
+                      >
+                        <path 
+                          fillRule="evenodd" 
+                          d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" 
+                          clipRule="evenodd" 
+                        />
+                      </svg>
+                    </div>
+                  </CardFooter>
+                </Link>
+                {study.pdfUrl && (
+                  <div className="pb-4 px-6 -mt-2">
                     <a 
                       href={study.pdfUrl} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-primary hover:underline font-medium"
+                      className="text-sm text-muted-foreground hover:text-primary hover:underline flex items-center"
+                      onClick={(e) => e.stopPropagation()}
                     >
-                      View Full Study (PDF)
+                      <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        className="h-4 w-4 mr-1" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                      >
+                        <path 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          strokeWidth={2} 
+                          d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" 
+                        />
+                      </svg>
+                      Download PDF
                     </a>
-                  </CardFooter>
+                  </div>
                 )}
               </Card>
             ))}

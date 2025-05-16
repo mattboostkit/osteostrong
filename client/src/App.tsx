@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Programs from "./pages/Programs";
 import Pricing from "./pages/Pricing";
 import Studies from "./pages/Studies";
+import StudyDetail from "./pages/StudyDetail";
 import Contact from "./pages/Contact";
 import BookNow from "@/pages/BookNow";
 
@@ -26,7 +27,8 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/programs" component={Programs} />
       <Route path="/pricing" component={Pricing} />
-      <Route path="/studies" component={Studies} />
+      <Route path="/science-and-studies" component={Studies} />
+      <Route path="/science-and-studies/:studyId" component={StudyDetail} />
       <Route path="/contact" component={Contact} />
       <Route path="/booknow" component={BookNow} />
 

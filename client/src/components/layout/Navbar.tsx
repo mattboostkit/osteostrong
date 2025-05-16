@@ -34,7 +34,7 @@ const Navbar = () => {
             </Link>
             <Link href="/pricing" className={`text-black hover:text-primary font-medium transition ${location === '/pricing' ? 'text-primary' : ''}`}>Pricing
             </Link>
-            <Link href="/studies" className={`text-black hover:text-primary font-medium transition ${location === '/studies' ? 'text-primary' : ''}`}>Studies
+            <Link href="/science-and-studies" className={`text-black hover:text-primary font-medium transition ${location === '/science-and-studies' ? 'text-primary' : ''}`}>Studies
             </Link>
             <Link href="/contact" className={`text-black hover:text-primary font-medium transition ${location === '/contact' ? 'text-primary' : ''}`}>
               Contact
