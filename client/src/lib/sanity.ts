@@ -278,16 +278,43 @@ export async function getPageImage(page: string, section: string) {
 
 // Helper function to fetch all images for a specific page
 export async function getPageImages(page: string) {
-  return client.fetch(`
-    *[_type == "pageImage" && page == $page] {
-      _id,
-      title,
-      page,
-      section,
-      image,
-      alt,
-      caption
-    }
-  `, { page });
+  const query = `*[_type == "pageImage" && page == $page] | order(_createdAt desc) {
+    _id,
+    title,
+    description,
+    "imageUrl": image.asset->url,
+    "alt": image.alt,
+    page,
+    section,
+    _createdAt
+  }`;
+  return client.fetch(query, { page });
 }
 
+// Helper function to fetch study page images
+export async function getStudyPageImages() {
+  try {
+    // Fetch all study page images at once using the 'about' page with specific section identifiers
+    const [boneDensity, strengthGain, balance, diabetes] = await Promise.all([
+      getPageImage('about', 'study-bone-density'),
+      getPageImage('about', 'study-strength-gain'),
+      getPageImage('about', 'study-balance'),
+      getPageImage('about', 'study-diabetes')
+    ]);
+
+    return {
+      boneDensityImage: boneDensity?.image,
+      strengthGainImage: strengthGain?.image,
+      balanceImage: balance?.image,
+      diabetesImage: diabetes?.image
+    };
+  } catch (error) {
+    console.error('Error fetching study page images:', error);
+    return {
+      boneDensityImage: null,
+      strengthGainImage: null,
+      balanceImage: null,
+      diabetesImage: null
+    };
+  }
+}

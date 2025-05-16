@@ -5,7 +5,8 @@ import { Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
 import { Skeleton } from "@/components/ui/skeleton";
-import { client } from "@/lib/sanity";
+import { client, getStudyPageImages } from "@/lib/sanity";
+import { urlFor } from "@/lib/sanity";
 
 // Define the Study type based on Sanity schema
 interface Study {
@@ -127,7 +128,55 @@ const PeerReviewedStudies = () => {
   );
 };
 
-const Studies = () => (
+const Studies = () => {
+  const { data: studyImages, isLoading: imagesLoading } = useQuery({
+    queryKey: ['studyPageImages'],
+    queryFn: async () => {
+      try {
+        return await getStudyPageImages();
+      } catch (err) {
+        console.error("Error fetching study page images:", err);
+        return null;
+      }
+    },
+  });
+
+  // Helper component to handle image display with loading state
+  const StudyImage = ({ 
+    image, 
+    alt, 
+    className = "" 
+  }: { 
+    image?: any; 
+    alt: string; 
+    className?: string 
+  }) => {
+    if (imagesLoading) {
+      return (
+        <div className={`bg-neutral-200 flex items-center justify-center rounded-xl mb-4 ${className}`}>
+          <Skeleton className="w-full h-full" />
+        </div>
+      );
+    }
+
+    if (!image?.asset?._ref) {
+      return (
+        <div className={`bg-neutral-200 flex items-center justify-center rounded-xl mb-4 ${className}`}>
+          <span className="text-neutral-500">[{alt} Placeholder]</span>
+        </div>
+      );
+    }
+
+    return (
+      <img 
+        src={urlFor(image).width(800).url()} 
+        alt={alt}
+        className={`w-full h-auto rounded-xl mb-4 ${className}`}
+      />
+    );
+  };
+
+  return (
   <>
     <Helmet>
       <title>Science and Studies | OsteoStrong Tunbridge Wells</title>
@@ -179,9 +228,11 @@ const Studies = () => (
               <span className="text-primary">Science</span> <span className="text-black">Review</span>
             </h2>
             {/* Placeholder for Bone Density Bar Graph */}
-            <div className="w-full max-w-md h-64 bg-neutral-200 flex items-center justify-center rounded-xl mb-4">
-              <span className="text-neutral-500">[Bone Density Bar Graph Placeholder]</span>
-            </div>
+            <StudyImage 
+              image={studyImages?.boneDensityImage} 
+              alt="Bone Density Analysis Graph"
+              className="max-w-md h-64 object-cover"
+            />
             <p className="text-xs text-neutral-600 mb-2 text-center md:text-left">
               ANALYSIS FROM 152 PEER REVIEWED STUDIES<br/>
               <span className="italic">*In each of the studies, participants also took Calcium and Vitamin D3 Supplements<br/>American College of Sports Medicine (2009) ACSM's Guidelines for Exercise Testing and Prescription, 8th ed. LWW, Philadelphia PA</span>
@@ -215,9 +266,11 @@ const Studies = () => (
           </div>
           {/* Right: Strength Gain Bar Graph Placeholder + Caption */}
           <div className="flex-1 order-1 md:order-2 flex flex-col items-center md:items-end">
-            <div className="w-full max-w-md h-48 bg-neutral-200 flex items-center justify-center rounded-xl mb-4">
-              <span className="text-neutral-500">[Strength Gain Bar Graph Placeholder]</span>
-            </div>
+            <StudyImage 
+              image={studyImages?.strengthGainImage} 
+              alt="Strength Gain Analysis Graph"
+              className="max-w-md h-48 object-cover"
+            />
             <p className="text-xs text-neutral-600 text-center md:text-right">
               ANALYSIS FROM 500 PEOPLE WITH AVERAGE AGE OF 52
             </p>
@@ -232,9 +285,11 @@ const Studies = () => (
         <div className="flex flex-col md:flex-row gap-10 md:gap-20 items-start">
           {/* Left: Balance Graph Placeholder */}
           <div className="flex-1 flex flex-col items-center md:items-start">
-            <div className="w-full max-w-md h-56 bg-neutral-200 flex items-center justify-center rounded-xl mb-4">
-              <span className="text-neutral-500">[Balance Improvement Graph Placeholder]</span>
-            </div>
+            <StudyImage 
+              image={studyImages?.balanceImage} 
+              alt="Balance Improvement Graph"
+              className="max-w-md h-56 object-cover"
+            />
             <p className="text-xs text-neutral-600 text-center md:text-left">
               IMPROVEMENT IN BALANCE TEST AFTER THE FIRST 5 SESSIONS
             </p>
@@ -261,9 +316,11 @@ const Studies = () => (
           </div>
           {/* Right: Diabetes Graph Placeholder */}
           <div className="flex-1 flex flex-col items-center md:items-end">
-            <div className="w-full max-w-md h-40 bg-neutral-200 flex items-center justify-center rounded-xl mb-4">
-              <span className="text-neutral-500">[Type 2 Diabetes Bar Graph Placeholder]</span>
-            </div>
+            <StudyImage 
+              image={studyImages?.diabetesImage} 
+              alt="Type 2 Diabetes Research Graph"
+              className="max-w-md h-40 object-cover"
+            />
             <p className="text-xs text-neutral-600 text-center md:text-right">
               DATA COLLECTED FROM PEER REVIEWED CLINICAL STUDIES
             </p>
@@ -309,6 +366,7 @@ const Studies = () => (
     {/* Peer Reviewed Studies Section */}
     <PeerReviewedStudies />
   </>
-);
+  );
+};
 
 export default Studies;

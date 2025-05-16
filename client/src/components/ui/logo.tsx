@@ -18,7 +18,9 @@ const Logo = ({ variant = 'main', className = '', linkTo = '/', size = 'medium' 
     const fetchLogo = async () => {
       try {
         setLoading(true);
+        console.log('Fetching logo from Sanity...');
         const data = await getSiteLogo();
+        console.log('Logo data received:', data);
         setLogoData(data);
       } catch (err) {
         console.error('Error fetching logo:', err);
