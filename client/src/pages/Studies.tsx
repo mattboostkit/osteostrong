@@ -1,7 +1,131 @@
 import { Helmet } from "react-helmet";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import { useQuery } from "@tanstack/react-query";
+import { format } from "date-fns";
+import { Skeleton } from "@/components/ui/skeleton";
+import { client } from "@/lib/sanity";
+
+// Define the Study type based on Sanity schema
+interface Study {
+  _id: string;
+  title: string;
+  journal?: string;
+  publishDate?: string;
+  description?: string;
+  pdfUrl?: string;
+}
+
+// Component to fetch and display studies from Sanity
+const PeerReviewedStudies = () => {
+  const { data: studies, isLoading, error } = useQuery<Study[]>({
+    queryKey: ['peerReviewedStudies'],
+    queryFn: async () => {
+      try {
+        const query = `*[_type == "peerReviewedStudy"] | order(publishDate desc) {
+          _id,
+          title,
+          journal,
+          publishDate,
+          description,
+          "pdfUrl": pdfFile.asset->url
+        }`;
+        
+        return await client.fetch(query);
+      } catch (err) {
+        console.error("Error fetching studies:", err);
+        throw new Error("Failed to load studies. Please try again later.");
+      }
+    },
+  });
+
+  if (error) {
+    return (
+      <div className="text-center py-8 text-red-500">
+        Error loading studies. Please try again later.
+      </div>
+    );
+  }
+
+  const formatDate = (dateString?: string) => {
+    if (!dateString) return '';
+    try {
+      return format(new Date(dateString), 'MMMM d, yyyy');
+    } catch (e) {
+      return dateString;
+    }
+  };
+
+  return (
+    <section className="py-16 bg-white">
+      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+        <h2 className="text-3xl font-bold mb-8 text-center">
+          <span className="text-primary">Peer-Reviewed</span> Research Studies
+        </h2>
+        
+        {isLoading ? (
+          <div className="grid md:grid-cols-2 gap-6">
+            {[1, 2, 3, 4].map((i) => (
+              <Card key={i} className="h-48">
+                <CardHeader>
+                  <Skeleton className="h-6 w-3/4 mb-2" />
+                  <Skeleton className="h-4 w-1/2" />
+                </CardHeader>
+                <CardContent>
+                  <Skeleton className="h-4 w-full mb-2" />
+                  <Skeleton className="h-4 w-5/6" />
+                </CardContent>
+                <CardFooter>
+                  <Skeleton className="h-10 w-32" />
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        ) : studies && studies.length > 0 ? (
+          <div className="grid md:grid-cols-2 gap-6">
+            {studies.map((study) => (
+              <Card key={study._id} className="flex flex-col h-full">
+                <CardHeader>
+                  <CardTitle className="text-xl">{study.title}</CardTitle>
+                  {study.journal && (
+                    <CardDescription className="font-medium">
+                      {study.journal}
+                    </CardDescription>
+                  )}
+                  {study.publishDate && (
+                    <p className="text-sm text-muted-foreground">
+                      Published: {formatDate(study.publishDate)}
+                    </p>
+                  )}
+                </CardHeader>
+                {study.description && (
+                  <CardContent className="flex-grow">
+                    <p className="text-sm">{study.description}</p>
+                  </CardContent>
+                )}
+                {study.pdfUrl && (
+                  <CardFooter>
+                    <a 
+                      href={study.pdfUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline font-medium"
+                    >
+                      View Full Study (PDF)
+                    </a>
+                  </CardFooter>
+                )}
+              </Card>
+            ))}
+          </div>
+        ) : (
+          <p className="text-center text-muted-foreground">No studies found.</p>
+        )}
+      </div>
+    </section>
+  );
+};
 
 const Studies = () => (
   <>
@@ -176,11 +300,14 @@ const Studies = () => (
           Bone is a live tissue, it’s not a stone, it has cells that respond to both pulling and pushing and OsteoStrong® is a method that uses a certain amount of pressure, usually 4.2 times the body weight, on the bones of the spine and the hip. Osteogenic loading effectively contributes to the enhancement of bone health. The statistically significant results provide evidence of the positive impact of OsteoStrong® in addressing osteoporosis and potentially reducing the risk of fractures.
         </p>
         <p className="mb-2 text-sm text-neutral-600">
-          Dr Nektaris Papadopoulou, Endocronologist, EMD, PhD, Researcher<br/>
+          Dr Nektaria Papadopoulou, Endocronologist, EMD, PhD, Researcher<br/>
           Dr George Chrousos, Endocronologist, MD, FAAP, MACP, MACE, MD (Hon)
         </p>
       </div>
     </section>
+    
+    {/* Peer Reviewed Studies Section */}
+    <PeerReviewedStudies />
   </>
 );
 

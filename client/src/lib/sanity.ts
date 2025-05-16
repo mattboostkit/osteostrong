@@ -291,32 +291,3 @@ export async function getPageImages(page: string) {
   `, { page });
 }
 
-// Helper function to fetch a peer-reviewed study by slug
-export async function getPeerReviewedStudyBySlug(slug: string) {
-  return client.fetch(`
-    *[_type == "peerReviewedStudy" && slug.current == $slug][0]{
-      _id,
-      title,
-      slug,
-      journal,
-      publishDate,
-      description,
-      "pdfFile": pdfFile.asset->
-    }
-  `, { slug });
-}
-
-// Helper function to fetch all peer-reviewed studies
-export async function getAllPeerReviewedStudies() {
-  return client.fetch(`
-    *[_type == "peerReviewedStudy"] | order(publishDate desc) {
-      _id,
-      title,
-      slug,
-      journal,
-      publishDate,
-      description,
-      "pdfFile": pdfFile.asset->
-    }
-  `);
-}

@@ -13,12 +13,12 @@ const Navbar = () => {
   };
 
   return (
-    <header className="bg-white shadow-md">
+    <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex justify-between items-center py-2">
+        <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <div className="flex-shrink-0 max-w-[120px] md:max-w-[150px]">
-            <Logo variant="main" size="small" />
+          <div className="flex-shrink-0 max-w-[280px] md:max-w-[350px]">
+            <Logo variant="main" size="large" />
           </div>
 
           {/* Desktop Navigation */}

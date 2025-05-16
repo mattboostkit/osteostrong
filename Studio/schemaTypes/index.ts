@@ -1,4 +1,3 @@
-import blockContent from './blockContent'
 import author from "./author";
 import blockContent from "./blockContent";
 import category from "./category";
@@ -11,7 +10,6 @@ import siteImage from "./siteImage";
 import siteLogo from "./siteLogo";
 import teamMember from "./teamMember";
 import testimonial from "./testimonial";
-import peerReviewedStudy from "./peerReviewedStudy";
 
 export const schemaTypes = [
   post,
@@ -26,5 +24,4 @@ export const schemaTypes = [
   facilityGallery,
   imageGallery,
   pageImage,
-  peerReviewedStudy,
 ];
