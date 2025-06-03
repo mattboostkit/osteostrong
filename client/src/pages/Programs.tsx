@@ -21,13 +21,19 @@ const TScoreCalculator = () => {
   const [tScore, setTScore] = useState(0);
 
   let classification = "Normal Bone Density";
-  let className = "bg-gradient-to-r from-green-500 to-green-400 text-white";
+  let bgClass = "bg-green-500";
+  let textClass = "text-white";
+  let borderClass = "border-green-600";
   if (tScore < -2.4) {
     classification = "Osteoporosis";
-    className = "bg-gradient-to-r from-red-500 to-red-400 text-white";
+    bgClass = "bg-red-600";
+    textClass = "text-white";
+    borderClass = "border-red-700";
   } else if (tScore < -1.0) {
     classification = "Osteopenia (Low Bone Density)";
-    className = "bg-gradient-to-r from-yellow-300 to-yellow-500 text-gray-900";
+    bgClass = "bg-yellow-400";
+    textClass = "text-gray-900";
+    borderClass = "border-yellow-600";
   }
 
   return (
@@ -43,9 +49,12 @@ const TScoreCalculator = () => {
           className="w-full md:w-2/3 accent-primary h-2 rounded-lg appearance-none bg-white/30 outline-none"
           aria-label="T-score slider"
         />
-        <div className={`tscore-display rounded-xl px-6 py-4 text-lg font-semibold shadow-md transition-all duration-300 mb-2 ${className}`}
-             aria-live="polite">
-          T-Score: {tScore.toFixed(1)} - {classification}
+        <div
+          className={`tscore-display rounded-2xl px-8 py-6 text-3xl font-extrabold shadow-lg transition-all duration-300 mb-2 border-4 ${bgClass} ${textClass} ${borderClass}`}
+          aria-live="polite"
+        >
+          <span className="block text-5xl font-black mb-2">{tScore.toFixed(1)}</span>
+          <span className="block text-xl font-bold tracking-wide">{classification}</span>
         </div>
       </div>
       <div className="flex flex-wrap justify-center gap-4 mb-4">
