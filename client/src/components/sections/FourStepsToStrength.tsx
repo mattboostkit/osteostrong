@@ -58,6 +58,7 @@ const FourStepsToStrength = () => {
                 <h3 className="text-xl font-semibold text-black mb-4">
                   {step.title}
                 </h3>
+
               </div>
 
               {/* Dialog for this step's video popup */}

@@ -138,13 +138,13 @@ const About = () => {
 
             <div className="prose max-w-none mb-12">
               <p className="text-lg text-gray-700 mb-6">
-                OsteoStrong was brought to the UK in 2018 after its success in the US, where it has been helping thousands of people improve their bone density, muscle strength, and overall health since 2011.
+                OsteoStrong was brought to the UK in 2023 after its success in the US, where it has been helping thousands of people improve their bone density, muscle strength, and overall health since 2011.
               </p>
               <p className="text-lg text-gray-700 mb-6">
-                Our Tunbridge Wells centre opened in 2021, with a mission to bring this revolutionary approach to skeletal strength to the local community. Since then, we've helped hundreds of people from across Kent and Sussex to improve their bone health, recover from injuries, and enhance their overall wellbeing.
+                Our Tunbridge Wells centre opened later that year as the first centre in the UK with a mission to bring this revolutionary approach to skeletal strength to the local community. Since then, we've helped hundreds of people from across Kent and Sussex and beyond to improve their bone health, recover from injuries, and enhance their overall wellbeing.
               </p>
               <p className="text-lg text-gray-700">
-                OsteoStrong's approach is based on osteogenic loading, a scientifically-proven method that triggers the body's natural adaptive response to build stronger bones and muscles. Unlike traditional exercise, our sessions take just 15 minutes once a week, making it accessible to people of all ages and fitness levels.
+                OsteoStrong's approach is based on osteogenic loading, a scientifically-proven method that triggers the body's natural adaptive response to build stronger bones and muscles. Unlike traditional exercise, our sessions take just 20 minutes once a week, making it accessible to people of all ages and fitness levels.
               </p>
             </div>
 

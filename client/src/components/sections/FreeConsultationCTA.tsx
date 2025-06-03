@@ -26,24 +26,13 @@ const FreeConsultationCTA = () => {
           {/* Right Side: Image/Video Placeholder */}
           {/* Replace this div with your actual image or video component */}
           <div className="md:w-1/2 bg-gray-300 min-h-[300px] md:min-h-full flex items-center justify-center">
-             {/* Example of an image, replace with your actual image from Sanity or local assets */}
-            <img 
-              src="https://cdn.sanity.io/images/6ff7gi0z/production/4f8a903b7a407a3a100997990a818e000b12979a-1920x1080.jpg" // Example image, replace with actual
-              alt="Consultation Visual"
-              className="w-full h-full object-cover"
-            />
-            {/* Or if it's a video like in the screenshot:
-            <div className="aspect-video w-full h-full">
-              <iframe
-                src="https://www.youtube.com/embed/YOUR_VIDEO_ID" // Replace with actual video
-                title="Consultation Video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe>
-            </div>
-            */}
+            <iframe
+              src="https://link.boostkit.io/widget/booking/dnXsEoI1ld9MNSE8Mh3p"
+              scrolling="no"
+              id="dnXsEoI1ld9MNSE8Mh3p_1745333336950"
+              style={{ width: '100%', border: 'none', overflow: 'hidden', minHeight: '700px' }}
+              title="Book a Session"
+            ></iframe>
           </div>
         </div>
       </div>

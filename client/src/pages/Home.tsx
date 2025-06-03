@@ -11,7 +11,7 @@ import Facility from "@/components/sections/Facility";
 import Locations from "@/components/sections/Locations";
 import FAQ from "@/components/sections/FAQ";
 import AsSeenOn from "@/components/sections/AsSeenOn";
-import FreeConsultationCTA from "@/components/sections/FreeConsultationCTA";
+
 import CallToAction from "@/components/sections/CallToAction";
 import ContactForm from "@/components/sections/ContactForm";
 import { Helmet } from "react-helmet";
@@ -57,7 +57,7 @@ const Home = () => {
       <About />
       <FourStepsToStrength />
       <AsSeenOn />
-      <FreeConsultationCTA />
+
       <VideoTestimonial />
       <Services />
       <BoneHealth />

@@ -1,8 +1,8 @@
 const logos = [
-  { name: "Tony Robbins", placeholder: "TR" }, // Replace with actual <img> tags
-  { name: "Forbes", placeholder: "F" },
-  { name: "Los Angeles Times", placeholder: "LAT" },
-  { name: "ABC News", placeholder: "ABC" },
+  { name: "Forbes", src: "/forbes.svg" },
+  { name: "Tony Robbins", src: "/tony-robbins.svg" },
+  { name: "TWBM", src: "/twbm.png" },
+  { name: "Wealden Times", src: "/wealden-times.png" },
 ];
 
 const AsSeenOn = () => {
@@ -16,12 +16,12 @@ const AsSeenOn = () => {
               className="flex justify-center items-center p-4"
               title={logo.name}
             >
-              {/* Placeholder for actual logo image */}
-              {/* Replace this div with your <img src="..." alt={logo.name} /> */}
-              <div className="h-12 w-32 bg-gray-200 flex items-center justify-center text-gray-500 rounded">
-                {/* For a more visual placeholder, you could use an SVG or just text */}
-                <span className="text-sm font-medium">{logo.name}</span>
-              </div>
+              <img
+                src={logo.src}
+                alt={logo.name + " logo"}
+                className="h-20 w-auto max-w-[200px] object-contain"
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
