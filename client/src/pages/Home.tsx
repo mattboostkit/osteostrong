@@ -1,6 +1,7 @@
 import Hero from "@/components/sections/Hero";
 import Introduction from "@/components/sections/Introduction";
 import About from "@/components/sections/About";
+import FourStepsToStrength from "@/components/sections/FourStepsToStrength";
 import VideoTestimonial from "@/components/sections/VideoTestimonial";
 import Services from "@/components/sections/Services";
 import BoneHealth from "@/components/sections/BoneHealth";
@@ -9,6 +10,8 @@ import Team from "@/components/sections/Team";
 import Facility from "@/components/sections/Facility";
 import Locations from "@/components/sections/Locations";
 import FAQ from "@/components/sections/FAQ";
+import AsSeenOn from "@/components/sections/AsSeenOn";
+import FreeConsultationCTA from "@/components/sections/FreeConsultationCTA";
 import CallToAction from "@/components/sections/CallToAction";
 import ContactForm from "@/components/sections/ContactForm";
 import { Helmet } from "react-helmet";
@@ -52,6 +55,9 @@ const Home = () => {
       <Hero />
       <Introduction />
       <About />
+      <FourStepsToStrength />
+      <AsSeenOn />
+      <FreeConsultationCTA />
       <VideoTestimonial />
       <Services />
       <BoneHealth />

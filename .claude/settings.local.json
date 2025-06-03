@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(diff:*)",
+      "Bash(find:*)",
+      "Bash(rm:*)"
+    ]
+  },
+  "enableAllProjectMcpServers": false
+}

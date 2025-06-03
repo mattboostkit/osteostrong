@@ -49,6 +49,34 @@ export default defineType({
       title: 'Body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'text',
+      description: 'Brief summary of the post for listings and SEO',
+      validation: Rule => Rule.max(200),
+    }),
+    defineField({
+      name: 'metaDescription',
+      title: 'Meta Description',
+      type: 'text',
+      description: 'SEO meta description (150-160 characters)',
+      validation: Rule => Rule.max(160).warning('Meta descriptions should be under 160 characters'),
+    }),
+    defineField({
+      name: 'keywords',
+      title: 'SEO Keywords',
+      type: 'array',
+      of: [{type: 'string'}],
+      description: 'Keywords for SEO (e.g., osteoporosis, bone health, osteopenia)',
+    }),
+    defineField({
+      name: 'featured',
+      title: 'Featured Post',
+      type: 'boolean',
+      description: 'Feature this post on the homepage',
+      initialValue: false,
+    }),
   ],
 
   preview: {

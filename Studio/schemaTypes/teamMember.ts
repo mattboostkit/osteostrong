@@ -1,16 +1,18 @@
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
   name: 'teamMember',
   title: 'Team Members',
   type: 'document',
   fields: [
-    {
+    defineField({
       name: 'name',
       title: 'Name',
       type: 'string',
       description: 'Full name of the team member',
       validation: Rule => Rule.required()
-    },
-    {
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -19,15 +21,36 @@ export default {
         maxLength: 96,
       },
       validation: Rule => Rule.required()
-    },
-    {
+    }),
+    defineField({
       name: 'position',
       title: 'Position',
       type: 'string',
       description: 'Job title or role',
       validation: Rule => Rule.required()
-    },
-    {
+    }),
+    defineField({
+      name: 'qualifications',
+      title: 'Professional Qualifications',
+      type: 'array',
+      of: [{type: 'string'}],
+      description: 'Professional qualifications and certifications (e.g., MD, PhD, PT)',
+    }),
+    defineField({
+      name: 'specializations',
+      title: 'Specializations',
+      type: 'array',
+      of: [{type: 'string'}],
+      description: 'Areas of expertise (e.g., osteoporosis, bone health, rehabilitation)',
+    }),
+    defineField({
+      name: 'yearsOfExperience',
+      title: 'Years of Experience',
+      type: 'number',
+      description: 'Years of professional experience',
+      validation: Rule => Rule.positive()
+    }),
+    defineField({
       name: 'image',
       title: 'Profile Image',
       type: 'image',
@@ -35,21 +58,27 @@ export default {
         hotspot: true,
       },
       description: 'Profile photo of the team member'
-    },
-    {
+    }),
+    defineField({
       name: 'bio',
       title: 'Biography',
       type: 'text',
       description: 'A brief biography of the team member'
-    },
-    {
+    }),
+    defineField({
+      name: 'detailedBio',
+      title: 'Detailed Biography',
+      type: 'blockContent',
+      description: 'Full biography with rich text formatting for team detail pages'
+    }),
+    defineField({
       name: 'order',
       title: 'Display Order',
       type: 'number',
       description: 'Order in which to display this team member (lower numbers appear first)',
       validation: Rule => Rule.required().integer().positive()
-    },
-    {
+    }),
+    defineField({
       name: 'socialLinks',
       title: 'Social Media Links',
       type: 'object',
@@ -79,7 +108,7 @@ export default {
           description: 'Twitter profile URL (optional)'
         }
       ]
-    }
+    })
   ],
   preview: {
     select: {
@@ -87,5 +116,14 @@ export default {
       subtitle: 'position',
       media: 'image'
     }
-  }
-}
+  },
+  orderings: [
+    {
+      title: 'Display Order',
+      name: 'orderAsc',
+      by: [
+        {field: 'order', direction: 'asc'}
+      ]
+    }
+  ]
+})

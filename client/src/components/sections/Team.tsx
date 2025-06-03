@@ -28,22 +28,22 @@ const Team = () => {
     {
       _id: "1",
       name: "Ryan Ashford-Smit",
-      position: "Centre Manager",
-      bio: "Dedicated to helping clients achieve their health and strength goals through the revolutionary OsteoStrong methodology.",
+      position: "Co-owner", // Updated position
+      bio: "Ryan Ashford-Smit brings a background in business and technology, with a focus on how innovation can enhance our lives. His understanding of the impact of technology on human performance aligns with OsteoStrong’s approach to improving longevity. As the co-owner of OsteoStrong flagship Centre, Ryan is passionate about helping people live stronger, safer lives through smart, science-backed solutions in a welcoming and supportive environment.", // Updated bio
       order: 1,
       imageUrl: "https://ik.imagekit.io/boostkit/OsteoStrong/Ryan.jpg?updatedAt=1745330109384"
     },
     {
       _id: "2",
       name: "Victoria Ashford-Smit",
-      position: "Centre Manager",
-      bio: "Passionate about improving clients' quality of life through OsteoStrong's unique approach to bone and muscle health.",
+      position: "Co-owner & Centre Manager", // Updated position
+      bio: "Victoria Ashford-Smit, co-owner and centre manager at OsteoStrong Tunbridge Wells, brings a wealth of experience from the worlds of dance, Pilates, Barre, and Yoga. Her background gives her a deep understanding of anatomy, posture, and movement. With a holistic approach to health and strength, Victoria is passionate about helping members feel confident and supported. She creates a warm, welcoming environment while guiding people to improve alignment, balance, and overall wellbeing through OsteoStrong’s cutting-edge system.", // Updated bio
       order: 2,
       imageUrl: "https://ik.imagekit.io/boostkit/OsteoStrong/Victoria.jpg?updatedAt=1745330109378"
     },
     {
       _id: "3",
-      name: "Vanessa",
+      name: "Vanessa", // Assuming Vanessa is still part of the team
       position: "Lead Coach",
       bio: "Specializes in guiding clients through the OsteoStrong system to achieve optimal results for bone density and overall strength.",
       order: 3,
@@ -51,13 +51,14 @@ const Team = () => {
     },
     {
       _id: "4",
-      name: "",
-      position: "",
-      bio: "",
-      order: 4
+      name: "Trey Ashford-Smit", // New member
+      position: "OsteoStrong Coach", // New position
+      bio: "Trey Ashford-Smit is a certified OsteoStrong Coach with a strong interest in sport and fitness. He brings great energy, precision, and care to every session. Trey’s attentive nature and eye for detail help members feel supported and confident. Outside the centre, he enjoys rugby and sailing. His passion for performance and results makes him a valued part of the team.", // New bio
+      order: 4 // Assigned order
+      // No imageUrl provided, component should handle this
     },
     {
-      _id: "5",
+      _id: "5", // Keeping empty slots for now
       name: "",
       position: "",
       bio: "",
