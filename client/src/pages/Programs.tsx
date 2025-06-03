@@ -5,6 +5,69 @@ import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import { client } from "@/lib/sanity";
 import imageUrlBuilder from "@sanity/image-url";
+import ScrollLink from "@/components/utils/ScrollLink";
+
+// BenefitCard component
+const BenefitCard = ({ icon, title, desc }: { icon: string; title: string; desc: string }) => (
+  <div className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center text-center transition-transform hover:-translate-y-1">
+    <div className="text-4xl mb-3" aria-hidden>{icon}</div>
+    <h4 className="font-bold text-lg mb-2 text-black">{title}</h4>
+    <p className="text-gray-700 text-base">{desc}</p>
+  </div>
+);
+
+// TScoreCalculator component
+const TScoreCalculator = () => {
+  const [tScore, setTScore] = useState(0);
+
+  let classification = "Normal Bone Density";
+  let className = "bg-gradient-to-r from-green-500 to-green-400 text-white";
+  if (tScore < -2.4) {
+    classification = "Osteoporosis";
+    className = "bg-gradient-to-r from-red-500 to-red-400 text-white";
+  } else if (tScore < -1.0) {
+    classification = "Osteopenia (Low Bone Density)";
+    className = "bg-gradient-to-r from-yellow-300 to-yellow-500 text-gray-900";
+  }
+
+  return (
+    <div>
+      <div className="flex flex-col items-center gap-4 mb-6">
+        <input
+          type="range"
+          min={-4}
+          max={2}
+          step={0.1}
+          value={tScore}
+          onChange={e => setTScore(parseFloat(e.target.value))}
+          className="w-full md:w-2/3 accent-primary h-2 rounded-lg appearance-none bg-white/30 outline-none"
+          aria-label="T-score slider"
+        />
+        <div className={`tscore-display rounded-xl px-6 py-4 text-lg font-semibold shadow-md transition-all duration-300 mb-2 ${className}`}
+             aria-live="polite">
+          T-Score: {tScore.toFixed(1)} - {classification}
+        </div>
+      </div>
+      <div className="flex flex-wrap justify-center gap-4 mb-4">
+        <div className={`bone flex flex-col items-center rounded-xl p-4 shadow-md transition-transform duration-200 ${tScore >= -1.0 ? 'scale-110 ring-2 ring-green-400' : 'bg-white'}`}>
+          <span className="text-3xl mb-2" role="img" aria-label="Strong bone">🦴</span>
+          <h5 className="font-bold text-green-600 mb-1">Strong Bones</h5>
+          <span className="text-gray-600 text-sm">T-score: -1.0 and above</span>
+        </div>
+        <div className={`bone flex flex-col items-center rounded-xl p-4 shadow-md transition-transform duration-200 ${tScore < -1.0 && tScore >= -2.4 ? 'scale-110 ring-2 ring-yellow-400' : 'bg-white'}`}>
+          <span className="text-3xl mb-2" role="img" aria-label="Osteopenia bone">🦴</span>
+          <h5 className="font-bold text-yellow-500 mb-1">Osteopenia</h5>
+          <span className="text-gray-600 text-sm">T-score: -1.1 to -2.4</span>
+        </div>
+        <div className={`bone flex flex-col items-center rounded-xl p-4 shadow-md transition-transform duration-200 ${tScore < -2.4 ? 'scale-110 ring-2 ring-red-400' : 'bg-white'}`}>
+          <span className="text-3xl mb-2" role="img" aria-label="Osteoporosis bone">🦴</span>
+          <h5 className="font-bold text-red-500 mb-1">Osteoporosis</h5>
+          <span className="text-gray-600 text-sm">T-score: -2.5 and below</span>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 // Set up a helper function for generating image URLs with the Sanity image pipeline
 const builder = imageUrlBuilder(client);
@@ -312,6 +375,92 @@ const Programs = () => {
                 </Link>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Understanding Your T-Score Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Understanding Your T-Score</h2>
+            <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+            <p className="text-lg text-gray-700">Your bone density results explained simply and clearly</p>
+          </div>
+          {/* Interactive T-Score Calculator */}
+          <div className="bg-gradient-to-br from-gray-800 to-gray-700 text-white rounded-2xl shadow-xl p-8 mb-12">
+            <h3 className="text-2xl font-bold mb-2">Interactive T-Score Calculator</h3>
+            <p className="mb-6">Move the slider below to see how different T-scores are classified:</p>
+            <TScoreCalculator />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <h3 className="text-2xl font-bold text-black mb-4">What is a T-Score?</h3>
+              <p className="text-gray-700 mb-4">A T-score is a measurement that compares your bone density to that of a healthy 30-year-old adult of the same gender. It's expressed as a number of standard deviations above or below the average.</p>
+              <p className="text-gray-700"><span className="font-semibold">Why 30 years old?</span> This is when peak bone mass is typically achieved, making it the gold standard for comparison.</p>
+            </div>
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <h3 className="text-2xl font-bold text-black mb-4">Reading Your Results</h3>
+              <div className="space-y-4">
+                <div className="p-4 border-l-4 border-green-500 bg-green-50 rounded">
+                  <span className="font-bold">Normal:</span> T-score of -1.0 and above<br />Your bones are strong and healthy
+                </div>
+                <div className="p-4 border-l-4 border-yellow-400 bg-yellow-50 rounded">
+                  <span className="font-bold">Osteopenia:</span> T-score between -1.1 and -2.4<br />Lower than normal bone density, but not osteoporosis
+                </div>
+                <div className="p-4 border-l-4 border-red-500 bg-red-50 rounded">
+                  <span className="font-bold">Osteoporosis:</span> T-score of -2.5 and below<br />Significantly low bone density with increased fracture risk
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="bg-neutral-100 rounded-2xl shadow-lg p-8 mb-12">
+            <h3 className="text-2xl font-bold text-black mb-4">How OsteoStrong Can Improve Your T-Score</h3>
+            <p className="text-gray-700 mb-8">OsteoStrong uses specialised equipment and protocols designed to trigger your body's natural bone-building response through safe, controlled loading.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+              <BenefitCard icon="💪" title="Osteogenic Loading" desc="Scientifically proven to stimulate bone growth through controlled, high-impact forces that are safe for all ages and fitness levels." />
+              <BenefitCard icon="⚡" title="Fast & Effective" desc="Just 10 minutes once a week can help improve bone density, strength, and overall skeletal health." />
+              <BenefitCard icon="🎯" title="Targeted Results" desc="Focus on the exact areas where you need improvement based on your DEXA scan results and T-scores." />
+              <BenefitCard icon="🛡️" title="Safe for Everyone" desc="No risk of injury with our bio-mechanically correct equipment and trained specialists guiding every session." />
+            </div>
+            <div className="flex flex-wrap justify-center gap-8 mb-8 text-center">
+              <div>
+                <div className="text-3xl font-bold text-primary animate-pulse">18.7%</div>
+                <div className="text-gray-700">Average spine density increase</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-primary animate-pulse">16.2%</div>
+                <div className="text-gray-700">Average hip density increase</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-primary animate-pulse">12</div>
+                <div className="text-gray-700">Months to see significant results</div>
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link href="/booknow">
+                <Button className="bg-primary hover:bg-yellow-400 text-black font-bold py-3 px-8 rounded-full transition shadow-md">
+                  Schedule Your Free Session
+                </Button>
+              </Link>
+              <Link href="/about">
+                <Button variant="secondary" className="bg-white hover:bg-neutral-200 text-black font-bold py-3 px-8 rounded-full transition shadow-md">
+                  Learn More About OsteoStrong
+                </Button>
+              </Link>
+            </div>
+          </div>
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <h3 className="text-2xl font-bold text-black mb-4">Take Action Today</h3>
+            <p className="text-gray-700 mb-4">Don't let poor bone density control your future. Whether your T-score shows normal bones that you want to keep strong, osteopenia that you want to reverse, or osteoporosis that needs immediate attention, OsteoStrong has a solution.</p>
+            <p className="text-gray-700 font-semibold mb-6">Ready to improve your T-score? Contact your local OsteoStrong center to learn how our unique approach can help you build stronger, denser bones naturally.</p>
+            <div className="flex justify-center">
+              <Link href="/locations">
+                <Button className="bg-primary hover:bg-yellow-400 text-black font-bold py-3 px-8 rounded-full transition shadow-md">
+                  Find Your Local OsteoStrong Center
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
