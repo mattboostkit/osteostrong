@@ -60,18 +60,18 @@ const TScoreCalculator = () => {
       <div className="flex flex-wrap justify-center gap-4 mb-4">
         <div className={`bone flex flex-col items-center rounded-xl p-4 shadow-md transition-transform duration-200 ${tScore >= -1.0 ? 'scale-110 ring-2 ring-green-400' : 'bg-white'}`}>
           <span className="text-3xl mb-2" role="img" aria-label="Strong bone">🦴</span>
-          <h5 className="font-bold text-green-600 mb-1">Strong Bones</h5>
-          <span className="text-gray-600 text-sm">T-score: -1.0 and above</span>
+          <h5 className="font-bold text-green-700 mb-1">Strong Bones</h5>
+          <span className="font-bold text-green-700 text-base">T-score: -1.0 and above</span>
         </div>
         <div className={`bone flex flex-col items-center rounded-xl p-4 shadow-md transition-transform duration-200 ${tScore < -1.0 && tScore >= -2.4 ? 'scale-110 ring-2 ring-yellow-400' : 'bg-white'}`}>
           <span className="text-3xl mb-2" role="img" aria-label="Osteopenia bone">🦴</span>
-          <h5 className="font-bold text-yellow-500 mb-1">Osteopenia</h5>
-          <span className="text-gray-600 text-sm">T-score: -1.1 to -2.4</span>
+          <h5 className="font-bold text-yellow-600 mb-1">Osteopenia</h5>
+          <span className="font-bold text-yellow-600 text-base">T-score: -1.1 to -2.4</span>
         </div>
         <div className={`bone flex flex-col items-center rounded-xl p-4 shadow-md transition-transform duration-200 ${tScore < -2.4 ? 'scale-110 ring-2 ring-red-400' : 'bg-white'}`}>
           <span className="text-3xl mb-2" role="img" aria-label="Osteoporosis bone">🦴</span>
-          <h5 className="font-bold text-red-500 mb-1">Osteoporosis</h5>
-          <span className="text-gray-600 text-sm">T-score: -2.5 and below</span>
+          <h5 className="font-bold text-red-600 mb-1">Osteoporosis</h5>
+          <span className="font-bold text-red-600 text-base">T-score: -2.5 and below</span>
         </div>
       </div>
     </div>
