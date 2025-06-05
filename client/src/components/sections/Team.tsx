@@ -133,20 +133,20 @@ const Team = () => {
           <div className="flex justify-center items-center h-64">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
           </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredTeamMembers.map((member) => (
-                <Card key={member._id} className="bg-white rounded-xl overflow-hidden shadow-md">
+        ) :
+          (filteredTeamMembers.length === 4 || filteredTeamMembers.length === 5 ? (
+            <div className="flex flex-wrap justify-center gap-8">
+              {filteredTeamMembers.map((member) => (
+                <Card key={member._id} className="bg-white rounded-xl overflow-hidden shadow-md flex-none" style={{ width: '350px', maxWidth: '100%' }}>
                   <div className="team-member-photo-container">
                     {member.image ? (
                       <img
                         src={urlFor(member.image).width(800).height(600).url()}
                         alt={member.name}
-                        className="team-member-photo"
+                        className="team-member-photo object-contain h-64 w-full"
                         loading="eager"
                         onError={(e) => {
                           console.error(`Failed to load Sanity image for ${member.name}`);
-                          // Fallback to imageUrl if available
                           if (member.imageUrl) {
                             e.currentTarget.src = member.imageUrl;
                           } else {
@@ -158,11 +158,10 @@ const Team = () => {
                       <img
                         src={member.imageUrl}
                         alt={member.name}
-                        className="team-member-photo"
+                        className="team-member-photo object-contain h-64 w-full"
                         loading="eager"
                         onError={(e) => {
                           console.error(`Failed to load image for ${member.name}`);
-                          // Show placeholder on error
                           e.currentTarget.style.display = 'none';
                         }}
                       />
@@ -178,9 +177,7 @@ const Team = () => {
                   <CardContent className="p-6">
                     <h3 className="text-xl font-bold text-black mb-2">{member.name}</h3>
                     <p className="text-primary font-medium mb-4">{member.position}</p>
-                    {member.bio && (
-                      <p className="text-gray-700 mb-4">{member.bio}</p>
-                    )}
+                    {member.bio && <p className="text-gray-700 mb-4">{member.bio}</p>}
                     {member.socialLinks && (
                       <div className="flex space-x-3">
                         {member.socialLinks.linkedin && (
@@ -207,12 +204,169 @@ const Team = () => {
                     )}
                   </CardContent>
                 </Card>
+              ))}
+            </div>
+          ) : (
+            <div
+              className={
+                `grid gap-8 ` +
+                (filteredTeamMembers.length === 1
+                  ? 'grid-cols-1'
+                  : filteredTeamMembers.length === 2
+                  ? 'grid-cols-2'
+                  : 'grid-cols-3')
+              }
+            >
+            {/* First row: Ryan and Victoria stretch across the top */}
+            {filteredTeamMembers.slice(0, 2).map((member) => (
+              <Card
+                key={member._id}
+                className="bg-white rounded-xl overflow-hidden shadow-md col-span-1 md:col-span-1 lg:col-span-3"
+                style={{ gridColumn: 'span 1 / span 1', ...(filteredTeamMembers.length >= 2 ? { gridColumn: 'span 1 / span 1' } : {}) }}
+              >
+                <div className="team-member-photo-container">
+                  {member.image ? (
+                    <img
+                      src={urlFor(member.image).width(800).height(600).url()}
+                      alt={member.name}
+                      className="team-member-photo object-contain h-64 w-full"
+                      loading="eager"
+                      onError={(e) => {
+                        console.error(`Failed to load Sanity image for ${member.name}`);
+                        if (member.imageUrl) {
+                          e.currentTarget.src = member.imageUrl;
+                        } else {
+                          e.currentTarget.style.display = 'none';
+                        }
+                      }}
+                    />
+                  ) : member.imageUrl ? (
+                    <img
+                      src={member.imageUrl}
+                      alt={member.name}
+                      className="team-member-photo object-contain h-64 w-full"
+                      loading="eager"
+                      onError={(e) => {
+                        console.error(`Failed to load image for ${member.name}`);
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                      <span className="text-neutral-400 mt-2">Team Member Photo</span>
+                    </div>
+                  )}
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-black mb-2">{member.name}</h3>
+                  <p className="text-primary font-medium mb-4">{member.position}</p>
+                  {member.bio && <p className="text-gray-700 mb-4">{member.bio}</p>}
+                  {member.socialLinks && (
+                    <div className="flex space-x-3">
+                      {member.socialLinks.linkedin && (
+                        <a href={member.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition">
+                          <i className="fab fa-linkedin"></i>
+                        </a>
+                      )}
+                      {member.socialLinks.facebook && (
+                        <a href={member.socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition">
+                          <i className="fab fa-facebook"></i>
+                        </a>
+                      )}
+                      {member.socialLinks.instagram && (
+                        <a href={member.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition">
+                          <i className="fab fa-instagram"></i>
+                        </a>
+                      )}
+                      {member.socialLinks.twitter && (
+                        <a href={member.socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition">
+                          <i className="fab fa-twitter"></i>
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
             ))}
+            {filteredTeamMembers.length > 2 &&
+              filteredTeamMembers.slice(2).map((member) => (
+                <Card key={member._id} className="bg-white rounded-xl overflow-hidden shadow-md">
+                  <div className="team-member-photo-container">
+                    {member.image ? (
+                      <img
+                        src={urlFor(member.image).width(800).height(600).url()}
+                        alt={member.name}
+                        className="team-member-photo object-contain h-64 w-full"
+                        loading="eager"
+                        onError={(e) => {
+                          console.error(`Failed to load Sanity image for ${member.name}`);
+                          if (member.imageUrl) {
+                            e.currentTarget.src = member.imageUrl;
+                          } else {
+                            e.currentTarget.style.display = 'none';
+                          }
+                        }}
+                      />
+                    ) : member.imageUrl ? (
+                      <img
+                        src={member.imageUrl}
+                        alt={member.name}
+                        className="team-member-photo object-contain h-64 w-full"
+                        loading="eager"
+                        onError={(e) => {
+                          console.error(`Failed to load image for ${member.name}`);
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex flex-col items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                        <span className="text-neutral-400 mt-2">Team Member Photo</span>
+                      </div>
+                    )}
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold text-black mb-2">{member.name}</h3>
+                    <p className="text-primary font-medium mb-4">{member.position}</p>
+                    {member.bio && <p className="text-gray-700 mb-4">{member.bio}</p>}
+                    {member.socialLinks && (
+                      <div className="flex space-x-3">
+                        {member.socialLinks.linkedin && (
+                          <a href={member.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition">
+                            <i className="fab fa-linkedin"></i>
+                          </a>
+                        )}
+                        {member.socialLinks.facebook && (
+                          <a href={member.socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition">
+                            <i className="fab fa-facebook"></i>
+                          </a>
+                        )}
+                        {member.socialLinks.instagram && (
+                          <a href={member.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition">
+                            <i className="fab fa-instagram"></i>
+                          </a>
+                        )}
+                        {member.socialLinks.twitter && (
+                          <a href={member.socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition">
+                            <i className="fab fa-twitter"></i>
+                          </a>
+                        )}
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              ))}
           </div>
-        )}
-      </div>
-    </section>
+        ))
+      }
+    </div>
+  </section>
   );
-};
+}
 
 export default Team;
