@@ -168,16 +168,14 @@ const Contact = () => {
             <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
             <div className="rounded-xl overflow-hidden shadow-md h-[500px]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2496.5695783343986!2d0.26348237678406967!3d51.13216083076783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df4d74c0bcd5c3%3A0x5ad5aa0e7ed272fa!2s26%20High%20St%2C%20Tunbridge%20Wells%20TN1%201UX!5e0!3m2!1sen!2suk!4v1687965843071!5m2!1sen!2suk"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5007.767539208316!2d0.27160002735648064!3d51.129051923043235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df450670a1fda1%3A0x807a08d1da3636b1!2sOsteoStrong%20Tunbridge%20Wells!5e0!3m2!1sen!2suk!4v1749113864269!5m2!1sen!2suk"
                 width="100%"
-                height="100%"
+                height="400"
                 style={{ border: 0 }}
-                allowFullScreen
-                loading="eager"
+                allowFullScreen={true}
+                loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="OsteoStrong Tunbridge Wells Location"
-                aria-label="Google Maps showing the location of OsteoStrong in Tunbridge Wells"
-                importance="high"
               ></iframe>
             </div>
           </div>

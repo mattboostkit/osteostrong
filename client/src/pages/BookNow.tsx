@@ -19,8 +19,8 @@ const BookNow = () => {
 
       <div className="py-10 bg-primary">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <h1 className="text-3xl md:text-5xl font-bold text-black mb-4">Book A Free Session</h1>
-          <p className="text-xl text-black">Take the first step towards stronger bones and improved overall health</p>
+          <h1 className="text-3xl md:text-5xl font-bold text-black mb-4">🌞 This Summer, Feel Stronger – and Save £160!</h1>
+          <p className="text-xl text-black">Join OsteoStrong Tunbridge Wells in June, July or August and we’ll waive your joining fee</p>
         </div>
       </div>
 
@@ -37,37 +37,61 @@ const BookNow = () => {
           </div>
 
           <div className="max-w-4xl mx-auto mt-12">
-            <h2 className="text-2xl font-bold text-black mb-6">What to Expect</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <h2 className="text-2xl font-bold text-black mb-6">What to Expect in Your First Session</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <Card className="bg-neutral-100 rounded-xl">
                 <CardContent className="p-6 text-center">
                   <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className="fas fa-clock text-black text-2xl"></i>
+                    <i className="fas fa-user-md text-black text-2xl"></i>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">15-Minute Sessions</h3>
-                  <p className="text-gray-600">Our sessions are designed to be quick yet effective, taking just 15 minutes of your time.</p>
+                  <h3 className="text-xl font-bold mb-2">Personal consultation</h3>
+                  <p className="text-gray-600">Discuss your goals and get expert advice tailored to you.</p>
                 </CardContent>
               </Card>
+              <Card className="bg-neutral-100 rounded-xl">
+                <CardContent className="p-6 text-center">
+                  <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i className="fas fa-dumbbell text-black text-2xl"></i>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">Introduction to the 4 core machines</h3>
+                  <p className="text-gray-600">Experience each of our unique OsteoStrong machines first-hand.</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-neutral-100 rounded-xl">
+                <CardContent className="p-6 text-center">
+                  <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i className="fas fa-bone text-black text-2xl"></i>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">Bone strength baseline measurement</h3>
+                  <p className="text-gray-600">Find out your starting point with a quick, non-invasive test.</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-neutral-100 rounded-xl">
+                <CardContent className="p-6 text-center">
+                  <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i className="fas fa-stopwatch text-black text-2xl"></i>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">All in under 30 minutes</h3>
+                  <p className="text-gray-600">Your first session is fast, friendly, and efficient.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
 
-              <Card className="bg-neutral-100 rounded-xl">
-                <CardContent className="p-6 text-center">
-                  <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className="fas fa-tshirt text-black text-2xl"></i>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">No Special Clothing</h3>
-                  <p className="text-gray-600">Come as you are! No need for workout clothes or changing facilities.</p>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-neutral-100 rounded-xl">
-                <CardContent className="p-6 text-center">
-                  <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className="fas fa-user-friends text-black text-2xl"></i>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">Guided Experience</h3>
-                  <p className="text-gray-600">A trained coach will guide you through each step of your session.</p>
-                </CardContent>
-              </Card>
+          {/* Where We Are Section */}
+          <div className="max-w-4xl mx-auto mt-16">
+            <h2 className="text-2xl font-bold text-black mb-6">Where We Are</h2>
+            <div className="rounded-xl overflow-hidden shadow-md" style={{ minHeight: '400px' }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5007.767539208316!2d0.27160002735648064!3d51.129051923043235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df450670a1fda1%3A0x807a08d1da3636b1!2sOsteoStrong%20Tunbridge%20Wells!5e0!3m2!1sen!2suk!4v1749113864269!5m2!1sen!2suk"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="OsteoStrong Tunbridge Wells Location"
+              ></iframe>
             </div>
           </div>
         </div>
