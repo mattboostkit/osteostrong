@@ -26,10 +26,10 @@ const BookNow = () => {
 
       <div className="py-16 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-4xl mx-auto bg-neutral-100 rounded-xl p-8">
+          <div className="max-w-6xl mx-auto bg-neutral-100 rounded-xl p-8">
             <iframe
               src="https://link.boostkit.io/widget/booking/dnXsEoI1ld9MNSE8Mh3p"
-              style={{ width: '100%', border: 'none', overflow: 'hidden', minHeight: '700px' }}
+              style={{ width: '100%', border: 'none', overflow: 'hidden', minHeight: '850px' }}
               scrolling="no"
               id="dnXsEoI1ld9MNSE8Mh3p_1745333336950"
             ></iframe>

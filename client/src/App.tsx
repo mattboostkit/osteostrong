@@ -19,6 +19,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/utils/ScrollToTop";
+import CookieBanner from "@/components/CookieBanner";
 
 function Router() {
   return (
@@ -52,6 +53,7 @@ function App() {
         </main>
         <Footer />
       </div>
+      <CookieBanner />
       <Toaster />
     </QueryClientProvider>
   );
