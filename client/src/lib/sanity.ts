@@ -5,10 +5,18 @@ import imageUrlBuilder from '@sanity/image-url';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { SanityAssetDocument } from '@sanity/client';
 
-// Get environment variables with fallbacks for development
-const projectId = (import.meta.env.VITE_SANITY_PROJECT_ID || process.env.VITE_SANITY_PROJECT_ID) || '6ff7gi0z';
-const dataset = (import.meta.env.VITE_SANITY_DATASET || process.env.VITE_SANITY_DATASET) || 'production';
-const apiVersion = (import.meta.env.VITE_SANITY_API_VERSION || process.env.VITE_SANITY_API_VERSION) || '2023-05-03';
+// Get environment variables with hardcoded fallbacks
+const projectId = import.meta.env.VITE_SANITY_PROJECT_ID || '6ff7gi0z';
+const dataset = import.meta.env.VITE_SANITY_DATASET || 'production';
+const apiVersion = import.meta.env.VITE_SANITY_API_VERSION || '2023-05-03';
+
+// Log configuration for debugging (remove in production)
+if (!import.meta.env.VITE_SANITY_PROJECT_ID) {
+  console.warn('VITE_SANITY_PROJECT_ID not found in environment, using default:', projectId);
+}
+if (!import.meta.env.VITE_SANITY_DATASET) {
+  console.warn('VITE_SANITY_DATASET not found in environment, using default:', dataset);
+}
 // Token should only be included in secure environments
 // No token in the client config for frontend/browser use!
 export const client = createClient({
