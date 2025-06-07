@@ -6,6 +6,16 @@ const BookNow = () => {
   // Ensure page scrolls to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // Meta Pixel InitiateCheckout Event
+    if (typeof (window as any).fbq === 'function') {
+      (window as any).fbq('track', 'InitiateCheckout', {
+        content_name: 'Free OsteoStrong Session',
+        content_category: 'Health Service',
+        value: 185.00,
+        currency: 'GBP'
+      });
+    }
   }, []);
 
   return (
