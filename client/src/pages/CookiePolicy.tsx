@@ -81,7 +81,7 @@ const CookiePolicy = () => {
               </p>
               <ul className="list-disc pl-6 mt-4">
                 <li>Email: info@osteostrongtw.co.uk</li>
-                <li>Phone: 01892 884444</li>
+                <li>Phone: 07444 298615</li>
                 <li>Address: 26 High Street, Tunbridge Wells, TN1 1UX</li>
               </ul>
             </div>

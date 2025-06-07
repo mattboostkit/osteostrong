@@ -141,7 +141,7 @@ const PrivacyPolicy = () => {
                 26 High Street<br />
                 Tunbridge Wells<br />
                 TN1 1UX<br /><br />
-                Phone: 01892 884444<br />
+                Phone: 07444 298615<br />
                 Email: info@osteostrongtw.co.uk
               </p>
             </div>

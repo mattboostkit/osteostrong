@@ -8,8 +8,8 @@ const Locations = () => {
     description: "Our centre located in the heart of Tunbridge Wells.",
     image: "https://ik.imagekit.io/boostkit/OsteoStrong/OsteoStrong%20TW.jpg?updatedAt=1745332732825",
     address: "26 High St, Tunbridge Wells TN1 1UX",
-    phone: "01892 884444",
-    hours: "Mon-Fri: 9am-6pm, Sat: 10am-4pm"
+    phone: "07444 298615",
+    hours: `Monday: 9 am – 3 pm\nTuesday: 9 am – 3 pm\nWednesday: Closed\nThursday: 12 – 7 pm\nFriday: 9 am – 3 pm\nSaturday: 9 am – 12 pm\nSunday: Closed`
   };
 
   return (
