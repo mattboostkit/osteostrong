@@ -9,7 +9,7 @@ interface ScrollLinkProps {
 }
 
 // Custom Link component that scrolls to top when clicked
-const ScrollLink: React.FC<ScrollLinkProps> = ({ href, children, className, onClick, ...props }) => {
+const ScrollLink: React.FC<ScrollLinkProps> = ({ href, children, className, onClick }) => {
   const [, navigate] = useLocation();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -26,10 +26,8 @@ const ScrollLink: React.FC<ScrollLinkProps> = ({ href, children, className, onCl
   };
 
   return (
-    <Link href={href}>
-      <a className={className} onClick={handleClick} {...props}>
-        {children}
-      </a>
+    <Link href={href} className={className} onClick={handleClick}>
+      {children}
     </Link>
   );
 };

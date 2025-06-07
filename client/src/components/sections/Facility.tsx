@@ -49,30 +49,30 @@ const Facility = () => {
     {
       _key: "1",
       alt: "OsteoStrong Reception Area",
-      caption: "Our welcoming reception area",
-      area: "reception",
+      caption: "Reception",
+      area: "Reception",
       asset: { _ref: "" },
       imageUrl: "https://ik.imagekit.io/boostkit/OsteoStrong/Reception.jpg?updatedAt=1745332554535"
     },
     {
       _key: "2",
-      alt: "OsteoStrong Training Equipment",
-      caption: "State-of-the-art OsteoStrong equipment",
-      area: "equipment",
+      alt: "Activation Floor - Spectrum and Power Plates",
+      caption: "Spectrum and Power Plates",
+      area: "Activation Floor",
       asset: { _ref: "" },
       imageUrl: "https://ik.imagekit.io/boostkit/OsteoStrong/Equipment.jpg?updatedAt=1745332554478"
     },
     {
       _key: "3",
-      alt: "OsteoStrong Downstairs Area",
-      caption: "Downstairs",
-      area: "downstairs",
+      alt: "Rejuvenation Floor - Wellness Systems",
+      caption: "Wellness Systems",
+      area: "Rejuvenation Floor",
       asset: { _ref: "" },
       imageUrl: "https://ik.imagekit.io/boostkit/OsteoStrong/Downstairs.jpg?updatedAt=1745332554288"
     }
   ];
 
-  const displayImages = facilityGallery?.images?.length > 0
+  const displayImages = (facilityGallery && facilityGallery.images && facilityGallery.images.length > 0)
     ? facilityGallery.images
     : fallbackImages;
 
@@ -83,7 +83,7 @@ const Facility = () => {
     <section id="facility" className="py-16 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Our Facility</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Our Facilities</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             {facilityGallery?.description ||
               "Take a look inside our state-of-the-art OsteoStrong centre in Tunbridge Wells, equipped with the latest technology to help you achieve optimal bone and muscle health."}
@@ -132,16 +132,16 @@ const Facility = () => {
                   )}
                   {image.area && (
                     <div className="absolute top-4 right-4 bg-primary text-black px-3 py-1 rounded-full text-sm font-medium">
-                      {image.area.charAt(0).toUpperCase() + image.area.slice(1)}
+                      {image.area}
                     </div>
                   )}
                 </div>
                 <div className="p-4 bg-white text-center">
                   <p className="text-gray-700 font-medium">
-                    {image.caption ||
-                     (image.area === 'reception' ? 'Our welcoming reception area' :
-                      image.area === 'equipment' ? 'State-of-the-art OsteoStrong equipment' :
-                      image.area === 'downstairs' ? 'Downstairs' :
+                    {image.caption || 
+                     (image.area === 'Reception' ? 'Reception' :
+                      image.area === 'Activation Floor' ? 'Spectrum and Power Plates' :
+                      image.area === 'Rejuvenation Floor' ? 'Wellness Systems' :
                       'OsteoStrong Facility')}
                   </p>
                 </div>

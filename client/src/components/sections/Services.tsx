@@ -10,7 +10,7 @@ const fallbackServices = [
   {
     title: "Core OsteoStrong Session",
     description: "Our foundational service: a 15-minute session using our patented biomechanical equipment to trigger osteogenic loading.",
-    imageUrl: "https://ik.imagekit.io/boostkit/OsteoStrong/Core%20OsteoStrong%20Session.jpg?updatedAt=1745330681219",
+    imageUrl: "https://cdn.sanity.io/images/6ff7gi0z/production/230c01892689ba675a3e1d0c5a7860a24ff3c027-2500x1668.webp", // Updated image
     features: [
       "Four specialised biomechanical devices",
       "Guided by certified OsteoStrong coach",
@@ -20,13 +20,15 @@ const fallbackServices = [
     ctaLink: "/booknow"
   },
   {
-    title: "Performance Assessment",
-    description: "Comprehensive evaluation of your current bone density, muscular strength, and balance to establish baselines and track improvement.",
-    imageUrl: "https://ik.imagekit.io/boostkit/OsteoStrong/Performance%20Assessment.jpg?updatedAt=1745330681149",
+    title: "Whole Body Vibration", // New service
+    description: "Power Plate Whole Body Vibration is used to activate your body and your nervous system at the beginning and at the end of your session. This helps opens new neural pathways, to improve proprioception for better stability and muscle and joint health.",
+    imageUrl: "https://ik.imagekit.io/boostkit/OsteoStrong/Core%20OsteoStrong%20Session.jpg?updatedAt=1745330681219", // Image from old Core OsteoStrong Session
     features: [
-      "Detailed initial assessment",
-      "Regular progress tracking",
-      "Personalised improvement plan"
+      "Improved balance",
+      "Improved circulation",
+      "Improved Joint Health",
+      "Improved Muscle Health",
+      "Improved Bone Health"
     ],
     ctaText: "Book A Free Session",
     ctaLink: "/booknow"
@@ -50,7 +52,9 @@ const fallbackServices = [
     features: [
       "Accelerated recovery time",
       "Reduced muscle fatigue",
-      "Enhanced lymphatic drainage"
+      "Enhanced lymphatic drainage",
+      "Improves Circulation",
+      "Reduces stiffness and muscle tension"
     ],
     ctaText: "Book A Free Session",
     ctaLink: "/booknow"
@@ -62,7 +66,11 @@ const fallbackServices = [
     features: [
       "Skin rejuvenation",
       "Reduced joint pain",
-      "Enhanced cellular function"
+      "Enhanced cellular function",
+      "Reduces Inflammation",
+      "Improves blood circulation",
+      "Improves Energy level",
+      "Enhances Recovery and Healing"
     ],
     ctaText: "Book A Free Session",
     ctaLink: "/booknow"

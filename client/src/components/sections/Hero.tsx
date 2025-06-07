@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import Typewriter from 'typewriter-effect';
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/ui/logo";
 import ScrollLink from "@/components/utils/ScrollLink";
@@ -15,7 +16,20 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight mb-6">
-              Strengthen Your Bones, <span className="bg-white text-black px-2 py-1 mt-2 inline-block font-bold">Transform Your Life</span>
+              <Typewriter
+                options={{
+                  strings: ['Strengthen Your Bones, <span class="bg-white text-black px-2 py-1 mt-2 inline-block font-bold">Transform Your Life</span>'],
+                  autoStart: true,
+                  loop: false,
+                  delay: 50,
+                  deleteSpeed: Infinity // Prevents deleting the text
+                }}
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString('Strengthen Your Bones, <span class="bg-white text-black px-2 py-1 mt-2 inline-block font-bold">Transform Your Life</span>')
+                    .start();
+                }}
+              />
             </h1>
             <p className="text-xl text-black mb-8 max-w-lg">
               OsteoStrong is a non-pharmaceutical, non-invasive solution to build stronger bones, improved muscle strength and balance, and reduced joint and back pain.
@@ -26,7 +40,7 @@ const Hero = () => {
                   Book A Free Session
                 </Button>
               </ScrollLink>
-              <Link href="#learn-more">
+              <Link href="/programs">
                 <Button variant="secondary" className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-6 rounded-full transition shadow-md text-center w-full sm:w-auto">
                   Learn More
                 </Button>

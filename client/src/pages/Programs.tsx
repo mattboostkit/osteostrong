@@ -123,22 +123,22 @@ const Programs = () => {
     <>
       <Helmet>
         <title>Programs | OsteoStrong Tunbridge Wells</title>
-        <meta name="description" content="Explore the OsteoStrong programs in Tunbridge Wells, including our core skeletal strengthening sessions, performance assessments, PEMF therapy, compression boots, and red light therapy." />
-        <meta name="keywords" content="OsteoStrong programs, osteogenic loading, bone strengthening, performance assessment, PEMF therapy, compression boots, red light therapy, Tunbridge Wells" />
+        <meta name="description" content="Explore the OsteoStrong programs in Tunbridge Wells, including our core skeletal strengthening sessions, Whole Body Vibration, PEMF therapy, compression boots, and red light therapy." />
+        <meta name="keywords" content="OsteoStrong programs, osteogenic loading, bone strengthening, Whole Body Vibration, PEMF therapy, compression boots, red light therapy, Tunbridge Wells" />
         <link rel="canonical" href="https://www.osteostrongtw.co.uk/programs" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.osteostrongtw.co.uk/programs" />
         <meta property="og:title" content="Programs | OsteoStrong Tunbridge Wells" />
-        <meta property="og:description" content="Explore the OsteoStrong programs in Tunbridge Wells, including our core skeletal strengthening sessions, performance assessments, PEMF therapy, compression boots, and red light therapy." />
+        <meta property="og:description" content="Explore the OsteoStrong programs in Tunbridge Wells, including our core skeletal strengthening sessions, Whole Body Vibration, PEMF therapy, compression boots, and red light therapy." />
         <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/programs-header.jpg" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://www.osteostrongtw.co.uk/programs" />
         <meta name="twitter:title" content="Programs | OsteoStrong Tunbridge Wells" />
-        <meta name="twitter:description" content="Explore the OsteoStrong programs in Tunbridge Wells, including our core skeletal strengthening sessions, performance assessments, PEMF therapy, compression boots, and red light therapy." />
+        <meta name="twitter:description" content="Explore the OsteoStrong programs in Tunbridge Wells, including our core skeletal strengthening sessions, Whole Body Vibration, PEMF therapy, compression boots, and red light therapy." />
         <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/programs-header.jpg" />
       </Helmet>
 
@@ -208,7 +208,7 @@ const Programs = () => {
             {/* Program 1 */}
             <Card className="overflow-hidden">
               <img
-                src="https://ik.imagekit.io/boostkit/OsteoStrong/Core%20OsteoStrong%20Session.jpg?updatedAt=1745330681219"
+                src="https://cdn.sanity.io/images/6ff7gi0z/production/230c01892689ba675a3e1d0c5a7860a24ff3c027-2500x1668.webp"
                 alt="Core OsteoStrong Session"
                 className="h-64 w-full object-cover"
               />
@@ -238,23 +238,23 @@ const Programs = () => {
             {/* Program 2 */}
             <Card className="overflow-hidden">
               <img
-                src="https://ik.imagekit.io/boostkit/OsteoStrong/Performance%20Assessment.jpg?updatedAt=1745330681149"
-                alt="Performance Assessment"
+                src="https://ik.imagekit.io/boostkit/OsteoStrong/Core%20OsteoStrong%20Session.jpg?updatedAt=1745330681219" 
+                alt="Whole Body Vibration"
                 className="h-64 w-full object-cover"
               />
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-black mb-4">Performance Assessment</h3>
+                <h3 className="text-2xl font-bold text-black mb-4">Whole Body Vibration</h3>
                 <p className="text-gray-700 mb-6">
-                  Our comprehensive performance assessment evaluates your current bone density, muscular strength, balance, and posture. This data-driven approach allows us to create a personalised OsteoStrong program tailored to your specific needs and goals, and to track your progress over time.
+                  Power Plate Whole Body Vibration is used to activate your body and your nervous system at the beginning and at the end of your session. This helps opens new neural pathways, to improve proprioception for better stability and muscle and joint health.
                 </p>
                 <div className="bg-neutral-100 p-4 rounded-lg mb-6">
-                  <h4 className="font-bold text-black mb-2">Includes:</h4>
+                  <h4 className="font-bold text-black mb-2">Benefits:</h4>
                   <ul className="list-disc pl-5 space-y-1 text-gray-700">
-                    <li>Ultrasound heel bone scan</li>
-                    <li>Functional strength testing</li>
-                    <li>Balance assessment</li>
-                    <li>Posture analysis</li>
-                    <li>Personalised programme recommendation</li>
+                    <li>Improved balance</li>
+                    <li>Improved circulation</li>
+                    <li>Improved Joint Health</li>
+                    <li>Improved Muscle Health</li>
+                    <li>Improved Bone Health</li>
                   </ul>
                 </div>
                 <Link href="/booknow">
@@ -314,6 +314,7 @@ const Programs = () => {
                     <li>Reduced muscle fatigue and soreness</li>
                     <li>Enhanced lymphatic drainage</li>
                     <li>Improved circulation</li>
+                    <li>Reduces stiffness and muscle tension</li>
                     <li>Ideal for athletes and active individuals</li>
                   </ul>
                 </div>
@@ -344,6 +345,9 @@ const Programs = () => {
                     <li>Reduced joint pain and inflammation</li>
                     <li>Enhanced cellular function and energy</li>
                     <li>Improved tissue healing</li>
+                    <li>Reduces Inflammation</li>
+                    <li>Improves blood circulation</li>
+                    <li>Enhances Recovery and Healing</li>
                     <li>Complementary to OsteoStrong sessions</li>
                   </ul>
                 </div>
@@ -428,17 +432,17 @@ const Programs = () => {
             <p className="text-gray-700 mb-8">OsteoStrong uses specialised equipment and protocols designed to trigger your body's natural bone-building response through safe, controlled loading.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
               <BenefitCard icon="💪" title="Osteogenic Loading" desc="Scientifically proven to stimulate bone growth through controlled, high-impact forces that are safe for all ages and fitness levels." />
-              <BenefitCard icon="⚡" title="Fast & Effective" desc="Just 10 minutes once a week can help improve bone density, strength, and overall skeletal health." />
+              <BenefitCard icon="⚡" title="Fast & Effective" desc="Just 15 minutes once a week can help improve bone density, strength, and overall skeletal health." />
               <BenefitCard icon="🎯" title="Targeted Results" desc="Focus on the exact areas where you need improvement based on your DEXA scan results and T-scores." />
               <BenefitCard icon="🛡️" title="Safe for Everyone" desc="No risk of injury with our bio-mechanically correct equipment and trained specialists guiding every session." />
             </div>
             <div className="flex flex-wrap justify-center gap-8 mb-8 text-center">
               <div>
-                <div className="text-3xl font-bold text-primary animate-pulse">18.7%</div>
+                <div className="text-3xl font-bold text-primary animate-pulse">9.7%</div>
                 <div className="text-gray-700">Average spine density increase</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-primary animate-pulse">16.2%</div>
+                <div className="text-3xl font-bold text-primary animate-pulse">8.1%</div>
                 <div className="text-gray-700">Average hip density increase</div>
               </div>
               <div>
@@ -462,11 +466,11 @@ const Programs = () => {
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <h3 className="text-2xl font-bold text-black mb-4">Take Action Today</h3>
             <p className="text-gray-700 mb-4">Don't let poor bone density control your future. Whether your T-score shows normal bones that you want to keep strong, osteopenia that you want to reverse, or osteoporosis that needs immediate attention, OsteoStrong has a solution.</p>
-            <p className="text-gray-700 font-semibold mb-6">Ready to improve your T-score? Contact your local OsteoStrong center to learn how our unique approach can help you build stronger, denser bones naturally.</p>
+            <p className="text-gray-700 font-semibold mb-6">Ready to improve your T-score? Contact OsteoStrong Tunbridge Wells today to learn how our unique approach can help you build stronger, denser bones naturally.</p>
             <div className="flex justify-center">
               <Link href="/locations">
                 <Button className="bg-primary hover:bg-yellow-400 text-black font-bold py-3 px-8 rounded-full transition shadow-md">
-                  Find Your Local OsteoStrong Center
+                  Schedule Your Free Session
                 </Button>
               </Link>
             </div>

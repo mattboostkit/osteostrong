@@ -5,9 +5,9 @@ import Logo from "@/components/ui/logo";
 const Footer = () => {
 
   return (
-    <footer className="bg-[#3B3B3B] text-white py-8">
+    <footer className="bg-[#3B3B3B] text-white py-10 md:py-12">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <div>
             <div className="max-w-[180px] md:max-w-[220px]">
               <Logo variant="alt" size="medium" className="mb-3" />
@@ -94,29 +94,41 @@ const Footer = () => {
             </ul>
           </div>
 
+          <div>
+            <h3 className="text-xl font-bold mb-4">Our Affiliations</h3>
+            <div className="flex flex-col items-start space-y-4">
+              <a href="https://tunbridgewellsbusinessawards.uk/results/" target="_blank" rel="noopener noreferrer" aria-label="Tunbridge Wells Business Association">
+                <img 
+                  src="https://ik.imagekit.io/boostkit/OsteoStrong/TWBA.webp?updatedAt=1745331992386" 
+                  alt="Tunbridge Wells Business Association Logo" 
+                  className="h-24 object-contain transition-opacity hover:opacity-80" 
+                />
+              </a>
+              <a href="https://www.thetncard.com/osteostrong" target="_blank" rel="noopener noreferrer" aria-label="TN Card">
+                <img 
+                  src="https://ik.imagekit.io/boostkit/OsteoStrong/TN_Card.png?updatedAt=1749306955100" 
+                  alt="TN Card Logo" 
+                  className="h-12 object-contain transition-opacity hover:opacity-80" 
+                />
+              </a>
+            </div>
+          </div>
 
         </div>
 
 
 
-        <div className="pt-6 border-t border-gray-700">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex md:flex-row flex-col items-center md:items-start md:space-x-6 mb-4 md:mb-0">
-              <div className="hidden md:block">
-                <img
-                  src="https://ik.imagekit.io/boostkit/OsteoStrong/TWBA.webp?updatedAt=1745331992386"
-                  alt="Tunbridge Wells Business Awards Runner Up"
-                  className="h-16 w-auto"
-                />
-                <p className="text-xs mt-1 text-neutral-300">Tunbridge Wells Business Awards Runner Up</p>
-              </div>
-              <div className="text-center md:text-left">
-                <p>&copy; {new Date().getFullYear()} OsteoStrong UK. All rights reserved.</p>
-                <p className="text-sm text-neutral-300 mt-2">Company registered in England and Wales: 14093339</p>
-                <p className="text-sm text-neutral-300">Registered address: 26 High Street, Tunbridge Wells, TN1 1UX</p>
-              </div>
+        <div className="pt-8 mt-8 border-t border-neutral-700">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-start text-sm gap-6 md:gap-4">
+            {/* Center: Copyright & Company Info */}
+            <div className="text-center md:text-left order-1 md:order-2 flex-grow md:flex-grow-0">
+              <p className="text-neutral-300">&copy; {new Date().getFullYear()} OsteoStrong UK. All rights reserved.</p>
+              <p className="text-xs text-neutral-400 mt-1">Company registered in England and Wales: 14093339</p>
+              <p className="text-xs text-neutral-400">Registered address: 26 High Street, Tunbridge Wells, TN1 1UX</p>
             </div>
-            <div className="flex space-x-4 mt-4 md:mt-0">
+
+            {/* Right: Legal Links */}
+            <div className="flex space-x-4 order-2 md:order-3">
               <Link href="/privacy-policy" className="text-neutral-300 hover:text-primary transition">Privacy Policy</Link>
               <Link href="/cookie-policy" className="text-neutral-300 hover:text-primary transition">Cookie Policy</Link>
               <Link href="/blog" className="text-neutral-300 hover:text-primary transition">Blog</Link>
