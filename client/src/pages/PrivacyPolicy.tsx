@@ -23,10 +23,20 @@ const PrivacyPolicy = () => {
         <link rel="canonical" href="https://www.osteostrongtw.co.uk/privacy-policy" />
       </Helmet>
 
-      <div className="py-12 bg-neutral-100">
+      {/* Hero Section */}
+      <section className="py-16 bg-primary">
+        <div className="container mx-auto px-4 md:px-6 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-black mb-6">Privacy Policy</h1>
+          <p className="text-xl text-black max-w-3xl mx-auto">
+            How we collect, use, and protect your personal information
+          </p>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <div className="py-16 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-sm p-8 md:p-12">
-            <h1 className="text-3xl md:text-4xl font-bold text-black mb-6">Privacy Policy</h1>
+          <div className="max-w-4xl mx-auto">
             <p className="text-gray-600 mb-8">Last Updated: 17 April 2025</p>
             
             <div className="prose max-w-none text-gray-600">

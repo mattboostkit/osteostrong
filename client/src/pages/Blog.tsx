@@ -95,7 +95,7 @@ const Blog = () => {
       </Helmet>
 
       {/* Blog Header */}
-      <div className="py-10 bg-primary">
+      <div className="py-16 bg-primary">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <h1 className="text-3xl md:text-5xl font-bold text-black mb-4">The OsteoStrong Blog</h1>
           <p className="text-xl text-black max-w-3xl mx-auto">

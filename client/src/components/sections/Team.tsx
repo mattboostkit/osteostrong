@@ -142,7 +142,7 @@ const Team = () => {
                     {member.image ? (
                       <img
                         src={urlFor(member.image).width(350).height(300).fit('crop').crop('entropy').url()}
-                        alt={member.name}
+                        alt={`${member.name}, ${member.position} at OsteoStrong Tunbridge Wells`}
                         className="team-member-photo rounded-lg"
                         loading="eager"
                         onError={(e) => {
@@ -157,7 +157,7 @@ const Team = () => {
                     ) : member.imageUrl ? (
                       <img
                         src={member.imageUrl}
-                        alt={member.name}
+                        alt={`${member.name}, ${member.position} at OsteoStrong Tunbridge Wells`}
                         className="team-member-photo rounded-lg"
                         loading="eager"
                         onError={(e) => {
@@ -298,7 +298,7 @@ const Team = () => {
                     {member.image ? (
                       <img
                         src={urlFor(member.image).width(350).height(300).fit('crop').crop('entropy').url()}
-                        alt={member.name}
+                        alt={`${member.name}, ${member.position} at OsteoStrong Tunbridge Wells`}
                         className="team-member-photo rounded-lg"
                         loading="eager"
                         onError={(e) => {
@@ -313,7 +313,7 @@ const Team = () => {
                     ) : member.imageUrl ? (
                       <img
                         src={member.imageUrl}
-                        alt={member.name}
+                        alt={`${member.name}, ${member.position} at OsteoStrong Tunbridge Wells`}
                         className="team-member-photo rounded-lg"
                         loading="eager"
                         onError={(e) => {

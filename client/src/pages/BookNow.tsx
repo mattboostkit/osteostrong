@@ -21,8 +21,26 @@ const BookNow = () => {
   return (
     <>
       <Helmet>
-        <title>Book A Free Session | OsteoStrong</title>
-        <meta name="description" content="Book your free OsteoStrong session today. Take the first step towards stronger bones and improved overall health." />
+        <title>Book A Free Session | OsteoStrong Tunbridge Wells</title>
+        <meta name="description" content="Book your free OsteoStrong session today in Tunbridge Wells. Take the first step towards stronger bones, improved balance and overall health. Save £160 this summer!" />
+        <meta name="keywords" content="book osteostrong session, free consultation tunbridge wells, bone density test, osteoporosis treatment booking, strength training appointment" />
+        <link rel="canonical" href="https://www.osteostrongtw.co.uk/booknow" />
+        
+        {/* Open Graph tags */}
+        <meta property="og:title" content="Book A Free Session | OsteoStrong Tunbridge Wells" />
+        <meta property="og:description" content="Book your free OsteoStrong session today in Tunbridge Wells. Take the first step towards stronger bones, improved balance and overall health. Save £160 this summer!" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.osteostrongtw.co.uk/booknow" />
+        <meta property="og:image" content="https://www.osteostrongtw.co.uk/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Book A Free Session | OsteoStrong Tunbridge Wells" />
+        <meta name="twitter:description" content="Book your free OsteoStrong session today in Tunbridge Wells. Take the first step towards stronger bones and improved overall health." />
+        <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/og-image.jpg" />
+        
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </Helmet>

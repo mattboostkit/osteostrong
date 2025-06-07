@@ -20,6 +20,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/utils/ScrollToTop";
 import CookieBanner from "@/components/CookieBanner";
+import { LocalBusinessSchema, OrganizationSchema } from "@/components/StructuredData";
 
 function Router() {
   return (
@@ -45,6 +46,8 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
+      <LocalBusinessSchema />
+      <OrganizationSchema />
       <div className="flex flex-col min-h-screen">
         <ScrollToTop />
         <Navbar />
