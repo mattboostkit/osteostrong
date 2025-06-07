@@ -131,7 +131,6 @@ const Testimonials = () => {
               onLoad={handleIframeLoad}
               onError={handleIframeError}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              importance="high"
               loading="eager"
             ></iframe>
           ) : (

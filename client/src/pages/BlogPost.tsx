@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRoute } from "wouter";
 import { Helmet } from "react-helmet";
-import { getPostBySlug } from "@/lib/sanity";
+import { getPostBySlug, urlFor } from "@/lib/sanity";
 import { BlogPost } from "@/types/sanity";
 import BlogPostDetail from "@/components/blog/BlogPostDetail";
 import { Button } from "@/components/ui/button";
@@ -68,8 +68,48 @@ const BlogPostPage = () => {
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://www.osteostrongtw.co.uk/blog/${post.slug.current}`} />
         {post.mainImage && (
-          <meta property="og:image" content={`https://cdn.sanity.io/images/6ff7gi0z/production/${post.mainImage.asset._ref.replace('image-', '').replace('-jpg', '.jpg')}`} />
+          <meta property="og:image" content={urlFor(post.mainImage).width(1200).height(630).url()} />
         )}
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${post.title} | OsteoStrong Blog`} />
+        <meta name="twitter:description" content={post.excerpt || `Read about ${post.title} on the OsteoStrong blog`} />
+        {post.mainImage && (
+          <meta name="twitter:image" content={urlFor(post.mainImage).width(1200).height(630).url()} />
+        )}
+        <meta name="twitter:url" content={`https://www.osteostrongtw.co.uk/blog/${post.slug.current}`} />
+        {/* Canonical URL */}
+        <link rel="canonical" href={`https://www.osteostrongtw.co.uk/blog/${post.slug.current}`} />
+
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://www.osteostrongtw.co.uk/blog/${post.slug.current}`
+            },
+            "headline": post.title,
+            "description": post.excerpt || post.title, // Fallback to title if excerpt is missing
+            "image": post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : 'https://www.osteostrongtw.co.uk/images/og-image.jpg', // Fallback OG image
+            "datePublished": post.publishedAt ? new Date(post.publishedAt).toISOString() : '',
+            "dateModified": post._updatedAt ? new Date(post._updatedAt).toISOString() : (post.publishedAt ? new Date(post.publishedAt).toISOString() : ''),
+            "author": {
+              "@type": "Person", // Assuming individual author, change to Organization if needed
+              "name": post.author?.name || "OsteoStrong Tunbridge Wells"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "OsteoStrong Tunbridge Wells",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.osteostrongtw.co.uk/images/logo-for-schema.png" // Replace with actual logo URL
+              }
+            },
+            "url": `https://www.osteostrongtw.co.uk/blog/${post.slug.current}`
+          })}
+        </script>
       </Helmet>
 
       <div className="py-10 bg-primary">

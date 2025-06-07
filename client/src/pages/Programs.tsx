@@ -132,14 +132,14 @@ const Programs = () => {
         <meta property="og:url" content="https://www.osteostrongtw.co.uk/programs" />
         <meta property="og:title" content="Programs | OsteoStrong Tunbridge Wells" />
         <meta property="og:description" content="Explore the OsteoStrong programs in Tunbridge Wells, including our core skeletal strengthening sessions, Whole Body Vibration, PEMF therapy, compression boots, and red light therapy." />
-        <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/programs-header.jpg" />
+        <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://www.osteostrongtw.co.uk/programs" />
         <meta name="twitter:title" content="Programs | OsteoStrong Tunbridge Wells" />
         <meta name="twitter:description" content="Explore the OsteoStrong programs in Tunbridge Wells, including our core skeletal strengthening sessions, Whole Body Vibration, PEMF therapy, compression boots, and red light therapy." />
-        <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/programs-header.jpg" />
+        <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
       </Helmet>
 
       {/* Hero Section */}

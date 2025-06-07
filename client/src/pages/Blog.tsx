@@ -28,8 +28,15 @@ const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(6);
 
   // Fetch blog posts and categories from Sanity
+  // Reset to page 1 when category changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategory]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -60,7 +67,14 @@ const Blog = () => {
     ? posts
     : posts.filter(post => post.categories?.includes(selectedCategory));
 
+  // Pagination logic
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
+  // Change page
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
     <>
@@ -72,11 +86,11 @@ const Blog = () => {
         <meta property="og:description" content="Read the latest articles on bone health, osteoporosis prevention, and wellness tips from OsteoStrong experts." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.osteostrongtw.co.uk/blog" />
-        <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/blog-header.jpg" />
+        <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="OsteoStrong Blog | Bone Health & Wellness Articles" />
         <meta name="twitter:description" content="Read the latest articles on bone health, osteoporosis prevention, and wellness tips from OsteoStrong experts." />
-        <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/blog-header.jpg" />
+        <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
         <link rel="canonical" href="https://www.osteostrongtw.co.uk/blog" />
       </Helmet>
 
@@ -129,26 +143,46 @@ const Blog = () => {
                   </div>
                 ) : (
                   // Display posts
-                  filteredPosts.map((post) => (
+                  currentPosts.map((post) => (
                     <BlogPostCard key={post._id} post={post} />
                   ))
                 )}
               </div>
 
               {/* Pagination */}
-              <div className="flex justify-center mt-12">
-                <div className="flex items-center gap-1">
-                  <Button variant="outline" size="icon" disabled>
-                    <i className="fas fa-chevron-left"></i>
-                  </Button>
-                  <Button variant="default" size="sm" className="rounded-md">1</Button>
-                  <Button variant="outline" size="sm" className="rounded-md">2</Button>
-                  <Button variant="outline" size="sm" className="rounded-md">3</Button>
-                  <Button variant="outline" size="icon">
-                    <i className="fas fa-chevron-right"></i>
-                  </Button>
+              {totalPages > 1 && (
+                <div className="flex justify-center mt-12">
+                  <div className="flex items-center gap-1">
+                    <Button 
+                      variant="outline" 
+                      size="icon" 
+                      onClick={() => paginate(currentPage - 1)} 
+                      disabled={currentPage === 1}
+                    >
+                      <i className="fas fa-chevron-left"></i>
+                    </Button>
+                    {Array.from(Array(totalPages).keys()).map(number => (
+                      <Button 
+                        key={number + 1} 
+                        variant={currentPage === number + 1 ? "default" : "outline"} 
+                        size="sm" 
+                        className="rounded-md"
+                        onClick={() => paginate(number + 1)}
+                      >
+                        {number + 1}
+                      </Button>
+                    ))}
+                    <Button 
+                      variant="outline" 
+                      size="icon" 
+                      onClick={() => paginate(currentPage + 1)} 
+                      disabled={currentPage === totalPages}
+                    >
+                      <i className="fas fa-chevron-right"></i>
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Sidebar */}

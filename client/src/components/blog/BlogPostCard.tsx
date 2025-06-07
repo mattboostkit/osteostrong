@@ -39,7 +39,7 @@ const BlogPostCard = ({ post }: BlogPostCardProps) => {
             )}
             <div className="flex items-center">
               {post.author && (
-                <span className="text-sm text-gray-500">By {post.author}</span>
+                <span className="text-sm text-gray-500">By {post.author.name}</span>
               )}
             </div>
           </div>

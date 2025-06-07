@@ -36,11 +36,11 @@ const BlogPostDetail = ({ post }: BlogPostDetailProps) => {
             {post.authorImage && (
               <img
                 src={urlFor(post.authorImage).width(40).height(40).url()}
-                alt={post.author}
+                alt={post.author.name}
                 className="w-10 h-10 rounded-full mr-3"
               />
             )}
-            <span className="font-medium">By {post.author}</span>
+            <span className="font-medium">By {post.author.name}</span>
           </div>
         )}
       </header>
@@ -49,7 +49,7 @@ const BlogPostDetail = ({ post }: BlogPostDetailProps) => {
         <div className="mb-8">
           <img
             src={urlFor(post.mainImage).width(1200).height(675).url()}
-            alt={post.title}
+            alt={post.mainImage?.alt || post.title}
             className="w-full h-auto rounded-lg shadow-md"
           />
         </div>

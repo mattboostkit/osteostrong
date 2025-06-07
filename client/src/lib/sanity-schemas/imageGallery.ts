@@ -1,3 +1,5 @@
+import { Rule } from 'sanity';
+
 export default {
   name: 'imageGallery',
   title: 'Image Gallery',
@@ -8,7 +10,7 @@ export default {
       title: 'Gallery Title',
       type: 'string',
       description: 'A title for this image gallery',
-      validation: Rule => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'description',
@@ -66,7 +68,7 @@ export default {
           ]
         }
       ],
-      validation: Rule => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     }
   ],
   preview: {

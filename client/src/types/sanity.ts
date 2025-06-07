@@ -11,6 +11,7 @@ export interface SanityImage {
     right: number;
     top: number;
   };
+  alt?: string; // Optional alt text for the image
   hotspot?: {
     _type: 'sanity.imageHotspot';
     height: number;
@@ -28,10 +29,11 @@ export interface BlogPost {
   };
   mainImage: SanityImage;
   publishedAt: string;
+  _updatedAt?: string; // For dateModified in schema
   excerpt?: string;
   body?: any; // This will be Portable Text content
   categories?: string[];
-  author?: string;
+  author?: { name: string }; // Changed from string to object
   authorImage?: SanityImage;
 }
 

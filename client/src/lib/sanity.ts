@@ -1,12 +1,14 @@
+/// <reference types="vite/client" />
+
 import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { SanityAssetDocument } from '@sanity/client';
 
 // Get environment variables with fallbacks for development
-const projectId = import.meta.env.VITE_SANITY_PROJECT_ID || '6ff7gi0z';
-const dataset = import.meta.env.VITE_SANITY_DATASET || 'production';
-const apiVersion = import.meta.env.VITE_SANITY_API_VERSION || '2023-05-03';
+const projectId = (import.meta.env.VITE_SANITY_PROJECT_ID || process.env.VITE_SANITY_PROJECT_ID) || '6ff7gi0z';
+const dataset = (import.meta.env.VITE_SANITY_DATASET || process.env.VITE_SANITY_DATASET) || 'production';
+const apiVersion = (import.meta.env.VITE_SANITY_API_VERSION || process.env.VITE_SANITY_API_VERSION) || '2023-05-03';
 // Token should only be included in secure environments
 // No token in the client config for frontend/browser use!
 export const client = createClient({
@@ -74,7 +76,7 @@ export async function getBlogPosts() {
       _id,
       title,
       slug,
-      mainImage,
+      mainImage { asset, alt, crop, hotspot },
       publishedAt,
       excerpt,
       "categories": categories[]->title,
@@ -90,8 +92,9 @@ export async function getPostBySlug(slug: string) {
       _id,
       title,
       slug,
-      mainImage,
+      mainImage { asset, alt, crop, hotspot },
       publishedAt,
+      _updatedAt,
       body,
       "categories": categories[]->title,
       "author": author->name,

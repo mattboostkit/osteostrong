@@ -9,6 +9,7 @@ const AsSeenOn = () => {
   return (
     <section className="py-12 md:py-16 bg-white"> {/* Changed to bg-white for contrast if previous section is bg-gray-50 */}
       <div className="container mx-auto px-4">
+        <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10 text-gray-700">As Seen On</h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 items-center pt-8">
           {logos.map((logo) => (
             <div

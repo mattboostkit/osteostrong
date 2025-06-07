@@ -11,6 +11,15 @@ const CookiePolicy = () => {
         <meta property="og:description" content="Our cookie policy explains how OsteoStrong Tunbridge Wells uses cookies and similar technologies to recognize and remember you when you visit our website." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.osteostrongtw.co.uk/cookie-policy" />
+        <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
+
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.osteostrongtw.co.uk/cookie-policy" />
+        <meta name="twitter:title" content="Cookie Policy | OsteoStrong Tunbridge Wells" />
+        <meta name="twitter:description" content="Our cookie policy explains how OsteoStrong Tunbridge Wells uses cookies and similar technologies to recognize and remember you when you visit our website." />
+        <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
+
         <link rel="canonical" href="https://www.osteostrongtw.co.uk/cookie-policy" />
       </Helmet>
 

@@ -15,6 +15,7 @@ interface Study {
   publishDate?: string;
   description?: string;
   pdfUrl?: string;
+  _updatedAt?: string;
   fullContent?: any; // For future rich text content
 }
 
@@ -33,6 +34,7 @@ const StudyDetail = () => {
           publishDate,
           description,
           "pdfUrl": pdfFile.asset->url,
+          _updatedAt,
           // Add any additional fields you want to include
         }`;
         
@@ -96,6 +98,71 @@ const StudyDetail = () => {
       <Helmet>
         <title>{study.title} | OsteoStrong Research</title>
         <meta name="description" content={study.description || 'Peer-reviewed research study on OsteoStrong'} />
+        {/* Canonical URL */}
+        <link rel="canonical" href={`https://www.osteostrongtw.co.uk/science-and-studies/${study._id}`} />
+        {/* Open Graph Tags */}
+        <meta property="og:title" content={`${study.title} | OsteoStrong Research`} />
+        <meta property="og:description" content={study.description || 'Peer-reviewed research study on OsteoStrong'} />
+        <meta property="og:type" content="article" /> {/* Consider 'report' if more appropriate */}
+        <meta property="og:url" content={`https://www.osteostrongtw.co.uk/science-and-studies/${study._id}`} />
+        <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${study.title} | OsteoStrong Research`} />
+        <meta name="twitter:description" content={study.description || 'Peer-reviewed research study on OsteoStrong'} />
+        <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
+        <meta name="twitter:url" content={`https://www.osteostrongtw.co.uk/science-and-studies/${study._id}`} />
+
+        {/* JSON-LD Structured Data for ScholarlyArticle */}
+        <script type="application/ld+json">
+          {(() => {
+            const scholarlyArticle: any = {
+              "@context": "https://schema.org",
+              "@type": "ScholarlyArticle",
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": `https://www.osteostrongtw.co.uk/science-and-studies/${study._id}`
+              },
+              "headline": study.title,
+              "description": study.description || study.title,
+              "image": "https://www.osteostrongtw.co.uk/images/og-image.jpg",
+              "datePublished": study.publishDate ? new Date(study.publishDate).toISOString() : '',
+              "dateModified": study._updatedAt ? new Date(study._updatedAt).toISOString() : (study.publishDate ? new Date(study.publishDate).toISOString() : ''),
+              "author": {
+                "@type": "Organization",
+                "name": "OsteoStrong Research"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "OsteoStrong Tunbridge Wells",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.osteostrongtw.co.uk/images/logo-for-schema.png"
+                }
+              },
+              "url": `https://www.osteostrongtw.co.uk/science-and-studies/${study._id}`
+            };
+
+            if (study.journal) {
+              scholarlyArticle.isPartOf = {
+                "@type": "PublicationVolume",
+                "name": study.journal
+              };
+            }
+
+            if (study.pdfUrl) {
+              scholarlyArticle.citation = {
+                "@type": "CreativeWork",
+                "name": "View Full Study (PDF)",
+                "url": study.pdfUrl
+              };
+            }
+
+            return JSON.stringify(scholarlyArticle);
+          })()}
+        </script>
       </Helmet>
 
       <section className="py-12 bg-white">
@@ -108,7 +175,7 @@ const StudyDetail = () => {
           
           <Card>
             <CardHeader>
-              <CardTitle className="text-2xl md:text-3xl">{study.title}</CardTitle>
+              <h1 className="text-2xl md:text-3xl font-semibold leading-none tracking-tight text-gray-900">{study.title}</h1>
               {study.journal && (
                 <CardDescription className="text-lg font-medium">
                   {study.journal}

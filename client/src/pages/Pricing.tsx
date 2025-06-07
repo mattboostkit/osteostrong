@@ -16,13 +16,13 @@ const Pricing = () => {
         <meta property="og:url" content="https://www.osteostrongtw.co.uk/pricing" />
         <meta property="og:title" content="Pricing | OsteoStrong Tunbridge Wells" />
         <meta property="og:description" content="Explore our membership options and pricing plans for OsteoStrong sessions and wellness therapies in Tunbridge Wells." />
-        <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/pricing-header.jpg" /> {/* Placeholder - consider a relevant image */}
+        <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" /> {/* Placeholder - consider a relevant image */}
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://www.osteostrongtw.co.uk/pricing" />
         <meta name="twitter:title" content="Pricing | OsteoStrong Tunbridge Wells" />
         <meta name="twitter:description" content="Explore our membership options and pricing plans for OsteoStrong sessions and wellness therapies in Tunbridge Wells." />
-        <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/pricing-header.jpg" /> {/* Placeholder - consider a relevant image */}
+        <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" /> {/* Placeholder - consider a relevant image */}
       </Helmet>
 
       {/* Hero Section */}

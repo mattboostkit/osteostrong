@@ -63,14 +63,14 @@ const About = () => {
         <meta property="og:url" content="https://www.osteostrongtw.co.uk/about" />
         <meta property="og:title" content="About OsteoStrong | Tunbridge Wells" />
         <meta property="og:description" content="Learn about OsteoStrong Tunbridge Wells, our mission to improve bone health, and how our unique approach can help you build strength and reduce pain." />
-        <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/about-header.jpg" />
+        <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://www.osteostrongtw.co.uk/about" />
         <meta name="twitter:title" content="About OsteoStrong | Tunbridge Wells" />
         <meta name="twitter:description" content="Learn about OsteoStrong Tunbridge Wells, our mission to improve bone health, and how our unique approach can help you build strength and reduce pain." />
-        <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/about-header.jpg" />
+        <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
       </Helmet>
 
       {/* Hero Section */}

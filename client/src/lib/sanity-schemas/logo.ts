@@ -1,3 +1,5 @@
+import { Rule } from 'sanity';
+
 export default {
   name: 'siteLogo',
   title: 'Site Logo',
@@ -8,7 +10,7 @@ export default {
       title: 'Title',
       type: 'string',
       description: 'A title for the logo (for internal reference)',
-      validation: Rule => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'mainLogo',
@@ -18,7 +20,7 @@ export default {
       options: {
         hotspot: true,
       },
-      validation: Rule => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'altLogo',

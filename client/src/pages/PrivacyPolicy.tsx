@@ -11,6 +11,15 @@ const PrivacyPolicy = () => {
         <meta property="og:description" content="Our privacy policy outlines how OsteoStrong Tunbridge Wells collects, uses, and protects your personal information when you use our website or services." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.osteostrongtw.co.uk/privacy-policy" />
+        <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
+
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.osteostrongtw.co.uk/privacy-policy" />
+        <meta name="twitter:title" content="Privacy Policy | OsteoStrong Tunbridge Wells" />
+        <meta name="twitter:description" content="Our privacy policy outlines how OsteoStrong Tunbridge Wells collects, uses, and protects your personal information when you use our website or services." />
+        <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
+
         <link rel="canonical" href="https://www.osteostrongtw.co.uk/privacy-policy" />
       </Helmet>
 

@@ -1,3 +1,5 @@
+import { Rule } from 'sanity';
+
 export default {
   name: 'siteImage',
   title: 'Site Images',
@@ -8,7 +10,7 @@ export default {
       title: 'Title',
       type: 'string',
       description: 'A title for this image',
-      validation: Rule => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'image',
@@ -17,14 +19,14 @@ export default {
       options: {
         hotspot: true,
       },
-      validation: Rule => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'alt',
       title: 'Alternative Text',
       type: 'string',
       description: 'A description of the image for accessibility',
-      validation: Rule => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'category',
@@ -42,7 +44,7 @@ export default {
           {title: 'Other', value: 'other'}
         ]
       },
-      validation: Rule => Rule.required()
+      validation: (Rule: Rule) => Rule.required()
     },
     {
       name: 'description',

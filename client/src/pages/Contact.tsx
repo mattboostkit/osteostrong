@@ -10,6 +10,20 @@ const Contact = () => {
         <meta name="description" content="Get in touch with OsteoStrong Tunbridge Wells. We're here to answer your questions and help you begin your journey to stronger bones and better health." />
         <meta name="keywords" content="OsteoStrong contact, Tunbridge Wells location, bone health questions, book session, osteogenic loading inquiry" />
         <link rel="canonical" href="https://www.osteostrongtw.co.uk/contact" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.osteostrongtw.co.uk/contact" />
+        <meta property="og:title" content="Contact Us | OsteoStrong Tunbridge Wells" />
+        <meta property="og:description" content="Get in touch with OsteoStrong Tunbridge Wells. We're here to answer your questions and help you begin your journey to stronger bones and better health." />
+        <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://www.osteostrongtw.co.uk/contact" />
+        <meta name="twitter:title" content="Contact Us | OsteoStrong Tunbridge Wells" />
+        <meta name="twitter:description" content="Get in touch with OsteoStrong Tunbridge Wells. We're here to answer your questions and help you begin your journey to stronger bones and better health." />
+        <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
       </Helmet>
 
       {/* Hero Section */}
@@ -61,7 +75,7 @@ const Contact = () => {
                   <div>
                     <h3 className="text-xl font-bold text-black mb-1">Call Us</h3>
                     <p className="text-gray-700">
-                      07444298615
+                      07444 298615
                     </p>
                   </div>
                 </div>

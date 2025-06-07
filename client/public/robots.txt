@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.osteostrongtw.co.uk/sitemap.xml

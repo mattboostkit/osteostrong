@@ -165,6 +165,11 @@ const PeerReviewedStudies = () => {
 };
 
 const Studies = () => {
+  const pageTitle = "Peer-Reviewed Research & Studies | OsteoStrong Tunbridge Wells";
+  const pageDescription = "Explore peer-reviewed research studies and scientific evidence related to OsteoStrong's impact on bone density, strength, and overall wellness.";
+  const pageUrl = "https://www.osteostrongtw.co.uk/science-and-studies";
+  const ogImageUrl = "https://www.osteostrongtw.co.uk/images/og-image.jpg";
+
   const { data: studyImages, isLoading: imagesLoading } = useQuery({
     queryKey: ['studyPageImages'],
     queryFn: async () => {
@@ -176,6 +181,29 @@ const Studies = () => {
       }
     },
   });
+
+  // Meta tags for the main Studies page
+  const helmet = (
+    <Helmet>
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageDescription} />
+      <link rel="canonical" href={pageUrl} />
+      {/* Open Graph Tags */}
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={pageDescription} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:image" content={ogImageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      {/* Twitter Card Tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content={pageDescription} />
+      <meta name="twitter:image" content={ogImageUrl} />
+      <meta name="twitter:url" content={pageUrl} />
+    </Helmet>
+  );
 
   // Helper component to handle image display with loading state
   const StudyImage = ({ 
@@ -218,6 +246,20 @@ const Studies = () => {
       <title>Science and Studies | OsteoStrong Tunbridge Wells</title>
       <meta name="description" content="Explore the science, research, and peer-reviewed studies behind OsteoStrong's effectiveness for bone health, strength, and mobility." />
       <link rel="canonical" href="https://www.osteostrongtw.co.uk/science-and-studies/" />
+      {/* Open Graph Tags */}
+      <meta property="og:title" content="Science and Studies | OsteoStrong Tunbridge Wells" />
+      <meta property="og:description" content="Explore the science, research, and peer-reviewed studies behind OsteoStrong's effectiveness for bone health, strength, and mobility." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://www.osteostrongtw.co.uk/science-and-studies/" />
+      <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      {/* Twitter Card Tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Science and Studies | OsteoStrong Tunbridge Wells" />
+      <meta name="twitter:description" content="Explore the science, research, and peer-reviewed studies behind OsteoStrong's effectiveness for bone health, strength, and mobility." />
+      <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
+      <meta name="twitter:url" content="https://www.osteostrongtw.co.uk/science-and-studies/" />
     </Helmet>
     {/* Hero Section */}
     <section className="py-16 bg-primary">
