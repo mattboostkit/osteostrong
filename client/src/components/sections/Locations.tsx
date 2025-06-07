@@ -44,7 +44,7 @@ const Locations = () => {
                 <p className="mb-2">
                   <i className="fas fa-phone text-primary mr-2"></i> {locationInfo.phone}
                 </p>
-                <p>
+                <p style={{ whiteSpace: 'pre-line' }}>
                   <i className="fas fa-clock text-primary mr-2"></i> {locationInfo.hours}
                 </p>
               </div>
