@@ -47,7 +47,7 @@ const Team = () => {
       position: "Lead Coach",
       bio: "Specializes in guiding clients through the OsteoStrong system to achieve optimal results for bone density and overall strength.",
       order: 3,
-      imageUrl: "https://ik.imagekit.io/boostkit/OsteoStrong/Vanessa.jpg?updatedAt=1745334927772"
+      imageUrl: "https://cdn.sanity.io/images/6ff7gi0z/production/743d4d72b87ce062907cfd7a5c14b3e9efcf4464-500x500.png"
     },
     {
       _id: "4",
@@ -138,12 +138,12 @@ const Team = () => {
             <div className="flex flex-wrap justify-center gap-8">
               {filteredTeamMembers.map((member) => (
                 <Card key={member._id} className="bg-white rounded-xl overflow-hidden shadow-md flex-none" style={{ width: '350px', maxWidth: '100%' }}>
-                  <div className="team-member-photo-container">
+                  <div className="team-member-photo-container relative">
                     {member.image ? (
                       <img
-                        src={urlFor(member.image).width(800).height(600).url()}
+                        src={urlFor(member.image).width(350).height(300).fit('crop').crop('entropy').url()}
                         alt={member.name}
-                        className="team-member-photo object-contain h-64 w-full"
+                        className="team-member-photo rounded-lg"
                         loading="eager"
                         onError={(e) => {
                           console.error(`Failed to load Sanity image for ${member.name}`);
@@ -158,7 +158,7 @@ const Team = () => {
                       <img
                         src={member.imageUrl}
                         alt={member.name}
-                        className="team-member-photo object-contain h-64 w-full"
+                        className="team-member-photo rounded-lg"
                         loading="eager"
                         onError={(e) => {
                           console.error(`Failed to load image for ${member.name}`);
@@ -224,12 +224,12 @@ const Team = () => {
                 className="bg-white rounded-xl overflow-hidden shadow-md col-span-1 md:col-span-1 lg:col-span-3"
                 style={{ gridColumn: 'span 1 / span 1', ...(filteredTeamMembers.length >= 2 ? { gridColumn: 'span 1 / span 1' } : {}) }}
               >
-                <div className="team-member-photo-container">
+                <div className="team-member-photo-container relative">
                   {member.image ? (
                     <img
-                      src={urlFor(member.image).width(800).height(600).url()}
+                      src={urlFor(member.image).width(350).height(300).fit('crop').crop('entropy').url()}
                       alt={member.name}
-                      className="team-member-photo object-contain h-64 w-full"
+                      className="team-member-photo rounded-lg"
                       loading="eager"
                       onError={(e) => {
                         console.error(`Failed to load Sanity image for ${member.name}`);
@@ -244,7 +244,7 @@ const Team = () => {
                     <img
                       src={member.imageUrl}
                       alt={member.name}
-                      className="team-member-photo object-contain h-64 w-full"
+                      className="team-member-photo rounded-lg"
                       loading="eager"
                       onError={(e) => {
                         console.error(`Failed to load image for ${member.name}`);
@@ -294,12 +294,12 @@ const Team = () => {
             {filteredTeamMembers.length > 2 &&
               filteredTeamMembers.slice(2).map((member) => (
                 <Card key={member._id} className="bg-white rounded-xl overflow-hidden shadow-md">
-                  <div className="team-member-photo-container">
+                  <div className="team-member-photo-container relative">
                     {member.image ? (
                       <img
-                        src={urlFor(member.image).width(800).height(600).url()}
+                        src={urlFor(member.image).width(350).height(300).fit('crop').crop('entropy').url()}
                         alt={member.name}
-                        className="team-member-photo object-contain h-64 w-full"
+                        className="team-member-photo rounded-lg"
                         loading="eager"
                         onError={(e) => {
                           console.error(`Failed to load Sanity image for ${member.name}`);
@@ -314,7 +314,7 @@ const Team = () => {
                       <img
                         src={member.imageUrl}
                         alt={member.name}
-                        className="team-member-photo object-contain h-64 w-full"
+                        className="team-member-photo rounded-lg"
                         loading="eager"
                         onError={(e) => {
                           console.error(`Failed to load image for ${member.name}`);

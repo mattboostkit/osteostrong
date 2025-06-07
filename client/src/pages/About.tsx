@@ -97,7 +97,7 @@ const About = () => {
                   <img
                     src={urlFor(teamImage.image).width(720).height(541).url()}
                     alt={teamImage.alt || "OsteoStrong Tunbridge Wells Team"}
-                    className="w-full h-full object-cover rounded-xl"
+                    className="w-full h-full object-contain rounded-xl"
                     onError={(e) => {
                       console.error(`Failed to load Sanity image for team section`);
                       e.currentTarget.src = 'https://via.placeholder.com/720x541?text=OsteoStrong+Tunbridge+Wells+Team';
@@ -109,7 +109,7 @@ const About = () => {
                     <img
                       src="https://cdn.sanity.io/images/6ff7gi0z/production/64a04e76fff2bad2249030c35822ca8814ce6b36-720x541.jpg"
                       alt="OsteoStrong Tunbridge Wells Team - Direct URL Test"
-                      className="w-full h-full object-cover rounded-xl"
+                      className="w-full h-full object-contain rounded-xl"
                       onError={(e) => {
                         console.error(`Failed to load direct Sanity image`);
                         e.currentTarget.src = 'https://via.placeholder.com/720x541?text=OsteoStrong+Tunbridge+Wells+Team';
