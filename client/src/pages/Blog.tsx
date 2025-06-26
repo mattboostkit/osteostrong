@@ -79,17 +79,17 @@ const Blog = () => {
   return (
     <>
       <Helmet>
-        <title>OsteoStrong Blog | Bone Health & Wellness Articles</title>
-        <meta name="description" content="Read the latest articles on bone health, osteoporosis prevention, and wellness tips from OsteoStrong experts." />
-        <meta name="keywords" content="OsteoStrong blog, bone health articles, osteoporosis prevention, wellness tips, skeletal strength" />
-        <meta property="og:title" content="OsteoStrong Blog | Bone Health & Wellness Articles" />
-        <meta property="og:description" content="Read the latest articles on bone health, osteoporosis prevention, and wellness tips from OsteoStrong experts." />
+        <title>OsteoStrong Blog | Bone Health, Osteopenia & Osteoarthritis in Kent</title>
+        <meta name="description" content="Read articles on bone health, osteopenia, osteoarthritis, and medicine-free, drug-free wellness from OsteoStrong experts in Tunbridge Wells, Tonbridge, Sevenoaks, and Kent." />
+        <meta name="keywords" content="OsteoStrong blog, bone health articles, osteoporosis, osteopenia, osteoarthritis, medicine-free, drug-free, Tunbridge Wells, Tonbridge, Sevenoaks, Kent, wellness tips, skeletal strength" />
+        <meta property="og:title" content="OsteoStrong Blog | Bone Health, Osteopenia & Osteoarthritis in Kent" />
+        <meta property="og:description" content="Read articles on bone health, osteopenia, osteoarthritis, and medicine-free, drug-free wellness from OsteoStrong experts in Tunbridge Wells, Tonbridge, Sevenoaks, and Kent." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.osteostrongtw.co.uk/blog" />
         <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="OsteoStrong Blog | Bone Health & Wellness Articles" />
-        <meta name="twitter:description" content="Read the latest articles on bone health, osteoporosis prevention, and wellness tips from OsteoStrong experts." />
+        <meta name="twitter:title" content="OsteoStrong Blog | Bone Health, Osteopenia & Osteoarthritis in Kent" />
+        <meta name="twitter:description" content="Read articles on bone health, osteopenia, osteoarthritis, and medicine-free, drug-free wellness from OsteoStrong experts in Tunbridge Wells, Tonbridge, Sevenoaks, and Kent." />
         <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
         <link rel="canonical" href="https://www.osteostrongtw.co.uk/blog" />
       </Helmet>

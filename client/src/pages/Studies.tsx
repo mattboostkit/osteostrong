@@ -243,23 +243,10 @@ const Studies = () => {
   return (
   <>
     <Helmet>
-      <title>Science and Studies | OsteoStrong Tunbridge Wells</title>
-      <meta name="description" content="Explore the science, research, and peer-reviewed studies behind OsteoStrong's effectiveness for bone health, strength, and mobility." />
-      <link rel="canonical" href="https://www.osteostrongtw.co.uk/science-and-studies/" />
-      {/* Open Graph Tags */}
-      <meta property="og:title" content="Science and Studies | OsteoStrong Tunbridge Wells" />
-      <meta property="og:description" content="Explore the science, research, and peer-reviewed studies behind OsteoStrong's effectiveness for bone health, strength, and mobility." />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://www.osteostrongtw.co.uk/science-and-studies/" />
-      <meta property="og:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      {/* Twitter Card Tags */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Science and Studies | OsteoStrong Tunbridge Wells" />
-      <meta name="twitter:description" content="Explore the science, research, and peer-reviewed studies behind OsteoStrong's effectiveness for bone health, strength, and mobility." />
-      <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/images/og-image.jpg" />
-      <meta name="twitter:url" content="https://www.osteostrongtw.co.uk/science-and-studies/" />
+      <title>OsteoStrong Studies | Science of Osteogenic Loading in Kent</title>
+      <meta name="description" content="Explore the science and studies behind OsteoStrong's medicine-free, drug-free approach to bone health, osteopenia, and osteoarthritis. Serving Tunbridge Wells, Tonbridge, Sevenoaks, and Kent." />
+      <meta name="keywords" content="OsteoStrong, studies, science, bone health, osteoporosis, osteopenia, osteoarthritis, medicine-free, drug-free, Tunbridge Wells, Tonbridge, Sevenoaks, Kent, skeletal strength, osteogenic loading" />
+      <link rel="canonical" href="https://www.osteostrongtw.co.uk/science-and-studies" />
     </Helmet>
     {/* Hero Section */}
     <section className="py-16 bg-primary">
@@ -288,7 +275,7 @@ const Studies = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 md:px-6 max-w-4xl">
         <p className="text-xl max-w-3xl mx-auto">
-          Drawing on principles like Wolff’s Law and advancements in biomechanics, OsteoStrong’s methods are designed to stimulate your body’s natural adaptive responses. Multiple peer-reviewed studies have demonstrated the impact of osteogenic loading on bone health and overall musculoskeletal performance, providing a safe and proven solution for combating conditions like osteoporosis, improving mobility, and enhancing physical resilience. Explore the science that’s transforming lives worldwide.
+          Drawing on principles like Wolff's Law and advancements in biomechanics, OsteoStrong's methods are designed to stimulate your body's natural adaptive responses. Multiple peer-reviewed studies have demonstrated the impact of osteogenic loading on bone health and overall musculoskeletal performance, providing a safe and proven solution for combating conditions like osteoporosis, improving mobility, and enhancing physical resilience. Explore the science that's transforming lives worldwide.
         </p>
         <a href="https://calendly.com/freefirstsession-osteostrongtw/30min" target="_blank" rel="noopener noreferrer">
           <Button className="mt-6 bg-black text-white hover:bg-gray-800 font-bold py-3 px-6 rounded-full transition shadow-md">Book a free first session</Button>
@@ -432,7 +419,7 @@ const Studies = () => {
           The Study showed a significant improvement of BMD (bone mineral density) in the lumbar spine in people with osteoporosis treated with OsteoStrong® with or without anti-osteoporotic medication. The OsteoStrong® system may have a synergistic effect with anti-osteoporotic medication significantly reducing bone fracture risk.
         </p>
         <p className="mb-2">
-          Bone is a live tissue, it’s not a stone, it has cells that respond to both pulling and pushing and OsteoStrong® is a method that uses a certain amount of pressure, usually 4.2 times the body weight, on the bones of the spine and the hip. Osteogenic loading effectively contributes to the enhancement of bone health. The statistically significant results provide evidence of the positive impact of OsteoStrong® in addressing osteoporosis and potentially reducing the risk of fractures.
+          Bone is a live tissue, it's not a stone, it has cells that respond to both pulling and pushing and OsteoStrong® is a method that uses a certain amount of pressure, usually 4.2 times the body weight, on the bones of the spine and the hip. Osteogenic loading effectively contributes to the enhancement of bone health. The statistically significant results provide evidence of the positive impact of OsteoStrong® in addressing osteoporosis and potentially reducing the risk of fractures.
         </p>
         <p className="mb-2 text-sm text-neutral-600">
           Dr Nektaria Papadopoulou, Endocronologist, EMD, PhD, Researcher<br/>
@@ -443,6 +430,13 @@ const Studies = () => {
     
     {/* Peer Reviewed Studies Section */}
     <PeerReviewedStudies />
+    <section className="py-4 bg-white">
+      <div className="container mx-auto px-4 md:px-6 text-center">
+        <p className="text-lg text-gray-700 font-semibold">
+          We support people from Tunbridge Wells, Tonbridge, Sevenoaks, and all of Kent seeking medicine-free, drug-free help for osteopenia, osteoarthritis, and bone health.
+        </p>
+      </div>
+    </section>
   </>
   );
 };

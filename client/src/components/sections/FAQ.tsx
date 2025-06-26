@@ -47,6 +47,10 @@ const faqs = [
   {
     question: "Can I do sessions at other OsteoStrong centres around the world?",
     answer: "Yes, you can attend other OsteoStrong centres around the world to continue your sessions while travelling, but it depends on the policies of the centre you wish to visit. OsteoStrong is a global network, and many locations accommodate visiting members for a few sessions at no additional cost. Provide details in advance and we can make the necessary arrangements. Your progress and performance data are stored in their system, enabling seamless tracking across locations."
+  },
+  {
+    question: "Can OsteoStrong help with osteoarthritis or osteopenia?",
+    answer: "Yes! OsteoStrong is designed to support people with osteopenia and osteoarthritis by improving bone density, joint function, and overall musculoskeletal health. Our approach is medicine-free and drug-free, focusing on natural, non-invasive methods to help you move better, feel stronger, and reduce pain. Many members with osteopenia or osteoarthritis have experienced improved mobility, less discomfort, and a better quality of life through regular OsteoStrong sessions."
   }
 ];
 

@@ -53,9 +53,9 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About OsteoStrong | Tunbridge Wells</title>
-        <meta name="description" content="Learn about OsteoStrong Tunbridge Wells, our mission to improve bone health, and how our unique approach can help you build strength and reduce pain." />
-        <meta name="keywords" content="OsteoStrong about, bone health mission, Tunbridge Wells, skeletal strength team, osteogenic loading experts" />
+        <title>About OsteoStrong Tunbridge Wells | Medicine-Free Bone Health in Kent</title>
+        <meta name="description" content="Learn about OsteoStrong Tunbridge Wells and our medicine-free, drug-free approach to bone health, osteopenia, and osteoarthritis. Proudly serving Tunbridge Wells, Tonbridge, Sevenoaks, and all of Kent." />
+        <meta name="keywords" content="OsteoStrong, about, bone health, osteoporosis, osteopenia, osteoarthritis, medicine-free, drug-free, Tunbridge Wells, Tonbridge, Sevenoaks, Kent, skeletal strength, osteogenic loading" />
         <link rel="canonical" href="https://www.osteostrongtw.co.uk/about" />
 
         {/* Open Graph / Facebook */}
@@ -182,6 +182,12 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      <div className="container mx-auto px-4 md:px-6 text-center my-8">
+        <p className="text-lg text-gray-700 font-semibold">
+          We help people from Tunbridge Wells, Tonbridge, Sevenoaks, and all of Kent seeking medicine-free, drug-free support for osteopenia, osteoarthritis, and bone health.
+        </p>
+      </div>
     </>
   );
 };

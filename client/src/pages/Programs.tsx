@@ -122,9 +122,9 @@ const Programs = () => {
   return (
     <>
       <Helmet>
-        <title>Programs | OsteoStrong Tunbridge Wells</title>
-        <meta name="description" content="Explore the OsteoStrong programs in Tunbridge Wells, including our core skeletal strengthening sessions, Whole Body Vibration, PEMF therapy, compression boots, and red light therapy." />
-        <meta name="keywords" content="OsteoStrong programs, osteogenic loading, bone strengthening, Whole Body Vibration, PEMF therapy, compression boots, red light therapy, Tunbridge Wells" />
+        <title>OsteoStrong Programs | Bone Health, Osteopenia & Osteoarthritis Support in Kent</title>
+        <meta name="description" content="Explore OsteoStrong's medicine-free, drug-free programs for bone health, osteopenia, and osteoarthritis in Tunbridge Wells, Tonbridge, Sevenoaks, and Kent. Improve your bone density and strength naturally." />
+        <meta name="keywords" content="OsteoStrong, bone health, osteoporosis, osteopenia, osteoarthritis, medicine-free, drug-free, Tunbridge Wells, Tonbridge, Sevenoaks, Kent, skeletal strength, osteogenic loading" />
         <link rel="canonical" href="https://www.osteostrongtw.co.uk/programs" />
 
         {/* Open Graph / Facebook */}
@@ -499,6 +499,14 @@ const Programs = () => {
               </Button>
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="py-4 bg-white">
+        <div className="container mx-auto px-4 md:px-6 text-center">
+          <p className="text-lg text-gray-700 font-semibold">
+            We support people from Tunbridge Wells, Tonbridge, Sevenoaks, and all of Kent seeking medicine-free, drug-free help for osteopenia, osteoarthritis, and bone health.
+          </p>
         </div>
       </section>
     </>

@@ -21,8 +21,8 @@ const Home = () => {
     <>
       <Helmet>
         <title>OsteoStrong Tunbridge Wells | Strengthen Your Bones, Transform Your Life</title>
-        <meta name="description" content="OsteoStrong Tunbridge Wells offers a non-pharmaceutical, non-invasive solution to build stronger bones, improved muscle strength and balance, and reduced joint and back pain in just one 15-minute session per week." />
-        <meta name="keywords" content="OsteoStrong, bone health, osteoporosis, joint pain, back pain, bone density, Tunbridge Wells, skeletal strength, osteogenic loading" />
+        <meta name="description" content="OsteoStrong Tunbridge Wells offers a non-pharmaceutical, drug-free, non-invasive solution to build stronger bones, improved muscle strength and balance, and reduced joint and back pain in just one 15-minute session per week. We help people with osteoporosis, osteopenia, and osteoarthritis across Kent, including Tunbridge Wells, Tonbridge, and Sevenoaks." />
+        <meta name="keywords" content="OsteoStrong, bone health, osteoporosis, osteopenia, osteoarthritis, joint pain, back pain, bone density, medicine-free, drug-free, Tunbridge Wells, Tonbridge, Sevenoaks, Kent, skeletal strength, osteogenic loading" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
@@ -54,6 +54,11 @@ const Home = () => {
       </Helmet>
       <Hero />
       <Introduction />
+      <div className="container mx-auto px-4 md:px-6 text-center my-8">
+        <p className="text-lg text-gray-700 font-semibold">
+          Proudly serving clients from Tunbridge Wells, Tonbridge, Sevenoaks, and all of Kent who are seeking medicine-free, drug-free help for osteoporosis, osteopenia, osteoarthritis, and bone health.
+        </p>
+      </div>
       <About />
       <FourStepsToStrength />
       <AsSeenOn />
