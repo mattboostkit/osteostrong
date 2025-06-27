@@ -115,7 +115,7 @@ const Pricing = () => {
               </Card>
             </div>
             <div className="mt-10 text-center">
-              <div className="text-lg font-semibold text-black mb-2">Joining fee: £160</div>
+              <div className="text-lg font-semibold text-black mb-2">Joining fee: £99</div>
               <div className="text-base text-gray-700">Long term memberships:</div>
               <div className="text-base text-gray-700">6-month memberships <span className="font-bold">-5% discount</span></div>
               <div className="text-base text-gray-700">12-month memberships <span className="font-bold">-10% discount</span></div>
