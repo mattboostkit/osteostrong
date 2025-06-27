@@ -47,8 +47,8 @@ const BookNow = () => {
 
       <div className="py-10 bg-primary">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <h1 className="text-3xl md:text-5xl font-bold text-black mb-4">🌞 This Summer, Feel Stronger – and Save £160!</h1>
-          <p className="text-xl text-black">Join OsteoStrong Tunbridge Wells in June, July or August and we’ll waive your joining fee</p>
+          <h1 className="text-3xl md:text-5xl font-bold text-black mb-4">🌞 Summer Offer - Free First Session</h1>
+          <p className="text-xl text-black">Join OsteoStrong Tunbridge Wells in June, July or August and your first session with us is free!</p>
         </div>
       </div>
 

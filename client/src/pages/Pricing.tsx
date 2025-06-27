@@ -72,7 +72,7 @@ const Pricing = () => {
                   <div className="text-center mb-6">
                     <span className="text-5xl font-bold text-black">£39</span>
                     <span className="text-gray-600 ml-1">per session</span>
-                    <p className="text-gray-600 mt-2">(1 modality)</p>
+                    <p className="text-gray-600 mt-2">(1 treatment)</p>
                   </div>
                   <ul className="space-y-3 mb-8 flex-grow">
                     <li className="flex items-start"><svg className="h-6 w-6 text-primary mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg><span className="text-gray-700">Weekly OsteoStrong sessions</span></li>
@@ -97,7 +97,7 @@ const Pricing = () => {
                   <div className="text-center mb-6">
                     <span className="text-5xl font-bold text-black">£49</span>
                     <span className="text-gray-600 ml-1">per session</span>
-                    <p className="text-gray-600 mt-2">(2 modalities)</p>
+                    <p className="text-gray-600 mt-2">(2 treatments)</p>
                   </div>
                   <ul className="space-y-3 mb-8 flex-grow">
                     <li className="flex items-start"><svg className="h-6 w-6 text-primary mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg><span className="text-gray-700">Weekly OsteoStrong sessions</span></li>
