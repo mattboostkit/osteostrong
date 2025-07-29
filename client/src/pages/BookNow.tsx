@@ -22,13 +22,13 @@ const BookNow = () => {
     <>
       <Helmet>
         <title>Book A Free Session | OsteoStrong Tunbridge Wells</title>
-        <meta name="description" content="Book your free OsteoStrong session today in Tunbridge Wells. Take the first step towards stronger bones, improved balance and overall health. Save £160 this summer!" />
+        <meta name="description" content="Book your free consultation call today in Tunbridge Wells. Get a free assessment to understand your needs before booking your OsteoStrong trial session." />
         <meta name="keywords" content="book osteostrong session, free consultation tunbridge wells, bone density test, osteoporosis treatment booking, strength training appointment" />
         <link rel="canonical" href="https://www.osteostrongtw.co.uk/booknow" />
         
         {/* Open Graph tags */}
         <meta property="og:title" content="Book A Free Session | OsteoStrong Tunbridge Wells" />
-        <meta property="og:description" content="Book your free OsteoStrong session today in Tunbridge Wells. Take the first step towards stronger bones, improved balance and overall health. Save £160 this summer!" />
+        <meta property="og:description" content="Book your free consultation call today in Tunbridge Wells. Get a free assessment to understand your needs before booking your OsteoStrong trial session." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.osteostrongtw.co.uk/booknow" />
         <meta property="og:image" content="https://www.osteostrongtw.co.uk/og-image.jpg" />
@@ -38,10 +38,9 @@ const BookNow = () => {
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Book A Free Session | OsteoStrong Tunbridge Wells" />
-        <meta name="twitter:description" content="Book your free OsteoStrong session today in Tunbridge Wells. Take the first step towards stronger bones and improved overall health." />
+        <meta name="twitter:description" content="Book your free consultation call today in Tunbridge Wells. Get a free assessment to understand your needs before booking your OsteoStrong trial session." />
         <meta name="twitter:image" content="https://www.osteostrongtw.co.uk/og-image.jpg" />
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </Helmet>
 
@@ -67,7 +66,7 @@ const BookNow = () => {
               <Card className="bg-neutral-100 rounded-xl">
                 <CardContent className="p-6 text-center">
                   <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className="fas fa-user-md text-black text-2xl"></i>
+                    <span className="text-black text-2xl font-bold">👨‍⚕️</span>
                   </div>
                   <h3 className="text-xl font-bold mb-2">Personal consultation</h3>
                   <p className="text-gray-600">Discuss your goals and get expert advice tailored to you.</p>
@@ -76,7 +75,7 @@ const BookNow = () => {
               <Card className="bg-neutral-100 rounded-xl">
                 <CardContent className="p-6 text-center">
                   <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className="fas fa-dumbbell text-black text-2xl"></i>
+                    <span className="text-black text-2xl font-bold">💪</span>
                   </div>
                   <h3 className="text-xl font-bold mb-2">Introduction to the 4 core machines</h3>
                   <p className="text-gray-600">Experience each of our unique OsteoStrong machines first-hand.</p>
@@ -85,7 +84,7 @@ const BookNow = () => {
               <Card className="bg-neutral-100 rounded-xl">
                 <CardContent className="p-6 text-center">
                   <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className="fas fa-bone text-black text-2xl"></i>
+                    <span className="text-black text-2xl font-bold">🦴</span>
                   </div>
                   <h3 className="text-xl font-bold mb-2">Bone strength baseline measurement</h3>
                   <p className="text-gray-600">Find out your starting point with a quick, non-invasive test.</p>
@@ -94,7 +93,7 @@ const BookNow = () => {
               <Card className="bg-neutral-100 rounded-xl">
                 <CardContent className="p-6 text-center">
                   <div className="bg-primary h-16 w-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i className="fas fa-stopwatch text-black text-2xl"></i>
+                    <span className="text-black text-2xl font-bold">⏱️</span>
                   </div>
                   <h3 className="text-xl font-bold mb-2">All in under 30 minutes</h3>
                   <p className="text-gray-600">Your first session is fast, friendly, and efficient.</p>
