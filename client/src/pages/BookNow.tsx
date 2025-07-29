@@ -47,21 +47,18 @@ const BookNow = () => {
 
       <div className="py-10 bg-primary">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <h1 className="text-3xl md:text-5xl font-bold text-black mb-4">🌞 Summer Offer - Free First Session</h1>
-          <p className="text-xl text-black">Join OsteoStrong Tunbridge Wells in June, July or August and your first session with us is free!</p>
+          <h1 className="text-3xl md:text-5xl font-bold text-black mb-4">Book Your Free Consultation Call</h1>
+          <p className="text-xl text-black">Get a free assessment to understand your needs before booking your OsteoStrong trial session</p>
         </div>
       </div>
 
       <div className="py-16 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-6xl mx-auto bg-neutral-100 rounded-xl p-8">
-            <iframe
-              src="https://link.boostkit.io/widget/booking/dnXsEoI1ld9MNSE8Mh3p"
-              style={{ width: '100%', border: 'none', overflow: 'hidden', minHeight: '850px' }}
-              scrolling="no"
-              id="dnXsEoI1ld9MNSE8Mh3p_1745333336950"
-            ></iframe>
-            <script src="https://link.boostkit.io/js/form_embed.js" type="text/javascript"></script>
+            {/* Calendly inline widget begin */}
+            <div className="calendly-inline-widget" data-url="https://calendly.com/consultation-osteostrong" style={{minWidth: '320px', height: '700px'}}></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            {/* Calendly inline widget end */}
           </div>
 
           <div className="max-w-4xl mx-auto mt-12">
