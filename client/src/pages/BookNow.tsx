@@ -16,6 +16,20 @@ const BookNow = () => {
         currency: 'GBP'
       });
     }
+
+    // Load Calendly script
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup: remove script when component unmounts
+      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+      if (existingScript) {
+        document.body.removeChild(existingScript);
+      }
+    };
   }, []);
 
   return (
@@ -54,10 +68,16 @@ const BookNow = () => {
       <div className="py-16 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-6xl mx-auto bg-neutral-100 rounded-xl p-8">
-            {/* Calendly inline widget begin */}
-            <div className="calendly-inline-widget" data-url="https://calendly.com/consultation-osteostrong" style={{minWidth: '320px', height: '700px'}}></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-            {/* Calendly inline widget end */}
+            {/* Calendly inline widget */}
+            <div 
+              className="calendly-inline-widget" 
+              data-url="https://calendly.com/consultation-osteostrong"
+              style={{
+                minWidth: '320px', 
+                height: '700px',
+                width: '100%'
+              }}
+            />
           </div>
 
           <div className="max-w-4xl mx-auto mt-12">
