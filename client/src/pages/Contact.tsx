@@ -171,27 +171,20 @@ const Contact = () => {
               <Card>
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-black mb-6">Send Us A Message</h2>
-                  <div style={{ height: '800px', overflow: 'hidden' }}>
+                  <div style={{ height: '1101px', overflow: 'hidden' }}>
                     <iframe
-                      src="https://link.boostkit.io/widget/form/G7xk974QpQeHpxosiXrA"
-                      style={{ width: '100%', height: '100%', border: 'none', borderRadius: '3px', overflow: 'hidden' }}
-                      id="inline-G7xk974QpQeHpxosiXrA"
-                      data-layout="{'id':'INLINE'}"
-                      data-trigger-type="alwaysShow"
-                      data-trigger-value=""
-                      data-activation-type="alwaysActivated"
-                      data-activation-value=""
-                      data-deactivation-type="neverDeactivate"
-                      data-deactivation-value=""
-                      data-form-name="OsteoStrong New Site"
-                      data-height="800"
-                      data-layout-iframe-id="inline-G7xk974QpQeHpxosiXrA"
-                      data-form-id="G7xk974QpQeHpxosiXrA"
-                      title="OsteoStrong New Site"
-                      scrolling="no"
-                    ></iframe>
+                      src="https://docs.google.com/forms/d/e/1FAIpQLScZk2b6GhLiF2hGCghp4sBijPlKXh-N-GfRFRyHKxWf1_N4Cw/viewform?embedded=true"
+                      width="640"
+                      height="1101"
+                      frameBorder="0"
+                      marginHeight="0"
+                      marginWidth="0"
+                      style={{ width: '100%', height: '100%', border: 'none' }}
+                      title="Contact Form"
+                    >
+                      Loading…
+                    </iframe>
                   </div>
-                  <script src="https://link.boostkit.io/js/form_embed.js"></script>
                 </CardContent>
               </Card>
             </div>
