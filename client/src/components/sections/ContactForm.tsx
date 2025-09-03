@@ -64,7 +64,7 @@ const ContactForm = () => {
                     </div>
                     <div>
                       <h4 className="text-lg font-bold text-secondary">Phone</h4>
-                      <p className="text-gray-600">07444 298615</p>
+                      <p className="text-gray-600">01892 251360</p>
                     </div>
                   </div>
 

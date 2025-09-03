@@ -7,7 +7,7 @@ export const LocalBusinessSchema = () => {
     "image": "https://www.osteostrongtw.co.uk/og-image.jpg",
     "logo": "https://www.osteostrongtw.co.uk/logo-for-schema.png",
     "url": "https://www.osteostrongtw.co.uk",
-    "telephone": "+447444298615",
+    "telephone": "+441892251360",
     "email": "info@osteostrongtw.co.uk",
     "address": {
       "@type": "PostalAddress",
@@ -115,7 +115,7 @@ export const OrganizationSchema = () => {
     "logo": "https://www.osteostrongtw.co.uk/logo-for-schema.png",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+447444298615",
+      "telephone": "+441892251360",
       "contactType": "customer service",
       "areaServed": "GB",
       "availableLanguage": "English"
