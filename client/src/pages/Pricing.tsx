@@ -49,7 +49,7 @@ const Pricing = () => {
                 </div>
                 <CardContent className="p-8 flex flex-col flex-grow">
                   <div className="text-center mb-6">
-                    <span className="text-5xl font-bold text-black">£29</span>
+                    <span className="text-5xl font-bold text-black">£34</span>
                     <span className="text-gray-600 ml-1">per session</span>
                   </div>
                   <ul className="space-y-3 mb-8 flex-grow">
@@ -70,7 +70,7 @@ const Pricing = () => {
                 </div>
                 <CardContent className="p-8 flex flex-col flex-grow">
                   <div className="text-center mb-6">
-                    <span className="text-5xl font-bold text-black">£39</span>
+                    <span className="text-5xl font-bold text-black">£43</span>
                     <span className="text-gray-600 ml-1">per session</span>
                     <p className="text-gray-600 mt-2">(1 treatment)</p>
                   </div>
@@ -95,7 +95,7 @@ const Pricing = () => {
                 </div>
                 <CardContent className="p-8 flex flex-col flex-grow">
                   <div className="text-center mb-6">
-                    <span className="text-5xl font-bold text-black">£49</span>
+                    <span className="text-5xl font-bold text-black">£52</span>
                     <span className="text-gray-600 ml-1">per session</span>
                     <p className="text-gray-600 mt-2">(2 treatments)</p>
                   </div>
@@ -115,7 +115,7 @@ const Pricing = () => {
               </Card>
             </div>
             <div className="mt-10 text-center">
-              <div className="text-lg font-semibold text-black mb-2">Joining fee: £99</div>
+              <div className="text-lg font-semibold text-black mb-2">Health Assessment: £160</div>
               <div className="text-base text-gray-700">Long term memberships:</div>
               <div className="text-base text-gray-700">6-month memberships <span className="font-bold">-5% discount</span></div>
               <div className="text-base text-gray-700">12-month memberships <span className="font-bold">-10% discount</span></div>
